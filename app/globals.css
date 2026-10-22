@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   KOHINOOR ATELIER — DESIGN TOKENS
+   Palette: Mocha Brown (primary) + Platinum Silver (secondary/metallic)
+   All component colors reference these tokens — no raw hex in components.
+   ========================================================================== */
+@theme {
+  /* ---- Mocha Brown ramp (warm, deep — brand, ink, dark surfaces) ---- */
+  --color-mocha-50: #F5F0EC;
+  --color-mocha-100: #E9DED5;
+  --color-mocha-200: #D5C3B5;
+  --color-mocha-300: #B79E8C;
+  --color-mocha-400: #977A67;
+  --color-mocha-500: #775E4E;
+  --color-mocha-600: #5E493C;
+  --color-mocha-700: #4A392F;
+  --color-mocha-800: #3A2B24;
+  --color-mocha-900: #2C211C;
+  --color-mocha-950: #241A15;
+
+  /* ---- Platinum Silver ramp (cool, metallic — surfaces, lines, ornament) ---- */
+  --color-platinum-50: #FBFBFA;
+  --color-platinum-100: #F4F4F2;
+  --color-platinum-200: #EAEAE7;
+  --color-platinum-300: #DADAD5;
+  --color-platinum-400: #C0C0B9;
+  --color-platinum-500: #A1A19A;
+  --color-platinum-600: #7C7C75;
+  --color-platinum-700: #5B5B55;
+  --color-platinum-800: #3F3F3A;
+
+  /* ---- Semantic layer (roles used across the site) ---- */
+  --color-canvas: #F4F4F2;
+  --color-canvas-alt: #EAEAE7;
+  --color-surface: #FBFBFA;
+  --color-surface-sunken: #F4F4F2;
+  --color-ink: #241A15;
+  --color-ink-soft: #5E493C;
+  --color-ink-muted: #775E4E;
+  --color-brand: #3A2B24;
+  --color-brand-hover: #2C211C;
+  --color-brand-soft: #E9DED5;
+  --color-line: #DADAD5;
+  --color-line-strong: #C0C0B9;
+  --color-silver: #7C7C75;
+  --color-silver-bright: #DADAD5;
+  --color-on-dark: #F4F4F2;
+  --color-danger: #9B3A33;
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5A;
+
+  /* ---- Typography ---- */
+  --font-serif: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ---- Elevation scale (mocha-tinted, never pure black) ---- */
+  --shadow-card: 0 1px 2px rgba(36, 26, 21, 0.04), 0 4px 14px rgba(36, 26, 21, 0.06);
+  --shadow-lift: 0 2px 4px rgba(36, 26, 21, 0.05), 0 14px 30px rgba(36, 26, 21, 0.10);
+  --shadow-deep: 0 24px 56px rgba(36, 26, 21, 0.20);
+
+  /* ---- Motion ---- */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-rise: rise 0.7s var(--ease-soft) both;
+  --animate-draw: draw 1.1s var(--ease-soft) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 400;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Interaction affordance for the whole family of clickable elements */
+  button:not(:disabled),
+  [role='button'],
+  a[href],
+  summary,
+  label[for] {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: var(--color-on-dark);
+  }
+}
+
+/* ==========================================================================
+   COMPONENT UTILITIES
+   ========================================================================== */
+@layer utilities {
+  /* Woven thread texture — platinum ground with mocha warp */
+  .bg-fabric-pattern {
+    background-color: #F4F4F2;
+    background-image: radial-gradient(#241A15 0.4px, transparent 0.4px),
+      radial-gradient(#5E493C 0.4px, #F4F4F2 0.4px);
+    background-size: 16px 16px;
+    background-position: 0 0, 8px 8px;
+    background-opacity: 0.04;
+  }
+
+  /* Tailor's measuring-grid swatch texture */
+  .bg-swatch-texture {
+    background-color: #F4F4F2;
+    background-image: linear-gradient(
+        0deg,
+        transparent 24px,
+        rgba(58, 43, 36, 0.05) 25px,
+        rgba(58, 43, 36, 0.05) 26px,
+        transparent 27px
+      ),
+      linear-gradient(
+        90deg,
+        transparent 24px,
+        rgba(58, 43, 36, 0.05) 25px,
+        rgba(58, 43, 36, 0.05) 26px,
+        transparent 27px
+      );
+    background-size: 28px 28px;
+  }
+
+  /* Brushed-silver rule used for section dividers and ornament */
+  .bg-silver-rule {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(160, 161, 154, 0.55) 18%,
+      rgba(218, 218, 213, 0.9) 50%,
+      rgba(160, 161, 154, 0.55) 82%,
+      transparent
+    );
+  }
+
+  /* Hand-sewn thread that draws itself stitch by stitch */
+  .stitch-thread line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: stitch-draw 0.45s var(--ease-soft) both;
+  }
+
+  /* Scroll reveal — elements start hidden, .reveal-visible fades them in */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s var(--ease-soft),
+      transform 0.7s var(--ease-soft);
+    will-change: opacity, transform;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Text that must not wrap mid-word on narrow viewports */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@keyframes stitch-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY — focus rings & reduced motion
+   ========================================================================== */
+*:focus-visible {
+  outline: 2px solid var(--color-mocha-700);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Platinum focus ring on dark surfaces */
+.on-dark :focus-visible,
+footer :focus-visible,
+.bg-mocha-950 :focus-visible,
+.bg-brand :focus-visible {
+  outline-color: var(--color-platinum-300);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Reveal content immediately when motion is reduced */
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
