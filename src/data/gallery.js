@@ -20,13 +20,13 @@ export const GALLERY_ITEMS = [
   },
   {
     id: 2,
-    title: 'Bespoke Flared Anarkali Suit',
+    title: 'Elegant Dusty Rose Embroidered Suit',
     category: 'Ladies Suit Stitching',
-    image:
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80',
+    image: '/gallery/elegant-dusty-rose-embroidered-suit.webp',
     description:
-      'Tailored 16-kali flared Anarkali with fitted churidar and hand-finished piping.',
-    details: 'Georgette & Pure Silk • Precision Pleating • Custom Flare',
+      "A beautifully tailored dusty rose pink ladies' suit featuring intricate floral embroidery, an elegant straight-cut kurta, matching bottoms, and a coordinated dupatta with delicate embroidered borders. Perfect for festive occasions, family functions, and elegant traditional wear.",
+    details:
+      'Premium Fabric • Intricate Floral Embroidery • Custom-Fit Stitching • Matching Dupatta • Hand-Finished Borders',
   },
   {
     id: 3,
@@ -50,13 +50,13 @@ export const GALLERY_ITEMS = [
   },
   {
     id: 5,
-    title: 'Straight Cut Punjabi Suit Fitting',
+    title: 'Bespoke Flared Anarkali Suit',
     category: 'Ladies Suit Stitching',
-    image:
-      'https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&w=1000&q=80',
+    image: '/gallery/bespoke-flared-anarkali-suit.webp',
     description:
-      'Contemporary straight-cut kameez with tailor-fitted trousers, side slit reinforcement, and neat neck binding.',
-    details: 'Cotton Silk Blend • Reinforced Seams • Custom Side Slits',
+      'Tailored flared Anarkali suit featuring a fitted bodice, elegant floral print, wide umbrella-cut skirt, and a matching dupatta with beautifully finished borders.',
+    details:
+      'Georgette & Pure Silk • Precision Pleating • Custom Umbrella Flare • Hand-Finished Piping',
   },
   {
     id: 6,
@@ -67,5 +67,15 @@ export const GALLERY_ITEMS = [
     description:
       'Adjusting armhole depth, adding padded inserts, and shortening sleeves without altering pattern symmetry.',
     details: 'Perfect Fit Tailoring • Soft Molded Cups • Restyled Sleeves',
+  },
+  {
+    id: 7,
+    title: 'Elegant Cream Floral Printed Suit',
+    category: 'Ladies Suit Stitching',
+    image: '/gallery/elegant-cream-floral-printed-suit.webp',
+    description:
+      "A beautifully tailored cream-colored ladies' suit featuring delicate blue floral prints, a stylish buttoned neckline, a straight-cut kurta, matching blue trousers, and a contrasting blue dupatta with decorative borders. Perfect for casual outings, festive gatherings, and elegant everyday wear.",
+    details:
+      'Premium Printed Fabric • Blue Floral Patterns • Buttoned Neckline • Custom-Fit Stitching • Contrasting Dupatta • Decorative Sleeve & Hem Borders',
   },
 ];

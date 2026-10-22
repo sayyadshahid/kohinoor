@@ -21,11 +21,13 @@ export default function SectionHeading({
   children,
 }) {
   const centered = align === 'center';
-  const width = maxWidth ?? (centered ? 'max-w-2xl mx-auto' : '');
+  const width = maxWidth ?? (centered ? 'max-w-2xl' : '');
 
   return (
     <Reveal
-      className={[centered ? 'text-center' : '', width, className].filter(Boolean).join(' ')}
+      className={[centered ? 'text-center mx-auto' : '', width, className]
+        .filter(Boolean)
+        .join(' ')}
     >
       <div className={spacing}>
         {typeof eyebrow === 'string' ? <Eyebrow>{eyebrow}</Eyebrow> : eyebrow}
