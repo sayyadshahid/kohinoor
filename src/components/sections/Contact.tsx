@@ -16,7 +16,7 @@ export default function Contact() {
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8">
         <Reveal className="lg:col-span-7">
-          <div className="h-[400px] lg:h-full lg:min-h-[560px]">
+          <div className="lg:h-full lg:min-h-[560px]">
             <ContactMap />
           </div>
         </Reveal>

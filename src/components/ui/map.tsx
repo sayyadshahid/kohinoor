@@ -466,6 +466,10 @@ function MarkerTooltip({ children, className, ...popupOptions }) {
     if (!map) return undefined;
     tooltip.setDOMContent(container);
 
+    if (typeof window !== 'undefined' && !window.matchMedia('(hover: hover)').matches) {
+      return () => tooltip.remove();
+    }
+
     const handleMouseEnter = () => tooltip.setLngLat(marker.getLngLat()).addTo(map);
     const handleMouseLeave = () => tooltip.remove();
 

@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { X } from 'lucide-react';
 import { MAPS_DIRECTIONS_URL, SITE } from '../../config/site';
 import {
   Map,
@@ -23,6 +24,16 @@ const location = {
 
 export default function ContactMap() {
   const mapRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 767px)');
+    const sync = () => setIsMobile(query.matches);
+    sync();
+    query.addEventListener('change', sync);
+    return () => query.removeEventListener('change', sync);
+  }, []);
 
   useEffect(() => {
     mapRef.current?.flyTo({
@@ -35,62 +46,106 @@ export default function ContactMap() {
   }, []);
 
   return (
-    <div className="h-full min-h-[400px] w-full relative overflow-hidden rounded-2xl border border-line-strong bg-canvas-alt group">
-      <Map
-        ref={mapRef}
-        center={[location.lng, location.lat]}
-        zoom={17}
-        theme="light"
-        className="h-full w-full"
-        attributionControl={false}
-      >
-        <MapMarker longitude={location.lng} latitude={location.lat}>
-          <MarkerContent>
-            <div className="relative flex items-center justify-center">
-              <div className="absolute size-7 bg-brand/25 rounded-full animate-ping" />
-              <div className="relative size-4 rounded-full bg-gradient-to-br from-mocha-700 via-mocha-600 to-platinum-400 border-2 border-white/80 shadow-[0_0_15px_rgba(58,43,36,0.45)] transition-transform duration-300 group-hover:scale-110" />
-            </div>
-          </MarkerContent>
-
-          <MarkerTooltip className="bg-brand border border-mocha-700 px-3 py-1.5 rounded-lg shadow-lift">
-            <span className="font-semibold text-on-dark">{location.name}</span>
-          </MarkerTooltip>
-
-          <MarkerPopup className="p-0 border-none bg-transparent">
-            <div className="relative p-4 w-72 space-y-3 bg-surface/95 backdrop-blur-xl rounded-xl border border-line-strong shadow-deep overflow-hidden">
-              <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-mocha-700 via-mocha-500 to-platinum-400" />
-              <div className="space-y-1 pt-1">
-                <h4 className="font-serif font-semibold text-brand text-xl leading-tight">
-                  {location.name}
-                </h4>
-                <p className="text-sm text-ink-muted italic">{location.address}</p>
+    <div className="flex w-full flex-col gap-3 lg:h-full">
+      <div className="group relative h-[440px] w-full overflow-hidden rounded-2xl border border-line-strong bg-canvas-alt lg:h-full lg:min-h-[400px]">
+        <Map
+          ref={mapRef}
+          center={[location.lng, location.lat]}
+          zoom={17}
+          theme="light"
+          className="h-full w-full"
+          attributionControl={false}
+        >
+          <MapMarker
+            longitude={location.lng}
+            latitude={location.lat}
+            onClick={() => {
+              if (isMobile) setMobileOpen((open) => !open);
+            }}
+          >
+            <MarkerContent>
+              <div className="relative flex items-center justify-center">
+                <div className="absolute size-7 bg-brand/25 rounded-full animate-ping" />
+                <div className="relative size-4 rounded-full bg-gradient-to-br from-mocha-700 via-mocha-600 to-platinum-400 border-2 border-white/80 shadow-[0_0_15px_rgba(58,43,36,0.45)] transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <div className="h-px bg-line w-full" />
-              <p className="text-sm text-ink-soft/90 leading-relaxed">{location.description}</p>
-              <div className="flex justify-between items-end pt-2">
-                <div className="space-y-0.5">
-                  <p className="text-[10px] text-ink-muted/60 uppercase tracking-widest font-semibold">
-                    Coordinates
+            </MarkerContent>
+
+            <MarkerTooltip className="bg-brand border border-mocha-700 px-3 py-1.5 rounded-lg shadow-lift">
+              <span className="font-semibold text-on-dark">{location.name}</span>
+            </MarkerTooltip>
+
+            {!isMobile ? (
+              <MarkerPopup className="p-0 border-none bg-transparent" anchor="top" offset={12}>
+                <div className="relative w-[min(17rem,calc(100vw-2.5rem))] space-y-2.5 overflow-hidden rounded-xl border border-line-strong bg-surface/95 p-3.5 shadow-deep backdrop-blur-xl sm:p-4">
+                  <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-mocha-700 via-mocha-500 to-platinum-400" />
+                  <div className="space-y-1 pt-1">
+                    <h4 className="font-serif font-semibold text-brand text-lg leading-tight sm:text-xl">
+                      {location.name}
+                    </h4>
+                    <p className="line-clamp-2 text-xs italic text-ink-muted sm:text-sm">
+                      {location.address}
+                    </p>
+                  </div>
+                  <div className="h-px w-full bg-line" />
+                  <p className="line-clamp-2 text-xs leading-relaxed text-ink-soft/90 sm:text-sm">
+                    {location.description}
                   </p>
-                  <span className="text-xs text-ink-muted/80 font-mono">
-                    {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
-                  </span>
+                  <div className="flex items-center justify-between gap-3 border-t border-line pt-2.5">
+                    <div className="hidden space-y-0.5 sm:block">
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-ink-muted/60">
+                        Coordinates
+                      </p>
+                      <span className="font-mono text-xs text-ink-muted/80">
+                        {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
+                      </span>
+                    </div>
+                    <a
+                      href={MAPS_DIRECTIONS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full rounded-lg border border-mocha-200 bg-brand-soft px-4 py-2 text-center text-xs font-semibold text-brand transition-colors duration-200 hover:bg-mocha-200 sm:w-auto"
+                    >
+                      Navigate →
+                    </a>
+                  </div>
                 </div>
-                <a
-                  href={MAPS_DIRECTIONS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-lg bg-brand-soft hover:bg-mocha-200 text-xs text-brand font-semibold transition-colors duration-200 border border-mocha-200"
-                >
-                  Navigate →
-                </a>
-              </div>
-            </div>
-          </MarkerPopup>
-        </MapMarker>
+              </MarkerPopup>
+            ) : null}
+          </MapMarker>
 
-        <MapControls position="bottom-right" showZoom showFullscreen />
-      </Map>
+          <MapControls position="bottom-right" showZoom showFullscreen />
+        </Map>
+      </div>
+
+      {isMobile && mobileOpen ? (
+        <div className="animate-rise rounded-2xl border border-line-strong bg-surface p-4 shadow-card">
+          <div className="flex items-start justify-between gap-3">
+            <div className="space-y-1">
+              <h4 className="font-serif text-lg font-semibold leading-tight text-brand">
+                {location.name}
+              </h4>
+              <p className="text-xs italic text-ink-muted">{location.address}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setMobileOpen(false)}
+              aria-label="Close location details"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-canvas text-ink transition-colors hover:bg-brand hover:text-on-dark"
+            >
+              <X className="h-4 w-4" aria-hidden="true" />
+            </button>
+          </div>
+          <p className="mt-3 text-xs leading-relaxed text-ink-soft">{location.description}</p>
+          <a
+            href={MAPS_DIRECTIONS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 flex w-full items-center justify-center rounded-full bg-brand px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-on-dark shadow-card transition-colors hover:bg-brand-hover"
+          >
+            Navigate to atelier →
+          </a>
+        </div>
+      ) : null}
     </div>
   );
 }

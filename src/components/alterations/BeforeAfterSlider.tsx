@@ -17,9 +17,9 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
           alt={`After alteration fit: ${title}`}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute top-3 right-3 z-10 px-3 py-1.5 bg-brand text-on-dark rounded-full text-xs font-semibold uppercase tracking-wider shadow-card pointer-events-none flex items-center gap-1.5 ring-1 ring-platinum-300/25">
-          <Sparkles className="w-3.5 h-3.5 text-platinum-300" aria-hidden="true" /> After ·
-          Kohinoor Fit
+        <div className="absolute top-2 right-2 z-10 flex items-center gap-1 rounded-full bg-brand px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-on-dark shadow-card pointer-events-none ring-1 ring-platinum-300/25 sm:top-3 sm:right-3 sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider">
+          <Sparkles className="h-3 w-3 text-platinum-300 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
+          After<span className="hidden sm:inline"> · Kohinoor Fit</span>
         </div>
 
         <div
@@ -33,8 +33,8 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
             alt={`Before alteration fit: ${title}`}
             className="w-full h-full object-cover filter contrast-95 brightness-95"
           />
-          <div className="absolute top-3 left-3 z-10 px-3 py-1.5 bg-mocha-950/90 backdrop-blur-sm text-on-dark rounded-full text-xs font-semibold uppercase tracking-wider shadow-card pointer-events-none border border-platinum-300/25">
-            Before · Ill-Fitting
+          <div className="absolute top-2 left-2 z-10 rounded-full border border-platinum-300/25 bg-mocha-950/90 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-on-dark shadow-card backdrop-blur-sm pointer-events-none sm:top-3 sm:left-3 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider">
+            Before<span className="hidden sm:inline"> · Ill-Fitting</span>
           </div>
         </div>
 
