@@ -1,7 +1,11 @@
-import { Clock, MapPin, MessageSquare, Phone } from 'lucide-react';
-import { MAPS_EMBED_URL, MAPS_SEARCH_URL, SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
+import { useState } from 'react';
+import { Clock, MapPin, MessageSquare, Navigation, Phone } from 'lucide-react';
+import { MAPS_SEARCH_URL, SITE } from '../../config/site';
+import { useBooking } from '../../context/booking-context';
+import BookingDialog from './BookingDialog';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
+import Eyebrow from '../ui/Eyebrow';
 import IconTile from '../ui/IconTile';
 import Reveal from '../ui/Reveal';
 
@@ -17,11 +21,24 @@ const rows = [
 ];
 
 export default function ContactDetails() {
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const { formSubmitted, resetForm } = useBooking();
+
+  const openBooking = () => {
+    if (formSubmitted) resetForm();
+    setBookingOpen(true);
+  };
+
   return (
     <Reveal delay={120} className="lg:col-span-5">
-      <div className="space-y-6">
+      <div className="flex flex-col gap-6 lg:h-full">
         <Card className="space-y-6">
-          <h3 className="font-serif text-xl font-semibold text-brand">Atelier Address &amp; Hours</h3>
+          <div>
+            <Eyebrow>Visit the Atelier</Eyebrow>
+            <h3 className="font-serif text-xl font-semibold text-brand mt-1">
+              Address &amp; Hours
+            </h3>
+          </div>
 
           <div className="space-y-4 text-xs sm:text-sm text-ink-soft">
             {rows.map(({ icon, label, value, hint, href }) => (
@@ -42,49 +59,47 @@ export default function ContactDetails() {
             ))}
           </div>
 
-          <div className="pt-2">
-            <Button
-              href={waLink(WHATSAPP_MESSAGES.directions)}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="whatsapp"
-              size="mdWide"
-              elevation="card"
-              full
-              caps
-            >
-              <MessageSquare className="w-4 h-4" aria-hidden="true" />
-              WhatsApp Direct Click-to-Chat
-            </Button>
-          </div>
+          <Button
+            href={MAPS_SEARCH_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="outline"
+            size="mdWide"
+            full
+            caps
+          >
+            <Navigation className="w-4 h-4" aria-hidden="true" />
+            Get Directions
+          </Button>
         </Card>
 
-        <Card padding="none" className="overflow-hidden relative">
-          <div className="p-3 bg-canvas-alt border-b border-line-strong flex items-center justify-between text-xs font-semibold text-brand">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
-              Interactive Map Preview
-            </span>
-            <a
-              href={MAPS_SEARCH_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-brand hover:underline text-xs"
-            >
-              Open Google Maps
-            </a>
+        <Card className="flex-1 flex flex-col justify-between gap-6">
+          <div className="space-y-3">
+            <Eyebrow>Prefer to Chat?</Eyebrow>
+            <h3 className="font-serif text-xl font-semibold text-brand">
+              Send Us Your Inspiration
+            </h3>
+            <p className="text-xs sm:text-sm text-ink-soft leading-relaxed">
+              Share a reference photo, fabric detail, or occasion date on WhatsApp and our master
+              tailor will guide you on cuts, measurements, and timelines before you visit.
+            </p>
           </div>
 
-          <div className="relative h-48 w-full bg-canvas-alt flex items-center justify-center text-center p-4">
-            <iframe
-              title="Kohinoor Tailors Map Location"
-              className="w-full h-full border-0 filter grayscale contrast-125 opacity-90"
-              loading="lazy"
-              src={MAPS_EMBED_URL}
-            />
-          </div>
+          <Button
+            onClick={openBooking}
+            variant="whatsapp"
+            size="mdWide"
+            elevation="card"
+            full
+            caps
+          >
+            <MessageSquare className="w-4 h-4" aria-hidden="true" />
+            Book a Fitting via WhatsApp
+          </Button>
         </Card>
       </div>
+
+      {bookingOpen ? <BookingDialog onClose={() => setBookingOpen(false)} /> : null}
     </Reveal>
   );
 }

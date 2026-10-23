@@ -27,7 +27,7 @@ export default function Gallery() {
     <Section id="gallery" className="py-16 md:py-24">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <SectionHeading
-          align="left"
+          align="center"
           eyebrow="Portfolio of Finished Works"
           title="Finished Work From Our Cutting Table"
           threadClassName="w-48"

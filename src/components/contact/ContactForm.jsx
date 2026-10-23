@@ -9,20 +9,31 @@ import Card from '../ui/Card';
 import Eyebrow from '../ui/Eyebrow';
 import Reveal from '../ui/Reveal';
 import { Field, Select, Textarea, TextInput } from './FormControls';
+import SectionHeading from '../ui/SectionHeading';
 
-export default function ContactForm() {
+export default function ContactForm({ onClose, inDialog = false }) {
   const { formData, formErrors, formSubmitted, handleInputChange, handleSubmit, resetForm } =
     useBooking();
 
+  const submit = (event) => {
+    const valid = handleSubmit(event);
+    if (valid && onClose) {
+      resetForm();
+      onClose();
+    }
+  };
+
   return (
-    <Reveal className="lg:col-span-7">
+    <Reveal>
       <Card padding="lg" elevation="lift" className="space-y-6 h-full">
-        <div>
-          <Eyebrow>Schedule or Inquire</Eyebrow>
-          <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-brand mt-1">
-            Book a Fitting or Send a Note
-          </h2>
-          <StitchedThreadLine className="w-44 pt-1 text-silver" />
+        <div className={inDialog ? 'pr-10' : ''}>
+
+             <SectionHeading
+                  eyebrow="Schedule or Inquire"
+                  title=" Book a Fitting or Send a Note"
+                  threadClassName="w-56"
+                />
+
         </div>
 
         {formSubmitted ? (
@@ -42,13 +53,14 @@ export default function ContactForm() {
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+          <form onSubmit={submit} className="space-y-4" noValidate>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field id="name" label="Your Full Name *" error={formErrors.name} errorId="name-error">
                 <TextInput
                   name="name"
                   type="text"
                   required
+                  autoFocus={inDialog}
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g. Radhika Sharma"

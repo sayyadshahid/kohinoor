@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [
+    "public/maplibre/**"
+  ],
   "plugins": [
     "react",
     "oxc"
@@ -16,7 +19,8 @@
   "overrides": [
     {
       "files": [
-        "app/layout.jsx"
+        "app/layout.jsx",
+        "src/components/ui/map.jsx"
       ],
       "rules": {
         "react/only-export-components": "off"

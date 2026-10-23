@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
+import { WHATSAPP_MESSAGES, waLink } from '../config/site';
 import { DEFAULT_SERVICE } from '../data/content';
 import { scrollToSection } from '../lib/scroll';
 
@@ -13,6 +14,17 @@ const createInitialForm = () => ({
   preferredDate: '',
   message: '',
 });
+
+const buildInquiryMessage = (data) =>
+  [
+    WHATSAPP_MESSAGES.fitting,
+    '',
+    `Name: ${data.name}`,
+    `Phone: ${data.phone}`,
+    `Service: ${data.service}`,
+    `Preferred fitting date: ${data.preferredDate || 'Flexible'}`,
+    `Requirements: ${data.message}`,
+  ].join('\n');
 
 /* Owns the fitting-inquiry form so any section can pre-fill and jump to it. */
 export function BookingProvider({ children }) {
@@ -72,12 +84,16 @@ export function BookingProvider({ children }) {
       if (firstError) {
         const field = document.getElementById(firstError);
         if (field) field.focus();
-        return;
+        return false;
       }
 
       setFormSubmitted(true);
+      if (typeof window !== 'undefined') {
+        window.open(waLink(buildInquiryMessage(formData)), '_blank', 'noopener,noreferrer');
+      }
+      return true;
     },
-    [validate]
+    [formData, validate]
   );
 
   const resetForm = useCallback(() => {

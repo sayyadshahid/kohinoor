@@ -2,7 +2,6 @@ import { MessageSquare, Phone, Scissors } from 'lucide-react';
 import { SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
 import { HERO_STATS } from '../../data/content';
 import NeedleAndThreadIcon from '../brand/NeedleAndThreadIcon';
-import StitchedThreadLine from '../brand/StitchedThreadLine';
 import Badge from '../ui/Badge';
 import Button from '../ui/Button';
 import Section from '../ui/Section';
@@ -28,7 +27,6 @@ export default function Hero() {
               Precision Tailoring <br />
               <span className="italic font-normal text-mocha-500">for Every Silhouette.</span>
             </h1>
-            <StitchedThreadLine className="w-48 sm:w-64 text-silver" />
           </div>
 
           <p className="text-base sm:text-lg text-ink-soft max-w-xl font-normal leading-relaxed text-pretty">

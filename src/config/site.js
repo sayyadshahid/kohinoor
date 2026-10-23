@@ -8,6 +8,7 @@ export const SITE = {
   whatsapp: '919876543210',
   address: 'Kohinoor Tailors, Main Market Road, Near Clock Tower, Sector 4',
   mapQuery: 'Kohinoor Tailors Main Market Road',
+  coords: { lat: 30.751857, lng: 76.801415 },
   hours: 'Monday – Saturday: 10:00 AM – 8:30 PM',
   sundayHours: 'Sunday: 11:00 AM – 5:00 PM (Trial Fittings Only)',
 };
