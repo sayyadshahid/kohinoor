@@ -7,6 +7,7 @@ import { Camera, Globe, Phone, Share2, X } from 'lucide-react';
 import { SITE } from '../../config/site';
 import { useLocale } from '../../context/LocaleProvider';
 import { t } from '../../data/i18n/dict';
+import LanguageSwitcher from '../layout/LanguageSwitcher';
 
 interface iNavItem {
   heading: string;
@@ -241,14 +242,17 @@ export const CurvedNavbar: React.FC<iCurvedNavbarProps & { footer?: React.ReactN
         </span>
       </a>
 
-      <button
-        type="button"
-        onClick={() => setIsActive(false)}
-        aria-label={t(locale, 'menu_close_aria')}
-        className="absolute right-6 top-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink shadow-card transition-transform duration-300 active:scale-95"
-      >
-        <X className="h-5 w-5" aria-hidden="true" />
-      </button>
+      <div className="absolute right-6 top-6 z-10 flex items-center gap-2">
+        <LanguageSwitcher />
+        <button
+          type="button"
+          onClick={() => setIsActive(false)}
+          aria-label={t(locale, 'menu_close_aria')}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink shadow-card transition-transform duration-300 active:scale-95"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
 
       <div className="flex h-full min-h-full flex-col justify-between pt-24">
         <div className="mt-0 flex flex-col gap-3 px-10 text-5xl md:px-24">

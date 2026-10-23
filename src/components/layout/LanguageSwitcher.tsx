@@ -18,8 +18,12 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
   return (
     <div
       className="relative z-[100]"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onPointerEnter={(e) => {
+        if (e.pointerType === 'mouse') setOpen(true);
+      }}
+      onPointerLeave={(e) => {
+        if (e.pointerType === 'mouse') setOpen(false);
+      }}
       onFocus={() => setOpen(true)}
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
@@ -30,6 +34,7 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
       <button
         type="button"
         className="inline-flex items-center gap-1 rounded-full border border-line bg-surface px-2 py-1 text-[11px] font-medium text-ink transition-colors hover:text-brand"
+        onClick={() => setOpen((value) => !value)}
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={t(locale, 'lang_label')}
@@ -42,7 +47,7 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
         <div
           role="listbox"
           aria-label={t(locale, 'lang_label')}
-          className="absolute right-0 top-full pt-1 w-28 z-[100]"
+          className="absolute right-0 top-full pt-2 w-44 z-[100]"
         >
           <div className="overflow-hidden rounded-lg border border-line bg-surface shadow-lift">
           {OPTIONS.map((opt) => (
@@ -54,7 +59,7 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
                 setLocale(opt.code);
                 setOpen(false);
               }}
-              className={`flex w-full items-center justify-between px-2 py-1 text-left text-[11px] ${
+              className={`flex w-full items-center justify-between px-4 py-3 text-left text-sm ${
                 locale === opt.code
                   ? 'bg-brand-soft/60 text-brand'
                   : 'text-ink hover:bg-canvas-alt'
