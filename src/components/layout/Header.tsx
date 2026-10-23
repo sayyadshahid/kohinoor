@@ -1,15 +1,40 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import { Menu, Phone, X } from 'lucide-react';
-import { SECTION_IDS, SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
+import { Menu, MessageSquare, Phone, X } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
+import { NAV_LINKS, SECTION_IDS, SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { useAutoHideHeader } from '../../hooks/useAutoHideHeader';
+import { useEscapeKey } from '../../hooks/useEscapeKey';
+import { useScrollLock } from '../../hooks/useScrollLock';
 import Logo from '../brand/Logo';
 import NeedleAndThreadIcon from '../brand/NeedleAndThreadIcon';
 import Button from '../ui/Button';
 import DesktopNav from './DesktopNav';
-import MobileNav from './MobileNav';
+import { CurvedNavbar } from '../ui/curved-menu';
+
+const MENU_ITEMS = NAV_LINKS.map(({ href, label }) => ({ heading: label, href }));
+
+function CurvedMenuFooter() {
+  return (
+    <div className="flex w-full items-center justify-between gap-3 border-t border-line px-10 py-5 text-xs font-semibold uppercase tracking-wider md:px-24">
+      <a href={`tel:${SITE.phone}`} className="flex items-center gap-2 text-brand">
+        <Phone className="h-4 w-4" aria-hidden="true" />
+        Call Atelier
+      </a>
+      <a
+        href={waLink(WHATSAPP_MESSAGES.fitting)}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 text-brand"
+      >
+        <MessageSquare className="h-4 w-4" aria-hidden="true" />
+        Book Fitting
+      </a>
+    </div>
+  );
+}
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,6 +43,9 @@ export default function Header() {
 
   const closeMenu = useCallback(() => setMobileMenuOpen(false), []);
   const toggleMenu = useCallback(() => setMobileMenuOpen((open) => !open), []);
+
+  useScrollLock(mobileMenuOpen);
+  useEscapeKey(closeMenu, mobileMenuOpen);
 
   const compact = hidden && !mobileMenuOpen;
   const solid = pastHero || mobileMenuOpen || compact;
@@ -29,7 +57,9 @@ export default function Header() {
 
       <header className="pointer-events-none fixed inset-x-0 top-2 z-50 flex justify-center">
         <div
-          className={`pointer-events-auto relative overflow-hidden border transition-all duration-700 ease-soft motion-reduce:transition-none ${
+          className={`pointer-events-auto relative z-50 overflow-hidden border transition-all duration-700 ease-soft motion-reduce:transition-none ${
+            mobileMenuOpen ? 'invisible -translate-y-2 opacity-0' : ''
+          } ${
             compact
               ? 'h-10 w-36 rounded-full px-2'
               : 'h-[4.5rem] w-[calc(100%-1.5rem)] rounded-3xl sm:w-[calc(100%-2rem)] md:h-20 lg:w-[calc(100%-3rem)]'
@@ -96,11 +126,15 @@ export default function Header() {
           </div>
         </div>
 
-        {mobileMenuOpen ? (
-          <div className="pointer-events-auto absolute left-1/2 top-[calc(100%+0.5rem)] w-[calc(100%-1.5rem)] -translate-x-1/2 overflow-hidden rounded-3xl border border-line bg-canvas shadow-card sm:w-[calc(100%-2rem)] lg:w-[calc(100%-3rem)]">
-            <MobileNav activeSection={activeSection} onNavigate={closeMenu} />
-          </div>
-        ) : null}
+        <AnimatePresence mode="wait">
+          {mobileMenuOpen ? (
+            <CurvedNavbar
+              navItems={MENU_ITEMS}
+              setIsActive={closeMenu}
+              footer={<CurvedMenuFooter />}
+            />
+          ) : null}
+        </AnimatePresence>
       </header>
     </>
   );
