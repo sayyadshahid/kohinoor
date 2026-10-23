@@ -1,10 +1,27 @@
 import { NAV_LINKS } from '../../config/site';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
+import LanguageSwitcher from './LanguageSwitcher';
 
-export default function DesktopNav({ activeSection }) {
+const LABEL_KEYS: Record<string, string> = {
+  '/#home': 'nav_home',
+  '/#services': 'nav_services',
+  '/#alterations': 'nav_alterations',
+  '/#gallery': 'nav_gallery',
+  '/#about': 'nav_about',
+  '/#faq': 'nav_faq',
+  '/#contact': 'nav_contact',
+};
+
+export default function DesktopNav({ activeSection }: { activeSection: string }) {
+  const { locale } = useLocale();
+
   return (
-    <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-ink" aria-label="Primary">
+    <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-ink relative z-[60]" aria-label="Primary">
       {NAV_LINKS.map(({ href, label, icon: Icon }) => {
         const isActive = activeSection === href.slice(1);
+        const labelKey = LABEL_KEYS[href];
+        const displayLabel = labelKey ? t(locale, labelKey) : label;
         return (
           <a
             key={href}
@@ -17,10 +34,11 @@ export default function DesktopNav({ activeSection }) {
             }`}
           >
             {Icon ? <Icon className="w-3.5 h-3.5 text-silver" aria-hidden="true" /> : null}
-            {label}
+            {displayLabel}
           </a>
         );
       })}
+      <LanguageSwitcher />
     </nav>
   );
 }

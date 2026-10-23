@@ -8,11 +8,14 @@ import { useActiveSection } from '../../hooks/useActiveSection';
 import { useAutoHideHeader } from '../../hooks/useAutoHideHeader';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import Logo from '../brand/Logo';
 import NeedleAndThreadIcon from '../brand/NeedleAndThreadIcon';
 import Button from '../ui/Button';
 import DesktopNav from './DesktopNav';
 import { CurvedNavbar } from '../ui/curved-menu';
+import LanguageSwitcher from './LanguageSwitcher';
 
 const MENU_ITEMS = NAV_LINKS.map(({ href, label }) => ({ heading: label, href }));
 
@@ -57,7 +60,7 @@ export default function Header() {
 
       <header className="pointer-events-none fixed inset-x-0 top-2 z-50 flex justify-center">
         <div
-          className={`pointer-events-auto relative z-50 overflow-hidden border transition-all duration-700 ease-soft motion-reduce:transition-none ${
+          className={`pointer-events-auto relative z-[80] overflow-visible border transition-all duration-700 ease-soft motion-reduce:transition-none ${
             mobileMenuOpen ? 'invisible -translate-y-2 opacity-0' : ''
           } ${
             compact
@@ -72,11 +75,11 @@ export default function Header() {
           <div
             aria-hidden={compact || undefined}
             inert={compact || undefined}
-            className={`absolute left-1/2 top-1/2 flex h-[4.5rem] w-[calc(100vw-1.5rem)] -translate-x-1/2 -translate-y-1/2 items-center transition-opacity duration-300 ease-soft sm:w-[calc(100vw-2rem)] md:h-20 lg:w-[calc(100vw-3rem)] ${
+            className={`absolute left-1/2 top-1/2 flex h-[4.5rem] w-[calc(100vw-1.5rem)] -translate-x-1/2 -translate-y-1/2 items-center overflow-visible transition-opacity duration-300 ease-soft sm:w-[calc(100vw-2rem)] md:h-20 lg:w-[calc(100vw-3rem)] ${
               compact ? 'opacity-0' : 'opacity-100 delay-150'
             }`}
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex w-full items-center justify-between">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex w-full items-center justify-between overflow-visible">
               <Logo href="#home" />
 
               <DesktopNav activeSection={activeSection} />

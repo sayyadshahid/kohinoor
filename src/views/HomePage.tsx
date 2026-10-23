@@ -1,6 +1,7 @@
 'use client';
 
 import { BookingProvider } from '../context/BookingProvider';
+import { LocaleProvider } from '../context/LocaleProvider';
 import About from '../components/sections/About';
 import Contact from '../components/sections/Contact';
 import FAQ from '../components/sections/FAQ';
@@ -14,21 +15,23 @@ import Header from '../components/layout/Header';
 
 export default function HomePage() {
   return (
-    <BookingProvider>
-      <div className="min-h-screen bg-canvas text-ink font-sans antialiased selection:bg-brand selection:text-on-dark">
-        <Header />
-        <main>
-          <Hero />
-          <Services />
-          <Gallery />
-          <About />
-          <Testimonials />
-          <FAQ />
-          <Contact />
-        </main>
-        <Footer />
-        <FloatingActions />
-      </div>
-    </BookingProvider>
+    <LocaleProvider>
+      <BookingProvider>
+        <div className="min-h-screen bg-canvas text-ink font-sans antialiased selection:bg-brand selection:text-on-dark">
+          <Header />
+          <main>
+            <Hero />
+            <Services />
+            <Gallery />
+            <About />
+            <Testimonials />
+            <FAQ />
+            <Contact />
+          </main>
+          <Footer />
+          <FloatingActions />
+        </div>
+      </BookingProvider>
+    </LocaleProvider>
   );
 }
