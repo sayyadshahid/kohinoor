@@ -15,7 +15,7 @@ export default function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-whatsapp text-white rounded-full flex items-center justify-center shadow-deep hover:bg-whatsapp-hover transition-transform hover:scale-110 md:hidden"
-        aria-label="Contact on WhatsApp"
+        aria-label="Contact Kohinoor Tailors on WhatsApp"
       >
         <MessageSquare className="w-7 h-7 fill-current" aria-hidden="true" />
       </a>

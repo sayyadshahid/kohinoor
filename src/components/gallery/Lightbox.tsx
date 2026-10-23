@@ -44,8 +44,10 @@ export default function Lightbox({ item, onClose }) {
             <img
               decoding="async"
               loading="lazy"
+              width={1000}
+              height={1000}
               src={item.image}
-              alt={item.title}
+              alt={`${item.title} - ladies suit by Kohinoor Tailors in Kondhwa, Pune`}
               className="h-full w-full object-cover"
             />
           </div>

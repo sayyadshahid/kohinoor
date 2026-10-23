@@ -20,7 +20,7 @@ export default function Hero() {
       title="Precision Tailoring"
       titleLine2Prefix="for"
       titleHighlight="Every Silhouette."
-      description="Specializing in master ladies suit stitching, hand zardozi & thread embroidery, and flawless garment alterations. Shaped to your exact body measurements with artisanal care."
+      description="Specializing in master ladies suit stitching, hand zardozi & thread embroidery, and flawless garment alterations in Kondhwa, Pune. Shaped to your exact body measurements with artisanal care."
       socialProof={`Est. ${SITE.founded} • 100% bespoke fit • 24–48h alterations`}
       images={HERO_IMAGES}
       imageAlts={HERO_IMAGE_ALTS}

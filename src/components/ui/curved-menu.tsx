@@ -3,7 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import Link from 'next/link';
-import { AtSign, Camera, Globe, Share2, X } from 'lucide-react';
+import { Camera, Globe, Phone, Share2, X } from 'lucide-react';
+import { SITE } from '../../config/site';
 
 interface iNavItem {
   heading: string;
@@ -95,8 +96,8 @@ const CustomFooter: React.FC = () => {
       <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
         <Share2 size={24} />
       </a>
-      <a href="mailto:hello@kohinoor.example.com" aria-label="Email">
-        <AtSign size={24} />
+      <a href={`tel:${SITE.phone}`} aria-label="Call Kohinoor Tailors">
+        <Phone size={24} />
       </a>
     </div>
   );

@@ -1,5 +1,5 @@
 import { Award, ShieldCheck } from 'lucide-react';
-import { SITE } from '../../config/site';
+import { SITE, YEARS_CRAFTING } from '../../config/site';
 import { ABOUT_STATS } from '../../data/content';
 import Reveal from '../ui/Reveal';
 import Section from '../ui/Section';
@@ -16,23 +16,24 @@ export default function About() {
             spacing="space-y-6"
             maxWidth="max-w-full"
             eyebrow="About Kohinoor Atelier"
-            title="Three Decades of Tailoring Precision & Fabric Mastery"
+            title={`${YEARS_CRAFTING} Years of Tailoring Precision & Fabric Mastery`}
             threadClassName="w-56"
           />
 
           <Reveal delay={80} className="mt-6 space-y-6">
             <div className="space-y-4 text-sm sm:text-base text-ink-soft leading-relaxed font-normal text-pretty">
               <p>
-                Founded in {SITE.founded},{' '}
-                <strong className="text-brand font-semibold">Kohinoor</strong> began with a simple
-                belief: every garment should feel like a second skin. Located in the heart of the
-                tailoring district, our atelier combines traditional hand-stitching techniques with
-                modern silhouette cuts to deliver clothing that fits effortlessly.
+                Founded in {SITE.founded} in{' '}
+                <strong className="text-brand font-semibold">Kondhwa, Pune</strong>,{' '}
+                <strong className="text-brand font-semibold">Kohinoor Tailors</strong> began with a
+                simple belief: every garment should feel like a second skin. Our atelier combines
+                traditional hand-stitching techniques with precise pattern cutting to deliver
+                clothing that fits effortlessly.
               </p>
               <p>
-                Whether it is altering a cherished vintage sari dress, crafting an intricate
-                hand-zardozi bridal suit, or stitching daily office suits with reinforced seams, our
-                master tailors treat every piece of fabric with meticulous attention.
+                Whether it is altering a cherished vintage outfit, crafting an intricate hand-zardozi
+                bridal suit, or stitching ladies suits to exact measurements, our master tailors
+                treat every piece of fabric with meticulous attention.
               </p>
             </div>
 
@@ -62,8 +63,10 @@ export default function About() {
             <img
               decoding="async"
               loading="lazy"
+              width={1000}
+              height={450}
               src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1000&q=80"
-              alt="Master tailor crafting custom dress at cutting table"
+              alt="Master tailor measuring and crafting a custom ladies suit at Kohinoor Tailors in Kondhwa, Pune"
               className="w-full h-[450px] object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-mocha-950/85 via-mocha-950/10 to-transparent" />

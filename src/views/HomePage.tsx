@@ -3,6 +3,7 @@
 import { BookingProvider } from '../context/BookingProvider';
 import About from '../components/sections/About';
 import Contact from '../components/sections/Contact';
+import FAQ from '../components/sections/FAQ';
 import Gallery from '../components/sections/Gallery';
 import Hero from '../components/sections/Hero';
 import Services from '../components/sections/Services';
@@ -22,6 +23,7 @@ export default function HomePage() {
           <Gallery />
           <About />
           <Testimonials />
+          <FAQ />
           <Contact />
         </main>
         <Footer />

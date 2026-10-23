@@ -22,8 +22,10 @@ export default function GalleryCard({ item, onOpen, mediaClassName = '' }) {
         <img
           decoding="async"
           loading="lazy"
+          width={1000}
+          height={1250}
           src={item.image}
-          alt={item.title}
+          alt={`${item.title} - ${item.category} by Kohinoor Tailors, Kondhwa Pune`}
           className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
         />
 

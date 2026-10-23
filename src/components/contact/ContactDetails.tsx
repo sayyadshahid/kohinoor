@@ -47,7 +47,7 @@ export default function ContactDetails() {
                 <div>
                   <span className="font-semibold block text-brand">{label}</span>
                   {href ? (
-                    <a href={href} className="hover:underline text-brand font-medium">
+                    <a href={href} className="hover:underline text-brand font-medium" aria-label={`Call ${value}`}>
                       {value}
                     </a>
                   ) : (

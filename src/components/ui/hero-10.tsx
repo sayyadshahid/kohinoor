@@ -134,8 +134,11 @@ function ImageFan({ images, imageAlts, cardAspect, animate }: ImageFanProps) {
           >
             <img
               src={src}
-              alt={imageAlts?.[i] ?? ''}
+              alt={imageAlts?.[i] ?? 'Ladies suit stitching and tailoring by Kohinoor Tailors in Kondhwa, Pune'}
               decoding="async"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              width={900}
+              height={1125}
               className="size-full object-cover"
             />
           </motion.div>

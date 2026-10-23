@@ -13,8 +13,10 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
         <img
           decoding="async"
           loading="lazy"
+          width={1600}
+          height={1000}
           src={afterImage}
-          alt={`After alteration fit: ${title}`}
+          alt={`After alteration by Kohinoor Tailors in Kondhwa, Pune: ${title}`}
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute top-2 right-2 z-10 flex items-center gap-1 rounded-full bg-brand px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-on-dark shadow-card pointer-events-none ring-1 ring-platinum-300/25 sm:top-3 sm:right-3 sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider">
@@ -29,8 +31,10 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
           <img
             decoding="async"
             loading="lazy"
+            width={1600}
+            height={1000}
             src={beforeImage}
-            alt={`Before alteration fit: ${title}`}
+            alt={`Before alteration by Kohinoor Tailors in Kondhwa, Pune: ${title}`}
             className="w-full h-full object-cover filter contrast-95 brightness-95"
           />
           <div className="absolute top-2 left-2 z-10 rounded-full border border-platinum-300/25 bg-mocha-950/90 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-on-dark shadow-card backdrop-blur-sm pointer-events-none sm:top-3 sm:left-3 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider">

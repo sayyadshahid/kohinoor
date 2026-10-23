@@ -1,13 +1,9 @@
 import { ArrowUp, MapPin, MessageSquare, Phone } from 'lucide-react';
-import { SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
+import { MAPS_DIRECTIONS_URL, SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
 import { FOOTER_LINKS, SPECIALTIES } from '../../data/content';
 import { scrollToTop } from '../../lib/scroll';
 import Logo from '../brand/Logo';
 import StitchedThreadLine from '../brand/StitchedThreadLine';
-
-const socialBase =
-  'w-9 h-9 rounded-full bg-platinum-100/10 text-platinum-100 flex items-center justify-center transition-colors ring-1 ring-platinum-100/15';
-const socialHover = 'hover:bg-platinum-200 hover:text-mocha-950';
 
 export default function Footer() {
   return (
@@ -17,8 +13,8 @@ export default function Footer() {
           <div className="space-y-4 md:col-span-1">
             <Logo variant="inverse" />
             <p className="text-xs text-platinum-200/80 leading-relaxed">
-              Precision alterations, bespoke suit stitching and hand embroidery — tailoring for the
-              city since {SITE.founded}.
+              Precision alterations, bespoke ladies suit stitching and hand embroidery in Kondhwa, Pune — tailoring since{' '}
+              {SITE.founded}.
             </p>
             <div className="pt-1">
               <StitchedThreadLine className="w-32 text-platinum-300" />
@@ -53,29 +49,43 @@ export default function Footer() {
 
           <div className="space-y-3">
             <h4 className="font-serif font-semibold text-sm tracking-wider uppercase text-platinum-300">
-              Connect With Us
+              Contact
             </h4>
-            <p className="text-xs text-platinum-200/80">
-              Visit our atelier or message us on social media for quick fitting consultations.
+            <p className="text-xs text-platinum-200/80 leading-relaxed">
+              {SITE.address}
             </p>
-
-            <div className="flex items-center gap-3 pt-2">
+            <div className="space-y-2 text-xs">
+              <a
+                href={`tel:${SITE.phone}`}
+                className="flex items-center gap-2 text-platinum-100 hover:underline"
+              >
+                <Phone className="w-3.5 h-3.5" aria-hidden="true" />
+                {SITE.phoneDisplay}
+              </a>
               <a
                 href={waLink(WHATSAPP_MESSAGES.stitching)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${socialBase} hover:bg-whatsapp`}
-                aria-label="WhatsApp"
+                className="flex items-center gap-2 text-platinum-100 hover:underline"
               >
-                <MessageSquare className="w-4 h-4" aria-hidden="true" />
+                <MessageSquare className="w-3.5 h-3.5" aria-hidden="true" />
+                WhatsApp
               </a>
-              <a href={`tel:${SITE.phone}`} className={`${socialBase} ${socialHover}`} aria-label="Phone">
-                <Phone className="w-4 h-4" aria-hidden="true" />
-              </a>
-              <a href="#contact" className={`${socialBase} ${socialHover}`} aria-label="Map">
-                <MapPin className="w-4 h-4" aria-hidden="true" />
+              <a
+                href={MAPS_DIRECTIONS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-platinum-100 hover:underline"
+              >
+                <MapPin className="w-3.5 h-3.5" aria-hidden="true" />
+                Get directions
               </a>
             </div>
+            <p className="text-xs text-platinum-200/70">
+              {SITE.hours}
+              <br />
+              {SITE.sundayHours}
+            </p>
           </div>
         </div>
 

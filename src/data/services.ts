@@ -1,55 +1,78 @@
-import { Scissors, Sparkles, Ruler } from 'lucide-react';
+import { Scissors, Sparkles, Ruler, type LucideIcon } from 'lucide-react';
+import { SITE, type ServiceId } from '../config/site';
 
-export const SERVICES = [
-  {
-    id: 'alterations',
+type ServiceItem = (typeof SITE.services)[number] & {
+  priceDisplay: string;
+};
+
+type ServicePresentation = {
+  swatch: string;
+  badge: string;
+  icon: LucideIcon;
+  features: string[];
+  cta: string;
+  bookingService: string;
+};
+
+const PRESENTATION: Record<ServiceId, ServicePresentation> = {
+  alterations: {
     swatch: 'SWATCH #ALT-01',
     badge: 'Fast 24-48h',
     icon: Scissors,
-    title: 'Garment Alterations & Reshaping',
-    description:
-      'Precision waist tapering, hem shortening, sleeve adjustment, side seam reshaping, and shoulder corrections for suits, blouses, kurtis, and heavy bridal lehengas.',
     features: [
       'Waist, bust, and armhole custom resizing',
       'Bridal lehenga length & can-can adjustment',
       'Invisible zip replacements & hook stitching',
     ],
-    price: 'Starting from ₹150',
     cta: 'Book Fitting',
     bookingService: 'Garment Alterations & Reshaping',
   },
-  {
-    id: 'embroidery',
-    swatch: 'SWATCH #EMB-02',
-    badge: 'Hand-Crafted',
-    icon: Sparkles,
-    title: 'Intricate Hand & Machine Embroidery',
-    description:
-      'Traditional Zardozi, Aari needlework, silk thread motifs, mirror work, and custom necklines or sleeve borders tailored for festive & bridal wear.',
-    features: [
-      'Zardozi metallic thread & sequin embellishments',
-      'Custom neckline & sleeve border patterns',
-      'Dupatta border attachment & tassel work',
-    ],
-    price: 'Custom Quote by Design',
-    cta: 'Request Quote',
-    bookingService: 'Intricate Embroidery',
-  },
-  {
-    id: 'stitching',
+  stitching: {
     swatch: 'SWATCH #STITCH-03',
     badge: 'Signature Fit',
     icon: Ruler,
-    title: 'Ladies Suit & Ensemble Stitching',
-    description:
-      'Bespoke stitching for Punjabi salwar kameez, Anarkali suits, straight trousers, sharara sets, padded blouses, and Indo-Western dresses cut to precise measurements.',
     features: [
       'Personalized body measurement mapping',
       'Interlining, canvas collar & neat inner piping',
       'Trial fitting session included prior to delivery',
     ],
-    price: 'Starting from ₹450',
     cta: 'Order Stitching',
     bookingService: 'Ladies Suit Stitching',
   },
-];
+  embroidery: {
+    swatch: 'SWATCH #EMB-02',
+    badge: 'Hand-Crafted',
+    icon: Sparkles,
+    features: [
+      'Zardozi metallic thread & sequin embellishments',
+      'Custom neckline & sleeve border patterns',
+      'Dupatta border attachment & tassel work',
+    ],
+    cta: 'Request Quote',
+    bookingService: 'Intricate Embroidery',
+  },
+};
+
+const SERVICE_ORDER: ServiceId[] = ['alterations', 'embroidery', 'stitching'];
+
+const PRICE_DISPLAY: Record<ServiceId, string> = {
+  alterations: 'From ₹150',
+  stitching: 'From ₹450',
+  embroidery: 'Custom quote',
+};
+
+export const SERVICES = SERVICE_ORDER.map((id) => {
+  const service = SITE.services.find((item) => item.id === id);
+  if (!service) throw new Error(`Unknown service: ${id}`);
+  const presentation = PRESENTATION[service.id];
+
+  return {
+    ...service,
+    ...presentation,
+    title: service.name,
+    description: service.shortDescription,
+    price: PRICE_DISPLAY[service.id],
+  };
+});
+
+export type Service = (typeof SERVICES)[number];

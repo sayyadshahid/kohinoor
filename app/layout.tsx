@@ -1,4 +1,6 @@
 import localFont from 'next/font/local';
+import JsonLd from '@/src/components/seo/JsonLd';
+import { SITE } from '@/src/config/site';
 import './globals.css';
 
 const fraunces = localFont({
@@ -18,33 +20,41 @@ const inter = localFont({
   preload: true,
 });
 
-const SITE_URL = 'https://kohinoor-tailors.example.com';
-
 export const metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: 'Kohinoor | Bespoke Tailoring, Embroidery & Ladies Suit Stitching',
+  metadataBase: new URL(SITE.url),
+  title: 'Kohinoor Tailors | Ladies Suit Stitching & Alterations in Kondhwa, Pune',
   description:
-    'Master tailoring atelier specializing in precision alterations, hand zardozi & thread embroidery, and custom ladies suit stitching.',
+    'Bespoke ladies suit stitching, bridal lehenga alterations and zardozi embroidery in Kondhwa, Pune. 24–48h alterations, free trial fitting. Call +91 84838 95822.',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     type: 'website',
-    siteName: 'Kohinoor Atelier',
-    title: 'Kohinoor | Bespoke Tailoring, Embroidery & Ladies Suit Stitching',
+    locale: 'en_IN',
+    url: SITE.url,
+    siteName: 'Kohinoor Tailors',
+    title: 'Kohinoor Tailors | Ladies Suit Stitching & Alterations in Kondhwa, Pune',
     description:
-      'Precision alterations, hand zardozi embroidery and custom ladies suit stitching since 2015.',
+      'Bespoke ladies suit stitching, bridal lehenga alterations and zardozi embroidery in Kondhwa, Pune. 24–48h alterations, free trial fitting. Call +91 84838 95822.',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80',
+        url: SITE.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Master tailor measuring silk fabric at a cutting table',
+        alt: SITE.ogImageAlt,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kohinoor | Bespoke Tailoring, Embroidery & Ladies Suit Stitching',
+    title: 'Kohinoor Tailors | Ladies Suit Stitching & Alterations in Kondhwa, Pune',
     description:
-      'Precision alterations, hand zardozi embroidery and custom ladies suit stitching since 2015.',
+      'Bespoke ladies suit stitching, bridal lehenga alterations and zardozi embroidery in Kondhwa, Pune. 24–48h alterations, free trial fitting. Call +91 84838 95822.',
+    images: [SITE.ogImage],
   },
 };
 
@@ -54,48 +64,15 @@ export const viewport = {
   themeColor: '#2C211C',
 };
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'ClothingStore',
-  name: 'Kohinoor Tailors',
-  description:
-    'Bespoke tailoring atelier for precision alterations, hand zardozi embroidery and ladies suit stitching.',
-  foundingDate: '2015',
-  telephone: '+91 84838 95822',
-  priceRange: '₹₹',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '501, Phase 2, Lane Number 9, Saibaba Nagar, Kondhwa',
-    addressLocality: 'Pune',
-    addressRegion: 'Maharashtra',
-    postalCode: '411048',
-    addressCountry: 'IN',
-  },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      opens: '10:00',
-      closes: '20:30',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: 'Sunday',
-      opens: '11:00',
-      closes: '17:00',
-    },
-  ],
-};
-
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`scroll-smooth ${fraunces.variable} ${inter.variable}`}>
+    <html
+      lang="en-IN"
+      className={`scroll-smooth ${fraunces.variable} ${inter.variable}`}
+    >
       <body className="bg-canvas text-ink font-sans antialiased selection:bg-brand selection:text-on-dark">
         {children}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <JsonLd />
       </body>
     </html>
   );

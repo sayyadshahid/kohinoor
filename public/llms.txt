@@ -1,0 +1,27 @@
+# Kohinoor Tailors
+
+> Bespoke ladies suit stitching, bridal lehenga alterations, and hand and machine embroidery in Kondhwa, Pune.
+
+## Contact
+- Address: 501, Phase 2, Lane Number 9, Saibaba Nagar, Kondhwa, Pune, Maharashtra 411048, India
+- Phone/WhatsApp: +91 84838 95822
+- Hours: Mon–Sat 10:00–20:30; Sun 11:00–17:00 (trial fittings only)
+- Coordinates: 18.46941223825573, 73.88395709392807
+- Google Maps directions: https://www.google.com/maps/dir/?api=1&destination=18.46941223825573,73.88395709392807
+
+## Services
+- Alterations & Reshaping (from ₹150, 24–48h) — waist, hem, sleeves, shoulders and bridal lehenga resizing
+- Ladies Suit & Ensemble Stitching (from ₹450, trial fitting included) — salwar kameez, Anarkali, sharara, blouses and Indo-Western
+- Hand & Machine Embroidery (custom quote: Zardozi, Aari, silk thread, mirror work) — necklines, borders and dupattas
+
+## Proof
+- Trial fitting included with ladies suit stitching; free re-adjustment if the first trial isn't perfect
+- Before/after case studies: bridal lehenga resizing, blouse tapering and suit reshaping
+- 24–48h alterations for most garments; bridal or heavily embroidered pieces may take longer
+
+## Links
+- Home: https://kohinoorr.vercel.app/
+- Services: https://kohinoorr.vercel.app/#services
+- Alterations: https://kohinoorr.vercel.app/#alterations
+- Gallery: https://kohinoorr.vercel.app/#gallery
+- Contact: https://kohinoorr.vercel.app/#contact
