@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 const VARIANTS = {
   primary: 'bg-brand text-on-dark hover:bg-brand-hover',
   outline: 'border border-brand text-brand hover:bg-brand hover:text-on-dark',
@@ -29,6 +31,22 @@ const ELEVATIONS = {
   lift: 'shadow-lift',
 };
 
+export type ButtonVariant = keyof typeof VARIANTS;
+export type ButtonSize = keyof typeof SIZES;
+
+type ButtonProps = {
+  href?: string;
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  elevation?: keyof typeof ELEVATIONS;
+  full?: boolean;
+  caps?: boolean;
+  hoverLift?: boolean;
+  className?: string;
+  children?: ReactNode;
+  [key: string]: any;
+};
+
 /*
  * Shared pill button. Renders an <a> when `href` is supplied, otherwise a
  * <button>. Extra props (type, target, rel, aria-*) pass straight through.
@@ -44,7 +62,7 @@ export default function Button({
   className = '',
   children,
   ...props
-}) {
+}: ButtonProps) {
   const classes = [
     'inline-flex items-center justify-center gap-2 rounded-full font-semibold transition',
     VARIANTS[variant],

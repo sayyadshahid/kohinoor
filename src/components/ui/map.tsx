@@ -15,6 +15,7 @@ import {
   useState,
 } from 'react';
 import { createPortal } from 'react-dom';
+import type { ReactNode } from 'react';
 import { X, Minus, Plus, Locate, Maximize, Loader2 } from 'lucide-react';
 
 if (typeof window !== 'undefined') {
@@ -102,7 +103,18 @@ function DefaultLoader() {
   );
 }
 
-const Map = forwardRef(function Map(
+type MapProps = {
+  children?: ReactNode;
+  className?: string;
+  theme?: 'dark' | 'light' | (string & {});
+  styles?: { dark?: string; light?: string };
+  projection?: any;
+  viewport?: any;
+  onViewportChange?: (viewport: any) => void;
+  [key: string]: any;
+};
+
+const Map = forwardRef<any, MapProps>(function Map(
   {
     children,
     className,
@@ -255,6 +267,20 @@ function useMarkerContext() {
   return context;
 }
 
+type MapMarkerProps = {
+  longitude: number;
+  latitude: number;
+  children?: ReactNode;
+  onClick?: (event: any) => void;
+  onMouseEnter?: (event: any) => void;
+  onMouseLeave?: (event: any) => void;
+  onDragStart?: (coords: { lng: number; lat: number }) => void;
+  onDrag?: (coords: { lng: number; lat: number }) => void;
+  onDragEnd?: (coords: { lng: number; lat: number }) => void;
+  draggable?: boolean;
+  [key: string]: any;
+};
+
 function MapMarker({
   longitude,
   latitude,
@@ -267,7 +293,7 @@ function MapMarker({
   onDragEnd,
   draggable = false,
   ...markerOptions
-}) {
+}: MapMarkerProps) {
   const { map } = useMap();
 
   const callbacksRef = useRef({ onClick, onMouseEnter, onMouseLeave, onDragStart, onDrag, onDragEnd });
@@ -312,7 +338,9 @@ function MapMarker({
   useEffect(() => {
     if (!map) return undefined;
     marker.addTo(map);
-    return () => marker.remove();
+    return () => {
+      marker.remove();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [map]);
 
@@ -345,7 +373,9 @@ function MapMarker({
   );
 }
 
-function MarkerContent({ children, className }) {
+type MarkerContentProps = { children?: ReactNode; className?: string };
+
+function MarkerContent({ children, className }: MarkerContentProps) {
   const { marker } = useMarkerContext();
 
   return createPortal(
@@ -530,8 +560,16 @@ function MapControls({
   showCompass = false,
   showLocate = false,
   showFullscreen = false,
-  className,
-  onLocate,
+  className = '',
+  onLocate = undefined,
+}: {
+  position?: keyof typeof positionClasses;
+  showZoom?: boolean;
+  showCompass?: boolean;
+  showLocate?: boolean;
+  showFullscreen?: boolean;
+  className?: string;
+  onLocate?: (coords: { longitude: number; latitude: number }) => void;
 }) {
   const { map } = useMap();
   const [waitingForLocation, setWaitingForLocation] = useState(false);

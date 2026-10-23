@@ -1,13 +1,30 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import {
+  useCallback,
+  useMemo,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+  type ReactNode,
+} from 'react';
 import { WHATSAPP_MESSAGES, waLink } from '../config/site';
 import { DEFAULT_SERVICE } from '../data/content';
 import { scrollToSection } from '../lib/scroll';
 
 import { BookingContext } from './booking-context';
 
-const createInitialForm = () => ({
+type BookingForm = {
+  name: string;
+  phone: string;
+  service: string;
+  preferredDate: string;
+  message: string;
+};
+
+type FormErrors = Partial<Record<keyof BookingForm, string>>;
+
+const createInitialForm = (): BookingForm => ({
   name: '',
   phone: '',
   service: DEFAULT_SERVICE,
@@ -15,7 +32,7 @@ const createInitialForm = () => ({
   message: '',
 });
 
-const buildInquiryMessage = (data) =>
+const buildInquiryMessage = (data: BookingForm) =>
   [
     WHATSAPP_MESSAGES.fitting,
     '',
@@ -27,19 +44,23 @@ const buildInquiryMessage = (data) =>
   ].join('\n');
 
 /* Owns the fitting-inquiry form so any section can pre-fill and jump to it. */
-export function BookingProvider({ children }) {
-  const [formData, setFormData] = useState(createInitialForm);
-  const [formErrors, setFormErrors] = useState({});
+export function BookingProvider({ children }: { children: ReactNode }) {
+  const [formData, setFormData] = useState<BookingForm>(createInitialForm);
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleInputChange = useCallback((event) => {
-    const { name, value } = event.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    setFormErrors((prev) => (prev[name] ? { ...prev, [name]: undefined } : prev));
-  }, []);
+  const handleInputChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+      const { name, value } = event.target;
+      const field = name as keyof BookingForm;
+      setFormData((prev) => ({ ...prev, [field]: value }));
+      setFormErrors((prev) => (prev[field] ? { ...prev, [field]: undefined } : prev));
+    },
+    []
+  );
 
   const validate = useCallback(() => {
-    const errors = {};
+    const errors: FormErrors = {};
 
     if (!formData.name.trim()) {
       errors.name = 'Please tell us your name.';
@@ -75,7 +96,7 @@ export function BookingProvider({ children }) {
   }, [formData]);
 
   const handleSubmit = useCallback(
-    (event) => {
+    (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       const errors = validate();
       setFormErrors(errors);
@@ -102,7 +123,7 @@ export function BookingProvider({ children }) {
     setFormSubmitted(false);
   }, []);
 
-  const selectService = useCallback((service) => {
+  const selectService = useCallback((service: string) => {
     setFormData((prev) => ({ ...prev, service }));
     setFormSubmitted(false);
     scrollToSection('contact');

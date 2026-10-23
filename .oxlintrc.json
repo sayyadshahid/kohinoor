@@ -19,8 +19,8 @@
   "overrides": [
     {
       "files": [
-        "app/layout.jsx",
-        "src/components/ui/map.jsx"
+        "app/layout.tsx",
+        "src/components/ui/map.tsx"
       ],
       "rules": {
         "react/only-export-components": "off"

@@ -1,6 +1,7 @@
 'use client';
 
-import { motion, useReducedMotion } from 'motion/react';
+import { motion, useReducedMotion, type Variants } from 'motion/react';
+import type { ReactNode } from 'react';
 import Balancer from 'react-wrap-balancer';
 
 import { cn } from '@/lib/utils';
@@ -34,9 +35,9 @@ const fanSlots = [
   { width: 'w-[38%]', layout: '-ml-8 z-10', rotate: 6, x: -48, ty: 24 },
 ];
 
-const ease = [0.22, 1, 0.36, 1];
+const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const fanContainer = {
+const fanContainer: Variants = {
   hidden: { opacity: 0, y: 12, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
@@ -52,13 +53,15 @@ const fanContainer = {
   },
 };
 
-const fanCard = {
-  hidden: (slot) => ({
+type FanSlot = (typeof fanSlots)[number];
+
+const fanCard: Variants = {
+  hidden: (slot: FanSlot) => ({
     x: slot.x,
     rotate: slot.rotate,
     y: slot.ty,
   }),
-  visible: (slot) => ({
+  visible: (slot: FanSlot) => ({
     x: 0,
     rotate: slot.rotate,
     y: slot.ty,
@@ -66,12 +69,12 @@ const fanCard = {
   }),
 };
 
-const container = {
+const container: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 12, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
@@ -81,7 +84,14 @@ const item = {
   },
 };
 
-function Reveal({ active, variants, className, children }) {
+type RevealProps = {
+  active: boolean;
+  variants?: Variants;
+  className?: string;
+  children?: ReactNode;
+};
+
+function Reveal({ active, variants, className, children }: RevealProps) {
   if (!active) return <div className={className}>{children}</div>;
 
   return (
@@ -91,7 +101,14 @@ function Reveal({ active, variants, className, children }) {
   );
 }
 
-function ImageFan({ images, imageAlts, cardAspect, animate }) {
+type ImageFanProps = {
+  images: string[];
+  imageAlts?: string[];
+  cardAspect: string;
+  animate: boolean;
+};
+
+function ImageFan({ images, imageAlts, cardAspect, animate }: ImageFanProps) {
   return (
     <motion.div
       className="relative flex w-full items-center justify-center"
@@ -128,6 +145,30 @@ function ImageFan({ images, imageAlts, cardAspect, animate }) {
   );
 }
 
+type HeroCta = {
+  ctaEnabled?: boolean;
+  text?: ReactNode;
+  link?: string;
+  variant?: string;
+  size?: string;
+};
+
+type Hero10Props = {
+  id?: string;
+  className?: string;
+  title?: ReactNode;
+  titleLine2Prefix?: ReactNode;
+  titleHighlight?: ReactNode;
+  description?: ReactNode;
+  socialProof?: ReactNode;
+  images?: string[];
+  imageAlts?: string[];
+  animation?: 'none' | 'subtle' | string;
+  primaryCTA?: HeroCta;
+  secondaryCTA?: HeroCta;
+  variant?: keyof typeof variantStyles;
+};
+
 export function Hero10({
   id,
   className,
@@ -142,7 +183,7 @@ export function Hero10({
   primaryCTA,
   secondaryCTA,
   variant = 'standard',
-}) {
+}: Hero10Props) {
   const reduce = useReducedMotion();
   const animate = animation === 'subtle' && !reduce;
   const vs = variantStyles[variant];

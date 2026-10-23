@@ -11,6 +11,9 @@ next-env.d.ts
 dist
 dist-ssr
 
+# typescript
+*.tsbuildinfo
+
 # logs
 logs
 *.log

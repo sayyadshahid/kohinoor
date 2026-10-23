@@ -1,3 +1,6 @@
+import type { LucideIcon } from 'lucide-react';
+import type { ReactNode } from 'react';
+
 const TONES = {
   surface: 'bg-surface border border-line-strong text-brand shadow-card',
   brand: 'bg-brand text-on-dark ring-1 ring-platinum-300/20',
@@ -12,6 +15,15 @@ const SIZES = {
   lg: 'px-3 py-1 text-xs font-semibold uppercase tracking-wider',
 };
 
+type BadgeProps = {
+  tone?: keyof typeof TONES;
+  size?: keyof typeof SIZES;
+  icon?: LucideIcon;
+  iconClassName?: string;
+  className?: string;
+  children?: ReactNode;
+};
+
 export default function Badge({
   tone = 'subtle',
   size = 'sm',
@@ -19,7 +31,7 @@ export default function Badge({
   iconClassName = '',
   className = '',
   children,
-}) {
+}: BadgeProps) {
   return (
     <span
       className={`inline-flex items-center gap-2 rounded-full ${SIZES[size]} ${TONES[tone]} ${className}`}

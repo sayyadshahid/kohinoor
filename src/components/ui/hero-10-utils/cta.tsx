@@ -1,6 +1,8 @@
-import Button from '../Button';
+import type { ReactNode } from 'react';
 
-const VARIANT_MAP = {
+import Button, { type ButtonSize, type ButtonVariant } from '../Button';
+
+const VARIANT_MAP: Record<string, string> = {
   default: 'primary',
   outline: 'outline',
   secondary: 'subtle',
@@ -10,7 +12,7 @@ const VARIANT_MAP = {
   whatsapp: 'whatsapp',
 };
 
-const SIZE_MAP = {
+const SIZE_MAP: Record<string, string> = {
   default: 'lg',
   sm: 'sm',
   md: 'md',
@@ -18,7 +20,15 @@ const SIZE_MAP = {
   icon: 'md',
 };
 
-export function Cta({ cta }) {
+type CtaData = {
+  ctaEnabled?: boolean;
+  text?: ReactNode;
+  link?: string;
+  variant?: string;
+  size?: string;
+};
+
+export function Cta({ cta }: { cta?: CtaData }) {
   if (!cta?.ctaEnabled) return null;
 
   const external = /^https?:\/\//.test(cta.link ?? '');
@@ -28,8 +38,10 @@ export function Cta({ cta }) {
       href={cta.link || undefined}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      variant={VARIANT_MAP[cta.variant] ?? cta.variant ?? 'primary'}
-      size={SIZE_MAP[cta.size] ?? 'lg'}
+      variant={
+        (VARIANT_MAP[cta.variant ?? 'default'] ?? cta.variant ?? 'primary') as ButtonVariant
+      }
+      size={(SIZE_MAP[cta.size ?? 'default'] ?? 'lg') as ButtonSize}
       elevation="card"
       hoverLift
     >

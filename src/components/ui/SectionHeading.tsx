@@ -1,3 +1,5 @@
+import type { ElementType, ReactNode } from 'react';
+
 import Reveal from './Reveal';
 import Eyebrow from './Eyebrow';
 import StitchedThreadLine from '../brand/StitchedThreadLine';
@@ -6,6 +8,21 @@ import StitchedThreadLine from '../brand/StitchedThreadLine';
  * Section intro block: eyebrow, title, stitched divider and optional copy.
  * `eyebrow` may be a string or a custom node (e.g. a Badge).
  */
+type SectionHeadingProps = {
+  eyebrow?: ReactNode;
+  title: ReactNode;
+  description?: ReactNode;
+  align?: 'left' | 'center';
+  as?: ElementType;
+  maxWidth?: string;
+  spacing?: string;
+  threadClassName?: string;
+  showThread?: boolean;
+  className?: string;
+  titleClassName?: string;
+  children?: ReactNode;
+};
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -19,7 +36,7 @@ export default function SectionHeading({
   className = '',
   titleClassName = 'text-3xl sm:text-4xl',
   children,
-}) {
+}: SectionHeadingProps) {
   const centered = align === 'center';
   const width = maxWidth ?? (centered ? 'max-w-2xl' : '');
 

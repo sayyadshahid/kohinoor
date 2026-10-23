@@ -1,3 +1,10 @@
+type LogoProps = {
+  variant?: 'primary' | 'inverse';
+  href?: string;
+  showTagline?: boolean;
+  className?: string;
+};
+
 /*
  * Brand lockup. `primary` is the mocha mark used in the header;
  * `inverse` is the platinum mark used in the dark footer.
@@ -7,7 +14,7 @@ export default function Logo({
   href,
   showTagline = variant === 'primary',
   className = '',
-}) {
+}: LogoProps) {
   const inverse = variant === 'inverse';
 
   const wordmark = inverse

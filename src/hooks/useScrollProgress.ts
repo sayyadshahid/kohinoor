@@ -8,7 +8,7 @@ export function useScrollProgress() {
     const update = () => {
       const doc = document.documentElement;
       const scrollable = doc.scrollHeight - doc.clientHeight;
-      setProgress(scrollable > 0 ? Math.min((doc.scrollY / scrollable) * 100, 100) : 0);
+      setProgress(scrollable > 0 ? Math.min((window.scrollY / scrollable) * 100, 100) : 0);
     };
     update();
     window.addEventListener('scroll', update, { passive: true });
