@@ -30,7 +30,7 @@ export const metadata = {
     siteName: 'Kohinoor Atelier',
     title: 'Kohinoor | Bespoke Tailoring, Embroidery & Ladies Suit Stitching',
     description:
-      'Precision alterations, hand zardozi embroidery and custom ladies suit stitching since 1998.',
+      'Precision alterations, hand zardozi embroidery and custom ladies suit stitching since 2015.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=1200&q=80',
@@ -44,7 +44,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Kohinoor | Bespoke Tailoring, Embroidery & Ladies Suit Stitching',
     description:
-      'Precision alterations, hand zardozi embroidery and custom ladies suit stitching since 1998.',
+      'Precision alterations, hand zardozi embroidery and custom ladies suit stitching since 2015.',
   },
 };
 
@@ -60,13 +60,15 @@ const structuredData = {
   name: 'Kohinoor Tailors',
   description:
     'Bespoke tailoring atelier for precision alterations, hand zardozi embroidery and ladies suit stitching.',
-  foundingDate: '1998',
-  telephone: '+91 98765 43210',
+  foundingDate: '2015',
+  telephone: '+91 84838 95822',
   priceRange: '₹₹',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Main Market Road, Near Clock Tower, Sector 4',
-    addressLocality: 'City Center',
+    streetAddress: '501, Phase 2, Lane Number 9, Saibaba Nagar, Kondhwa',
+    addressLocality: 'Pune',
+    addressRegion: 'Maharashtra',
+    postalCode: '411048',
     addressCountry: 'IN',
   },
   openingHoursSpecification: [

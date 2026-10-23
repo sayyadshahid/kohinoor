@@ -80,7 +80,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
                   inputMode="tel"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 84838 95822"
                   error={formErrors.phone}
                   errorId="phone-error"
                 />

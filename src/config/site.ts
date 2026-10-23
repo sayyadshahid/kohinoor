@@ -2,16 +2,18 @@ import { Scissors } from 'lucide-react';
 
 /* Single source of truth for contact details. */
 export const SITE = {
-  founded: 1998,
-  phone: '+919876543210',
-  phoneDisplay: '+91 98765 43210',
-  whatsapp: '919876543210',
-  address: 'Kohinoor Tailors, Main Market Road, Near Clock Tower, Sector 4',
-  mapQuery: 'Kohinoor Tailors Main Market Road',
-  coords: { lat: 30.751857, lng: 76.801415 },
+  founded: 2015,
+  phone: '+918483895822',
+  phoneDisplay: '+91 84838 95822',
+  whatsapp: '918483895822',
+  address: '501, Phase 2, Lane Number 9, Saibaba Nagar, Kondhwa, Pune, Maharashtra 411048',
+  mapQuery: '501, Phase 2, Lane Number 9, Saibaba Nagar, Kondhwa, Pune 411048',
+  coords: { lat: 18.46941223825573, lng: 73.88395709392807 },
   hours: 'Monday – Saturday: 10:00 AM – 8:30 PM',
   sundayHours: 'Sunday: 11:00 AM – 5:00 PM (Trial Fittings Only)',
 };
+
+const COORD_QUERY = `${SITE.coords.lat},${SITE.coords.lng}`;
 
 export const YEARS_CRAFTING = new Date().getFullYear() - SITE.founded;
 
@@ -38,7 +40,10 @@ export const NAV_LINKS = [
 ];
 
 export const MAPS_SEARCH_URL =
-  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(SITE.mapQuery)}`;
+  `https://www.google.com/maps/search/?api=1&query=${COORD_QUERY}`;
+
+export const MAPS_DIRECTIONS_URL =
+  `https://www.google.com/maps/dir/?api=1&destination=${COORD_QUERY}`;
 
 export const MAPS_EMBED_URL =
-  `https://maps.google.com/maps?q=${encodeURIComponent(SITE.mapQuery)}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+  `https://maps.google.com/maps?q=${COORD_QUERY}&t=&z=17&ie=UTF8&iwloc=&output=embed`;

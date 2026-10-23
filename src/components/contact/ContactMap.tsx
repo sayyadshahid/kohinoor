@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { MAPS_SEARCH_URL, SITE } from '../../config/site';
+import { MAPS_DIRECTIONS_URL, SITE } from '../../config/site';
 import {
   Map,
   MapControls,
@@ -27,7 +27,7 @@ export default function ContactMap() {
   useEffect(() => {
     mapRef.current?.flyTo({
       center: [location.lng, location.lat],
-      zoom: 14,
+      zoom: 17,
       duration: 1800,
       essential: true,
       padding: { top: 0, bottom: 0, left: 0, right: 0 },
@@ -39,7 +39,7 @@ export default function ContactMap() {
       <Map
         ref={mapRef}
         center={[location.lng, location.lat]}
-        zoom={13}
+        zoom={17}
         theme="light"
         className="h-full w-full"
         attributionControl={false}
@@ -77,7 +77,7 @@ export default function ContactMap() {
                   </span>
                 </div>
                 <a
-                  href={MAPS_SEARCH_URL}
+                  href={MAPS_DIRECTIONS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-2 rounded-lg bg-brand-soft hover:bg-mocha-200 text-xs text-brand font-semibold transition-colors duration-200 border border-mocha-200"

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Clock, MapPin, MessageSquare, Navigation, Phone } from 'lucide-react';
-import { MAPS_SEARCH_URL, SITE } from '../../config/site';
+import { MAPS_DIRECTIONS_URL, SITE } from '../../config/site';
 import { useBooking } from '../../context/booking-context';
 import BookingDialog from './BookingDialog';
 import Button from '../ui/Button';
@@ -60,7 +60,7 @@ export default function ContactDetails() {
           </div>
 
           <Button
-            href={MAPS_SEARCH_URL}
+            href={MAPS_DIRECTIONS_URL}
             target="_blank"
             rel="noopener noreferrer"
             variant="outline"
