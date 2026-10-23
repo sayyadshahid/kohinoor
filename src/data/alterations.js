@@ -55,9 +55,3 @@ export const BEFORE_AFTER_CASES = [
     ],
   },
 ];
-
-export const COMPARE_MODES = [
-  { id: 'slider', label: 'Interactive Dotted Slider' },
-  { id: 'side-by-side', label: 'Side-by-Side' },
-  { id: 'toggle', label: 'Toggle Button View' },
-];

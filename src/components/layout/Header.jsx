@@ -34,7 +34,7 @@ export default function Header() {
           : 'translate-y-0 opacity-100'
       } ${
         solid
-          ? 'bg-canvas/85 backdrop-blur-xl shadow-card border-b border-line py-3'
+          ? 'bg-canvas/85 backdrop-blur-xl shadow-card border-b border-line py-4'
           : 'bg-canvas/60 backdrop-blur-xl border-b border-line/60 py-4'
       }`}
     >

@@ -1,7 +1,7 @@
 import { ArrowRight, ZoomIn } from 'lucide-react';
 import Card from '../ui/Card';
 
-export default function GalleryCard({ item, onOpen }) {
+export default function GalleryCard({ item, onOpen, mediaClassName = '' }) {
   return (
     <Card
       elevation="none"
@@ -18,7 +18,7 @@ export default function GalleryCard({ item, onOpen }) {
         }
       }}
     >
-      <div className="aspect-[4/5] w-full overflow-hidden bg-mocha-950/5 relative">
+      <div className={`aspect-[4/5] w-full overflow-hidden bg-mocha-950/5 relative ${mediaClassName}`}>
         <img
           decoding="async"
           loading="lazy"

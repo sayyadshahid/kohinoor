@@ -9,15 +9,10 @@ import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
 import BeforeAfterSlider from '../alterations/BeforeAfterSlider';
 import CaseTabs from '../alterations/CaseTabs';
-import SideBySideCompare from '../alterations/SideBySideCompare';
-import ToggleCompare from '../alterations/ToggleCompare';
 import TransformationDetails from '../alterations/TransformationDetails';
-import ViewModeToggle from '../alterations/ViewModeToggle';
 
 export default function Alterations() {
   const [activeCase, setActiveCase] = useState(0);
-  const [viewMode, setViewMode] = useState('slider');
-  const [toggleState, setToggleState] = useState('after');
 
   const item = BEFORE_AFTER_CASES[activeCase];
 
@@ -51,22 +46,14 @@ export default function Alterations() {
         onChange={handleSelectCase}
       />
 
-      <ViewModeToggle value={viewMode} onChange={setViewMode} />
-
       <Card padding="lg" className="mt-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
-            {viewMode === 'slider' ? (
-              <BeforeAfterSlider
-                beforeImage={item.beforeImage}
-                afterImage={item.afterImage}
-                title={item.title}
-              />
-            ) : viewMode === 'side-by-side' ? (
-              <SideBySideCompare item={item} />
-            ) : (
-              <ToggleCompare item={item} value={toggleState} onChange={setToggleState} />
-            )}
+            <BeforeAfterSlider
+              beforeImage={item.beforeImage}
+              afterImage={item.afterImage}
+              title={item.title}
+            />
           </div>
 
           <TransformationDetails item={item} />
