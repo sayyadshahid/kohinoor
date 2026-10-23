@@ -8,7 +8,7 @@ export function buildStructuredData() {
   const websiteId = `${SITE.url}/#website`;
 
   const business: JsonLdNode = {
-    '@type': ['ClothingStore', 'Tailor', 'LocalBusiness'],
+    '@type': 'ClothingStore',
     '@id': businessId,
     name: SITE.name,
     alternateName: SITE.alternateName,
@@ -64,7 +64,6 @@ export function buildStructuredData() {
         },
       })),
     },
-    inLanguage: 'en-IN',
   };
 
   const website: JsonLdNode = {
