@@ -50,6 +50,13 @@
   --color-whatsapp: #25D366;
   --color-whatsapp-hover: #1EBE5A;
 
+  /* ---- shadcn-compatible aliases (used by imported UI blocks) ---- */
+  --color-background: var(--color-canvas);
+  --color-foreground: var(--color-ink);
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: var(--color-on-dark);
+  --color-muted-foreground: var(--color-ink-soft);
+
   /* ---- Typography ---- */
   --font-serif: var(--font-fraunces), Georgia, 'Times New Roman', serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;

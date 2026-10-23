@@ -3,10 +3,8 @@
 import { Check, Send } from 'lucide-react';
 import { useBooking } from '../../context/booking-context';
 import { SERVICE_OPTIONS } from '../../data/content';
-import StitchedThreadLine from '../brand/StitchedThreadLine';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
-import Eyebrow from '../ui/Eyebrow';
 import Reveal from '../ui/Reveal';
 import { Field, Select, Textarea, TextInput } from './FormControls';
 import SectionHeading from '../ui/SectionHeading';

@@ -4,8 +4,8 @@ import { useCallback, useState } from 'react';
 import { Menu, Phone, X } from 'lucide-react';
 import { SECTION_IDS, SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
 import { useActiveSection } from '../../hooks/useActiveSection';
+import { useAutoHideHeader } from '../../hooks/useAutoHideHeader';
 import { useScrollProgress } from '../../hooks/useScrollProgress';
-import { useScrolledPast } from '../../hooks/useScrolledPast';
 import Logo from '../brand/Logo';
 import Button from '../ui/Button';
 import DesktopNav from './DesktopNav';
@@ -14,19 +14,28 @@ import ReadingProgress from './ReadingProgress';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const scrolled = useScrolledPast(20);
+  const { hidden, pastHero } = useAutoHideHeader('home');
   const scrollProgress = useScrollProgress();
   const activeSection = useActiveSection(SECTION_IDS);
 
   const closeMenu = useCallback(() => setMobileMenuOpen(false), []);
   const toggleMenu = useCallback(() => setMobileMenuOpen((open) => !open), []);
 
+  const solid = pastHero || mobileMenuOpen;
+  const isHidden = hidden && !mobileMenuOpen;
+
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-canvas/90 backdrop-blur-xl shadow-card border-b border-line py-3'
-          : 'bg-canvas border-b border-line/70 py-4'
+      aria-hidden={isHidden || undefined}
+      inert={isHidden || undefined}
+      className={`sticky top-0 z-50 transition-all duration-500 ease-soft motion-reduce:transition-none ${
+        isHidden
+          ? 'pointer-events-none -translate-y-full opacity-0'
+          : 'translate-y-0 opacity-100'
+      } ${
+        solid
+          ? 'bg-canvas/85 backdrop-blur-xl shadow-card border-b border-line py-3'
+          : 'bg-canvas/60 backdrop-blur-xl border-b border-line/60 py-4'
       }`}
     >
       <ReadingProgress value={scrollProgress} />
