@@ -56,7 +56,7 @@ const PRESENTATION: Record<ServiceId, ServicePresentation> = {
 const SERVICE_ORDER: ServiceId[] = ['alterations', 'embroidery', 'stitching'];
 
 const PRICE_DISPLAY: Record<ServiceId, string> = {
-  alterations: 'From ₹150',
+  alterations: 'From ₹100',
   stitching: 'From ₹450',
   embroidery: 'Custom quote',
 };

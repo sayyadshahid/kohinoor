@@ -16,41 +16,81 @@ export default function Contact() {
       />
 
       <div className="mt-10 mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Reveal className="rounded-xl border border-line bg-surface p-4 shadow-card">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-brand">
-            Location
-          </h3>
-          <p className="mt-1 text-sm text-ink-soft">{SITE.address}</p>
+        <Reveal>
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mocha-400/40 to-transparent" />
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-brand-soft/60">
+                <div className="h-1.5 w-1.5 rounded-full bg-brand" />
+              </div>
+              <div>
+                <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
+                  Location
+                </h3>
+                <p className="mt-1 text-sm leading-relaxed text-ink-soft">{SITE.address}</p>
+              </div>
+            </div>
+          </div>
         </Reveal>
-        <Reveal delay={60} className="rounded-xl border border-line bg-surface p-4 shadow-card">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-brand">
-            Hours
-          </h3>
-          <p className="mt-1 text-sm text-ink-soft">
-            {SITE.hours}
-            <br />
-            {SITE.sundayHours}
-          </p>
+        <Reveal delay={60}>
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mocha-400/40 to-transparent" />
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-brand-soft/60">
+                <div className="h-1.5 w-1.5 rounded-full bg-brand" />
+              </div>
+              <div>
+                <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
+                  Hours
+                </h3>
+                <p className="mt-1 text-sm text-ink-soft">
+                  {SITE.hours}
+                  <br />
+                  {SITE.sundayHours}
+                </p>
+              </div>
+            </div>
+          </div>
         </Reveal>
-        <Reveal delay={90} className="rounded-xl border border-line bg-surface p-4 shadow-card">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-brand">
-            Phone / WhatsApp
-          </h3>
-          <p className="mt-1 text-sm text-ink-soft">
-            <a className="hover:underline" href={`tel:${SITE.phone}`}>
-              {SITE.phoneDisplay}
-            </a>
-          </p>
-          <p className="mt-1 text-xs text-ink-muted">
-            Starting prices from ₹150 (alterations) and ₹450 (ladies suit stitching)
-          </p>
+        <Reveal delay={90}>
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mocha-400/40 to-transparent" />
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-brand-soft/60">
+                <div className="h-1.5 w-1.5 rounded-full bg-brand" />
+              </div>
+              <div>
+                <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
+                  Phone / WhatsApp
+                </h3>
+                <p className="mt-1 text-sm text-ink-soft">
+                  <a className="hover:underline" href={`tel:${SITE.phone}`} aria-label={`Call ${SITE.phoneDisplay}`}>
+                    {SITE.phoneDisplay}
+                  </a>
+                </p>
+                <p className="mt-1 text-xs text-ink-muted">
+                  Starting prices from ₹150 (alterations) and ₹450 (ladies suit stitching)
+                </p>
+              </div>
+            </div>
+          </div>
         </Reveal>
-        <Reveal delay={120} className="rounded-xl border border-line bg-surface p-4 shadow-card">
-          <h3 className="text-xs font-semibold uppercase tracking-wider text-brand">
-            Service Area
-          </h3>
-          <p className="mt-1 text-sm text-ink-soft">{SITE.areaServed.join(', ')}</p>
-          <p className="mt-1 text-xs text-ink-muted">24–48h alterations; trial fitting included</p>
+        <Reveal delay={120}>
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-line bg-surface p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lift">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mocha-400/40 to-transparent" />
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-line bg-brand-soft/60">
+                <div className="h-1.5 w-1.5 rounded-full bg-brand" />
+              </div>
+              <div>
+                <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
+                  Service Area
+                </h3>
+                <p className="mt-1 text-sm text-ink-soft">{SITE.areaServed.join(', ')}</p>
+                <p className="mt-1 text-xs text-ink-muted">24–48h alterations; trial fitting included</p>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
 
