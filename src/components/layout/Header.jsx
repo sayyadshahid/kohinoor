@@ -28,9 +28,9 @@ export default function Header() {
     <header
       aria-hidden={isHidden || undefined}
       inert={isHidden || undefined}
-      className={`sticky top-0 z-50 transition-all duration-500 ease-soft motion-reduce:transition-none ${
+      className={`sticky top-2 z-50 mx-3 sm:mx-4 lg:mx-6 mt-2 overflow-hidden rounded-3xl transition-all duration-500 ease-soft motion-reduce:transition-none ${
         isHidden
-          ? 'pointer-events-none -translate-y-full opacity-0'
+          ? 'pointer-events-none -translate-y-[calc(100%+0.5rem)] opacity-0'
           : 'translate-y-0 opacity-100'
       } ${
         solid

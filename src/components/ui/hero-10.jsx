@@ -9,7 +9,7 @@ import { Cta } from '@/components/ui/hero-10-utils/cta';
 
 const variantStyles = {
   standard: {
-    section: 'py-20 sm:py-28',
+    section: 'pt-2 pb-20 sm:pt-3 sm:pb-28',
     title: 'text-3xl sm:text-4xl md:text-5xl',
     description: 'max-w-lg text-sm sm:text-base',
     header: 'gap-5',
