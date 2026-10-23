@@ -18,15 +18,15 @@ export default function Logo({
   const inverse = variant === 'inverse';
 
   const wordmark = inverse
-    ? 'font-serif text-2xl font-semibold tracking-tight text-platinum-50'
-    : 'font-serif text-2xl md:text-3xl font-semibold tracking-tight text-mocha-900 block leading-none';
+    ? 'font-serif text-xl sm:text-2xl font-semibold tracking-tight text-platinum-50'
+    : 'font-serif text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight text-mocha-900 block leading-none';
 
   const content = (
     <>
       <div>
         <span className={wordmark}>Kohinoor</span>
         {showTagline ? (
-          <span className="text-xs tracking-[0.25em] uppercase font-semibold text-ink-muted block mt-1">
+          <span className="text-[10px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase font-semibold text-ink-muted block mt-0.5 sm:mt-1">
             Atelier &amp; Tailoring
           </span>
         ) : null}

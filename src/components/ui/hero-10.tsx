@@ -15,8 +15,8 @@ const variantStyles = {
     description: 'max-w-lg text-sm sm:text-base',
     header: 'gap-5',
     content: 'gap-8 sm:gap-10',
-    fan: 'max-w-3xl',
-    fanCard: 'aspect-4/5',
+    fan: 'max-w-3xl max-sm:-mx-6 max-sm:w-[calc(100%+3rem)]',
+    fanCard: 'aspect-4/5 max-sm:aspect-[3/4]',
   },
   compact: {
     section: 'py-14 sm:py-20',
@@ -24,15 +24,15 @@ const variantStyles = {
     description: 'max-w-md text-sm',
     header: 'gap-4',
     content: 'gap-6 sm:gap-8',
-    fan: 'max-w-2xl',
-    fanCard: 'aspect-4/5',
+    fan: 'max-w-2xl max-sm:-mx-6 max-sm:w-[calc(100%+3rem)]',
+    fanCard: 'aspect-4/5 max-sm:aspect-[3/4]',
   },
 };
 
 const fanSlots = [
-  { width: 'w-[38%]', layout: '-mr-8 z-10', rotate: -6, x: 48, ty: 24 },
-  { width: 'w-[42%]', layout: 'z-20', rotate: 0, x: 0, ty: -8 },
-  { width: 'w-[38%]', layout: '-ml-8 z-10', rotate: 6, x: -48, ty: 24 },
+  { width: 'w-[44%] sm:w-[38%]', layout: '-mr-8 z-10', rotate: -6, x: 48, ty: 24 },
+  { width: 'w-[52%] sm:w-[42%]', layout: 'z-20', rotate: 0, x: 0, ty: -8 },
+  { width: 'w-[44%] sm:w-[38%]', layout: '-ml-8 z-10', rotate: 6, x: -48, ty: 24 },
 ];
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
