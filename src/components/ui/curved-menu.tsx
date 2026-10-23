@@ -5,6 +5,8 @@ import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import Link from 'next/link';
 import { Camera, Globe, Phone, Share2, X } from 'lucide-react';
 import { SITE } from '../../config/site';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 
 interface iNavItem {
   heading: string;
@@ -218,6 +220,8 @@ export const CurvedNavbar: React.FC<iCurvedNavbarProps & { footer?: React.ReactN
   navItems,
   footer,
 }) => {
+  const { locale } = useLocale();
+
   return (
     <motion.div
       variants={MENU_SLIDE_ANIMATION}
@@ -233,14 +237,14 @@ export const CurvedNavbar: React.FC<iCurvedNavbarProps & { footer?: React.ReactN
       >
         <span className="font-serif text-xl font-semibold tracking-tight text-ink">Kohinoor</span>
         <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.22em] text-silver">
-          Atelier &amp; Tailoring
+          {t(locale, 'menu_tagline')}
         </span>
       </a>
 
       <button
         type="button"
         onClick={() => setIsActive(false)}
-        aria-label="Close navigation menu"
+        aria-label={t(locale, 'menu_close_aria')}
         className="absolute right-6 top-6 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink shadow-card transition-transform duration-300 active:scale-95"
       >
         <X className="h-5 w-5" aria-hidden="true" />
@@ -249,11 +253,11 @@ export const CurvedNavbar: React.FC<iCurvedNavbarProps & { footer?: React.ReactN
       <div className="flex h-full min-h-full flex-col justify-between pt-24">
         <div className="mt-0 flex flex-col gap-3 px-10 text-5xl md:px-24">
           <div className="mb-0 border-b border-line text-sm uppercase text-silver">
-            <p>Navigation</p>
+            <p>{t(locale, 'footer_nav')}</p>
           </div>
           <section className="mt-0 bg-transparent">
             <div className="mx-auto max-w-7xl">
-              <nav aria-label="Primary">
+              <nav aria-label={t(locale, 'nav_primary_aria')}>
                 {navItems.map((item, index) => {
                   return (
                     <NavLink

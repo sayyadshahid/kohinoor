@@ -8,6 +8,7 @@ import Logo from '../brand/Logo';
 import StitchedThreadLine from '../brand/StitchedThreadLine';
 
 export default function MobileNav({ activeSection, onNavigate }) {
+  const { locale } = useLocale();
   useScrollLock(true);
   useEscapeKey(onNavigate, true);
 
@@ -16,7 +17,7 @@ export default function MobileNav({ activeSection, onNavigate }) {
       id="mobile-navigation"
       role="dialog"
       aria-modal="true"
-      aria-label="Navigation"
+      aria-label={t(locale, 'footer_nav')}
       className="pointer-events-auto fixed inset-0 z-[60] animate-menu-in overflow-y-auto overscroll-contain bg-canvas md:hidden"
     >
       <div className="relative flex min-h-[100dvh] flex-col px-5 pb-5 pt-4">
@@ -32,7 +33,7 @@ export default function MobileNav({ activeSection, onNavigate }) {
           <button
             type="button"
             onClick={onNavigate}
-            aria-label="Close navigation menu"
+            aria-label={t(locale, 'menu_close_aria')}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-brand shadow-card transition-transform duration-300 active:scale-95"
           >
             <X className="h-5 w-5" aria-hidden="true" />
@@ -50,7 +51,7 @@ export default function MobileNav({ activeSection, onNavigate }) {
             </span>
           </div>
 
-          <nav aria-label="Primary" className="mt-2 flex flex-col">
+          <nav aria-label={t(locale, 'nav_primary_aria')} className="mt-2 flex flex-col">
             {NAV_LINKS.map(({ href, label }, index) => {
               const isActive = activeSection === href.slice(1);
               return (
@@ -100,7 +101,7 @@ export default function MobileNav({ activeSection, onNavigate }) {
             >
               <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
                 <MessageSquare className="h-4 w-4" aria-hidden="true" />
-                {t(useLocale().locale, 'header_book_fitting')}
+                {t(locale, 'header_book_fitting')}
               </span>
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
@@ -111,7 +112,7 @@ export default function MobileNav({ activeSection, onNavigate }) {
             >
               <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
                 <Phone className="h-4 w-4" aria-hidden="true" />
-                {t(useLocale().locale, 'header_call_atelier')}
+                {t(locale, 'header_call_atelier')}
               </span>
               <ArrowUpRight className="h-4 w-4 text-silver" aria-hidden="true" />
             </a>

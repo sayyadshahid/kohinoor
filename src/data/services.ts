@@ -1,10 +1,6 @@
 import { Scissors, Sparkles, Ruler, type LucideIcon } from 'lucide-react';
 import { SITE, type ServiceId } from '../config/site';
 
-type ServiceItem = (typeof SITE.services)[number] & {
-  priceDisplay: string;
-};
-
 type ServicePresentation = {
   swatch: string;
   badge: string;

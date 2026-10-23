@@ -1,7 +1,21 @@
+'use client';
+
 import { ArrowRight, ZoomIn } from 'lucide-react';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import Card from '../ui/Card';
 
+const CATEGORY_KEYS: Record<string, string> = {
+  All: 'gallery_filter_all',
+  'Ladies Suit Stitching': 'gallery_filter_suit',
+  Embroidery: 'gallery_filter_emb',
+  Alterations: 'gallery_filter_alt',
+};
+
 export default function GalleryCard({ item, onOpen, mediaClassName = '' }) {
+  const { locale } = useLocale();
+  const category = t(locale, CATEGORY_KEYS[item.category] ?? 'gallery_filter_all');
+
   return (
     <Card
       elevation="none"
@@ -35,7 +49,7 @@ export default function GalleryCard({ item, onOpen, mediaClassName = '' }) {
               <ZoomIn className="w-5 h-5 text-on-dark" aria-hidden="true" />
             </div>
             <h4 className="font-serif font-semibold text-lg">{item.title}</h4>
-            <p className="text-xs text-platinum-200">{item.category}</p>
+            <p className="text-xs text-platinum-200">{category}</p>
           </div>
         </div>
       </div>
@@ -43,10 +57,10 @@ export default function GalleryCard({ item, onOpen, mediaClassName = '' }) {
       <div className="p-4 bg-canvas border-t border-line flex items-center justify-between">
         <div>
           <h3 className="font-serif font-semibold text-sm text-brand line-clamp-1">{item.title}</h3>
-          <span className="text-xs text-ink-muted">{item.category}</span>
+          <span className="text-xs text-ink-muted">{category}</span>
         </div>
         <span className="text-xs text-brand font-semibold flex items-center gap-1">
-          View <ArrowRight className="w-3 h-3" aria-hidden="true" />
+          {t(locale, 'gallery_view')} <ArrowRight className="w-3 h-3" aria-hidden="true" />
         </span>
       </div>
     </Card>

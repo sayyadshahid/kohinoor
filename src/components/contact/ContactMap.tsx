@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { MAPS_DIRECTIONS_URL, SITE } from '../../config/site';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import {
   Map,
   MapControls,
@@ -23,6 +25,9 @@ const location = {
 };
 
 export default function ContactMap() {
+  const { locale } = useLocale();
+  const mapName = t(locale, 'map_name');
+  const mapDescription = t(locale, 'map_desc');
   const mapRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -71,7 +76,7 @@ export default function ContactMap() {
             </MarkerContent>
 
             <MarkerTooltip className="bg-brand border border-mocha-700 px-3 py-1.5 rounded-lg shadow-lift">
-              <span className="font-semibold text-on-dark">{location.name}</span>
+              <span className="font-semibold text-on-dark">{mapName}</span>
             </MarkerTooltip>
 
             {!isMobile ? (
@@ -80,7 +85,7 @@ export default function ContactMap() {
                   <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-mocha-700 via-mocha-500 to-platinum-400" />
                   <div className="space-y-1 pt-1">
                     <h4 className="font-serif font-semibold text-brand text-lg leading-tight sm:text-xl">
-                      {location.name}
+                      {mapName}
                     </h4>
                     <p className="line-clamp-2 text-xs italic text-ink-muted sm:text-sm">
                       {location.address}
@@ -88,12 +93,12 @@ export default function ContactMap() {
                   </div>
                   <div className="h-px w-full bg-line" />
                   <p className="line-clamp-2 text-xs leading-relaxed text-ink-soft/90 sm:text-sm">
-                    {location.description}
+                    {mapDescription}
                   </p>
                   <div className="flex items-center justify-between gap-3 border-t border-line pt-2.5">
                     <div className="hidden space-y-0.5 sm:block">
                       <p className="text-[10px] font-semibold uppercase tracking-widest text-ink-muted/60">
-                        Coordinates
+                        {t(locale, 'map_coords')}
                       </p>
                       <span className="font-mono text-xs text-ink-muted/80">
                         {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
@@ -105,7 +110,7 @@ export default function ContactMap() {
                       rel="noopener noreferrer"
                       className="w-full rounded-lg border border-mocha-200 bg-brand-soft px-4 py-2 text-center text-xs font-semibold text-brand transition-colors duration-200 hover:bg-mocha-200 sm:w-auto"
                     >
-                      Navigate →
+                      {t(locale, 'map_navigate')}
                     </a>
                   </div>
                 </div>
@@ -122,27 +127,27 @@ export default function ContactMap() {
           <div className="flex items-start justify-between gap-3">
             <div className="space-y-1">
               <h4 className="font-serif text-lg font-semibold leading-tight text-brand">
-                {location.name}
+                {mapName}
               </h4>
               <p className="text-xs italic text-ink-muted">{location.address}</p>
             </div>
             <button
               type="button"
               onClick={() => setMobileOpen(false)}
-              aria-label="Close location details"
+              aria-label={t(locale, 'map_close_details')}
               className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-canvas text-ink transition-colors hover:bg-brand hover:text-on-dark"
             >
               <X className="h-4 w-4" aria-hidden="true" />
             </button>
           </div>
-          <p className="mt-3 text-xs leading-relaxed text-ink-soft">{location.description}</p>
+          <p className="mt-3 text-xs leading-relaxed text-ink-soft">{mapDescription}</p>
           <a
             href={MAPS_DIRECTIONS_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 flex w-full items-center justify-center rounded-full bg-brand px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-on-dark shadow-card transition-colors hover:bg-brand-hover"
           >
-            Navigate to atelier →
+            {t(locale, 'map_navigate_full')}
           </a>
         </div>
       ) : null}

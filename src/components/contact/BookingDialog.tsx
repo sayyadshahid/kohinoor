@@ -2,11 +2,14 @@
 
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import ContactForm from './ContactForm';
 
 export default function BookingDialog({ onClose }) {
+  const { locale } = useLocale();
   useScrollLock(true);
   useEscapeKey(onClose, true);
 
@@ -26,7 +29,7 @@ export default function BookingDialog({ onClose }) {
           type="button"
           onClick={onClose}
           className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-surface/90 text-ink hover:bg-brand hover:text-on-dark flex items-center justify-center transition-colors shadow-card"
-          aria-label="Close booking form"
+          aria-label={t(locale, 'form_close_aria')}
         >
           <X className="w-5 h-5" />
         </button>

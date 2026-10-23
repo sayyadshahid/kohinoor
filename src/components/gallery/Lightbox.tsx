@@ -2,13 +2,23 @@
 
 import { X } from 'lucide-react';
 import { useBooking } from '../../context/booking-context';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import { CATEGORY_SERVICE_MAP } from '../../data/gallery';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import Button from '../ui/Button';
 
+const CATEGORY_KEYS: Record<string, string> = {
+  'Ladies Suit Stitching': 'gallery_filter_suit',
+  Embroidery: 'gallery_filter_emb',
+  Alterations: 'gallery_filter_alt',
+};
+
 export default function Lightbox({ item, onClose }) {
+  const { locale } = useLocale();
   const { selectService } = useBooking();
+  const category = t(locale, CATEGORY_KEYS[item.category] ?? 'gallery_filter_all');
 
   useScrollLock(true);
   useEscapeKey(onClose, true);
@@ -34,7 +44,7 @@ export default function Lightbox({ item, onClose }) {
           onClick={onClose}
           autoFocus
           className="absolute right-3 top-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-surface/90 text-ink shadow-card transition-colors hover:bg-brand hover:text-on-dark sm:right-4 sm:top-4"
-          aria-label="Close image modal"
+          aria-label={t(locale, 'lightbox_close')}
         >
           <X className="w-5 h-5" />
         </button>
@@ -55,7 +65,7 @@ export default function Lightbox({ item, onClose }) {
           <div className="flex flex-col justify-between gap-4 p-4 sm:p-6">
             <div className="space-y-3">
               <span className="inline-block rounded-full bg-brand px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-platinum-300 sm:text-xs">
-                {item.category}
+                {category}
               </span>
 
               <h3 className="pr-8 font-serif text-xl font-semibold text-brand sm:text-2xl">
@@ -65,17 +75,17 @@ export default function Lightbox({ item, onClose }) {
               <p className="text-xs leading-relaxed text-ink-soft sm:text-sm">{item.description}</p>
 
               <div className="rounded-lg border border-line bg-canvas p-3 text-xs text-ink-soft">
-                <span className="mb-1 block font-semibold text-brand">Craft Specification:</span>
+                <span className="mb-1 block font-semibold text-brand">{t(locale, 'gallery_craft_spec')}</span>
                 {item.details}
               </div>
             </div>
 
             <div className="space-y-2 border-t border-line pt-2">
               <Button onClick={inquire} size="blockLg" elevation="card" full caps>
-                Inquire About Similar Design
+                {t(locale, 'gallery_inquire_similar')}
               </Button>
               <Button onClick={onClose} variant="muted" size="block" full>
-                Close Preview
+                {t(locale, 'gallery_close_preview')}
               </Button>
             </div>
           </div>

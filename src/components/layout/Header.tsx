@@ -10,14 +10,12 @@ import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
 import { useLocale } from '../../context/LocaleProvider';
 import { t } from '../../data/i18n/dict';
+import { NAV_LABEL_KEYS } from '../../data/i18n/nav';
 import Logo from '../brand/Logo';
 import NeedleAndThreadIcon from '../brand/NeedleAndThreadIcon';
 import Button from '../ui/Button';
 import DesktopNav from './DesktopNav';
 import { CurvedNavbar } from '../ui/curved-menu';
-import LanguageSwitcher from './LanguageSwitcher';
-
-const MENU_ITEMS = NAV_LINKS.map(({ href, label }) => ({ heading: label, href }));
 
 function CurvedMenuFooter() {
   const { locale } = useLocale();
@@ -42,6 +40,10 @@ function CurvedMenuFooter() {
 
 export default function Header() {
   const { locale } = useLocale();
+  const menuItems = NAV_LINKS.map(({ href, label }) => ({
+    heading: NAV_LABEL_KEYS[href] ? t(locale, NAV_LABEL_KEYS[href]) : label,
+    href,
+  }));
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { hidden, pastHero } = useAutoHideHeader('home');
   const activeSection = useActiveSection(SECTION_IDS);
@@ -106,7 +108,7 @@ export default function Header() {
               <button
                 onClick={toggleMenu}
                 className="md:hidden p-2 -mr-2 text-brand rounded-md"
-                aria-label="Toggle navigation menu"
+                aria-label={mobileMenuOpen ? t(locale, 'menu_close_aria') : t(locale, 'menu_open_aria')}
                 aria-expanded={mobileMenuOpen}
                 aria-controls="mobile-navigation"
               >
@@ -134,7 +136,7 @@ export default function Header() {
         <AnimatePresence mode="wait">
           {mobileMenuOpen ? (
             <CurvedNavbar
-              navItems={MENU_ITEMS}
+              navItems={menuItems}
               setIsActive={closeMenu}
               footer={<CurvedMenuFooter />}
             />

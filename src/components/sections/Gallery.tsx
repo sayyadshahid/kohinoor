@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { GALLERY_FILTERS, GALLERY_ITEMS } from '../../data/gallery';
+import { GALLERY_ITEMS_BY_LOCALE } from '../../data/gallery';
 import Button from '../ui/Button';
 import { useLocale } from '../../context/LocaleProvider';
 import { t } from '../../data/i18n/dict';
@@ -15,6 +15,7 @@ const CARD_WIDTH =
 
 export default function Gallery() {
   const { locale } = useLocale();
+  const items = GALLERY_ITEMS_BY_LOCALE[locale];
 
   const filters = [
     { key: 'All', label: t(locale, 'gallery_filter_all') },
@@ -33,9 +34,9 @@ export default function Gallery() {
   const filteredItems = useMemo(
     () =>
       filter === 'All'
-        ? GALLERY_ITEMS
-        : GALLERY_ITEMS.filter((item) => item.category === filter),
-    [filter]
+        ? items
+        : items.filter((item) => item.category === filter),
+    [filter, items]
   );
 
   const closeLightbox = useCallback(() => setSelectedItem(null), []);

@@ -9,6 +9,8 @@ import {
   type ReactNode,
 } from 'react';
 import { WHATSAPP_MESSAGES, waLink } from '../config/site';
+import { useLocale } from './LocaleProvider';
+import { t } from '../data/i18n/dict';
 import { DEFAULT_SERVICE } from '../data/content';
 import { scrollToSection } from '../lib/scroll';
 
@@ -45,6 +47,7 @@ const buildInquiryMessage = (data: BookingForm) =>
 
 /* Owns the fitting-inquiry form so any section can pre-fill and jump to it. */
 export function BookingProvider({ children }: { children: ReactNode }) {
+  const { locale } = useLocale();
   const [formData, setFormData] = useState<BookingForm>(createInitialForm);
   const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -63,20 +66,20 @@ export function BookingProvider({ children }: { children: ReactNode }) {
     const errors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      errors.name = 'Please tell us your name.';
+      errors.name = t(locale, 'form_err_name_req');
     } else if (formData.name.trim().length < 2) {
-      errors.name = 'Name looks too short.';
+      errors.name = t(locale, 'form_err_name_short');
     }
 
     const digits = formData.phone.replace(/\D/g, '');
     if (!digits) {
-      errors.phone = 'A phone or WhatsApp number is required.';
+      errors.phone = t(locale, 'form_err_phone_req');
     } else if (digits.length < 8 || digits.length > 15) {
-      errors.phone = 'Enter a valid phone number.';
+      errors.phone = t(locale, 'form_err_phone_invalid');
     }
 
     if (!formData.service) {
-      errors.service = 'Choose a service.';
+      errors.service = t(locale, 'form_err_service_req');
     }
 
     if (formData.preferredDate) {
@@ -84,16 +87,16 @@ export function BookingProvider({ children }: { children: ReactNode }) {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       if (chosen < today) {
-        errors.preferredDate = 'Please pick today or a future date.';
+        errors.preferredDate = t(locale, 'form_err_date_past');
       }
     }
 
     if (formData.message.trim().length < 10) {
-      errors.message = 'Add a little more detail about the garment.';
+      errors.message = t(locale, 'form_err_msg_short');
     }
 
     return errors;
-  }, [formData]);
+  }, [formData, locale]);
 
   const handleSubmit = useCallback(
     (event: FormEvent<HTMLFormElement>) => {

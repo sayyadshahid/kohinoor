@@ -28,7 +28,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
-                  Location
+                  {t(locale, 'contact_card_loc')}
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-ink-soft">{SITE.address}</p>
               </div>
@@ -44,7 +44,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
-                  Hours
+                  {t(locale, 'contact_card_hours')}
                 </h3>
                 <p className="mt-1 text-sm text-ink-soft">
                   {SITE.hours}
@@ -64,7 +64,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
-                  Phone / WhatsApp
+                  {t(locale, 'contact_card_phone')}
                 </h3>
                 <p className="mt-1 text-sm text-ink-soft">
                   <a className="hover:underline" href={`tel:${SITE.phone}`} aria-label={`Call ${SITE.phoneDisplay}`}>
@@ -72,7 +72,7 @@ export default function Contact() {
                   </a>
                 </p>
                 <p className="mt-1 text-xs text-ink-muted">
-    {t(locale, 'contact_card_phone_note')}
+                  {t(locale, 'contact_card_phone_note')}
                 </p>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
-                  Service Area
+                  {t(locale, 'contact_card_area')}
                 </h3>
                 <p className="mt-1 text-sm text-ink-soft">{SITE.areaServed.join(', ')}</p>
                 <p className="mt-1 text-xs text-ink-muted">{t(locale, 'contact_card_area_note')}</p>

@@ -2,7 +2,7 @@ import { ArrowUp, MapPin, MessageSquare, Phone } from 'lucide-react';
 import { MAPS_DIRECTIONS_URL, SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
 import { useLocale } from '../../context/LocaleProvider';
 import { t } from '../../data/i18n/dict';
-import { FOOTER_LINKS, SPECIALTIES } from '../../data/content';
+import { FOOTER_LINKS } from '../../data/content';
 import { scrollToTop } from '../../lib/scroll';
 import Logo from '../brand/Logo';
 import StitchedThreadLine from '../brand/StitchedThreadLine';

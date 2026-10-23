@@ -1,17 +1,40 @@
 'use client';
 
+import { useMemo } from 'react';
 import { Check, Send } from 'lucide-react';
 import { useBooking } from '../../context/booking-context';
+import { useLocale } from '../../context/LocaleProvider';
 import { SERVICE_OPTIONS } from '../../data/content';
+import { t } from '../../data/i18n/dict';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
 import Reveal from '../ui/Reveal';
 import { Field, Select, Textarea, TextInput } from './FormControls';
 import SectionHeading from '../ui/SectionHeading';
 
+const SERVICE_LABEL_KEYS: Record<string, string> = {
+  'Garment Alterations & Reshaping': 'service_opt_alterations',
+  'Ladies Suit Stitching': 'service_opt_stitching',
+  'Intricate Embroidery': 'service_opt_embroidery',
+  'General Inquiry': 'service_opt_general',
+};
+
 export default function ContactForm({ onClose, inDialog = false }) {
+  const { locale } = useLocale();
   const { formData, formErrors, formSubmitted, handleInputChange, handleSubmit, resetForm } =
     useBooking();
+
+  const serviceOptions = useMemo(
+    () =>
+      SERVICE_OPTIONS.map((option) => ({
+        ...option,
+        label: t(locale, SERVICE_LABEL_KEYS[option.value] ?? 'service_opt_general'),
+      })),
+    [locale]
+  );
+
+  const serviceLabel =
+    serviceOptions.find((option) => option.value === formData.service)?.label ?? formData.service;
 
   const submit = (event) => {
     const valid = handleSubmit(event);
@@ -27,8 +50,8 @@ export default function ContactForm({ onClose, inDialog = false }) {
         <div className={inDialog ? 'pr-10' : ''}>
 
              <SectionHeading
-                  eyebrow="Schedule or Inquire"
-                  title=" Book a Fitting or Send a Note"
+                  eyebrow={t(locale, 'form_eyebrow')}
+                  title={t(locale, 'form_title')}
                   threadClassName="w-56"
                 />
 
@@ -39,21 +62,24 @@ export default function ContactForm({ onClose, inDialog = false }) {
             <div className="w-12 h-12 rounded-full bg-brand text-on-dark flex items-center justify-center mx-auto shadow-card">
               <Check className="w-6 h-6" aria-hidden="true" />
             </div>
-            <h3 className="font-serif text-xl font-semibold text-brand">Inquiry Received!</h3>
+            <h3 className="font-serif text-xl font-semibold text-brand">
+              {t(locale, 'form_received')}
+            </h3>
             <p className="text-xs sm:text-sm text-ink-soft">
-              Thank you, <strong>{formData.name}</strong>. Master Tailor will call you shortly at{' '}
-              <strong>{formData.phone}</strong> regarding your <em>{formData.service}</em> request.
+              {t(locale, 'form_thank')} <strong>{formData.name}</strong>.{' '}
+              {t(locale, 'form_will_call')} <strong>{formData.phone}</strong>{' '}
+              {t(locale, 'form_regarding')} <em>{serviceLabel}</em> {t(locale, 'form_request')}
             </p>
             <div className="pt-2">
               <Button onClick={resetForm} size="snug">
-                Submit Another Inquiry
+                {t(locale, 'form_another')}
               </Button>
             </div>
           </div>
         ) : (
           <form onSubmit={submit} className="space-y-4" noValidate>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Field id="name" label="Your Full Name *" error={formErrors.name} errorId="name-error">
+              <Field id="name" label={t(locale, 'form_name')} error={formErrors.name} errorId="name-error">
                 <TextInput
                   name="name"
                   type="text"
@@ -61,7 +87,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
                   autoFocus={inDialog}
                   value={formData.name}
                   onChange={handleInputChange}
-                  placeholder="e.g. Radhika Sharma"
+                  placeholder={t(locale, 'form_name_ph')}
                   error={formErrors.name}
                   errorId="name-error"
                 />
@@ -69,7 +95,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
 
               <Field
                 id="phone"
-                label="Phone / WhatsApp *"
+                label={t(locale, 'form_phone')}
                 error={formErrors.phone}
                 errorId="phone-error"
               >
@@ -80,7 +106,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
                   inputMode="tel"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="+91 84838 95822"
+                  placeholder={t(locale, 'form_phone_ph')}
                   error={formErrors.phone}
                   errorId="phone-error"
                 />
@@ -90,7 +116,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Field
                 id="service"
-                label="Select Tailoring Service *"
+                label={t(locale, 'form_service')}
                 error={formErrors.service}
                 errorId="service-error"
               >
@@ -98,7 +124,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
                   name="service"
                   value={formData.service}
                   onChange={handleInputChange}
-                  options={SERVICE_OPTIONS}
+                  options={serviceOptions}
                   error={formErrors.service}
                   errorId="service-error"
                 />
@@ -106,7 +132,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
 
               <Field
                 id="preferredDate"
-                label="Preferred Fitting Date"
+                label={t(locale, 'form_date')}
                 error={formErrors.preferredDate}
                 errorId="date-error"
               >
@@ -123,7 +149,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
 
             <Field
               id="message"
-              label="Details / Specific Requirements"
+              label={t(locale, 'form_details')}
               error={formErrors.message}
               errorId="message-error"
             >
@@ -132,7 +158,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
                 rows="4"
                 value={formData.message}
                 onChange={handleInputChange}
-                placeholder="Describe your fabric, stitching pattern, or alteration requirements..."
+                placeholder={t(locale, 'form_details_ph')}
                 error={formErrors.message}
                 errorId="message-error"
               />
@@ -140,7 +166,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
 
             <Button type="submit" size="xl" elevation="lift" full caps>
               <Send className="w-4 h-4" aria-hidden="true" />
-              Submit Fitting Inquiry
+              {t(locale, 'form_submit')}
             </Button>
           </form>
         )}
