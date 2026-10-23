@@ -99,7 +99,7 @@ function ImageFan({ images, imageAlts, cardAspect, animate }) {
       initial={animate ? 'hidden' : false}
       whileInView={animate ? 'visible' : undefined}
       animate={animate ? undefined : 'visible'}
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: false, margin: '-80px' }}
     >
       {images.slice(0, 3).map((src, i) => {
         const slot = fanSlots[i] ?? fanSlots[1];
