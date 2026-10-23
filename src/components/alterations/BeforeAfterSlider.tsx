@@ -1,10 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import { ArrowLeftRight, Lightbulb, Scissors, Sparkles } from 'lucide-react';
 
 /* Draggable split slider: drag the dotted thread line to compare fits. */
 export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
+  const { locale } = useLocale();
   const [position, setPosition] = useState(50);
 
   return (
@@ -21,7 +24,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
         />
         <div className="absolute top-2 right-2 z-10 flex items-center gap-1 rounded-full bg-brand px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-on-dark shadow-card pointer-events-none ring-1 ring-platinum-300/25 sm:top-3 sm:right-3 sm:gap-1.5 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider">
           <Sparkles className="h-3 w-3 text-platinum-300 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
-          After<span className="hidden sm:inline"> · Kohinoor Fit</span>
+          {t(locale, 'alterations_after')}<span className="hidden sm:inline"> · Kohinoor Fit</span>
         </div>
 
         <div
@@ -38,7 +41,7 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
             className="w-full h-full object-cover filter contrast-95 brightness-95"
           />
           <div className="absolute top-2 left-2 z-10 rounded-full border border-platinum-300/25 bg-mocha-950/90 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-on-dark shadow-card backdrop-blur-sm pointer-events-none sm:top-3 sm:left-3 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-wider">
-            Before<span className="hidden sm:inline"> · Ill-Fitting</span>
+            {t(locale, 'alterations_before')}<span className="hidden sm:inline"> · Ill-Fitting</span>
           </div>
         </div>
 
@@ -65,13 +68,13 @@ export default function BeforeAfterSlider({ beforeImage, afterImage, title }) {
 
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 px-3.5 py-1.5 bg-mocha-950/85 backdrop-blur-sm text-on-dark rounded-full text-xs uppercase font-semibold tracking-widest pointer-events-none border border-platinum-400/40 flex items-center gap-1.5 shadow-card">
           <ArrowLeftRight className="w-3.5 h-3.5 text-platinum-300" aria-hidden="true" />
-          <span>Drag Thread Line</span>
+          <span>{t(locale, 'alterations_drag')}</span>
         </div>
       </div>
 
       <p className="text-center text-xs text-ink-muted font-medium flex items-center justify-center gap-1.5">
         <Lightbulb className="w-3.5 h-3.5 text-silver shrink-0" aria-hidden="true" />
-        Move the dotted thread line to compare fabric fit &amp; seams in real time.
+        {t(locale, 'alterations_hint')}
       </p>
     </div>
   );

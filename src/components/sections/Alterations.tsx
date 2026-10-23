@@ -1,8 +1,10 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import { Scissors } from 'lucide-react';
-import { BEFORE_AFTER_CASES } from '../../data/alterations';
+import { BEFORE_AFTER_CASES, BEFORE_AFTER_CASES_HI, BEFORE_AFTER_CASES_MR } from '../../data/alterations';
 import Badge from '../ui/Badge';
 import Card from '../ui/Card';
 import Section from '../ui/Section';
@@ -12,9 +14,12 @@ import CaseTabs from '../alterations/CaseTabs';
 import TransformationDetails from '../alterations/TransformationDetails';
 
 export default function Alterations() {
+  const { locale } = useLocale();
+  const cases =
+    locale === 'hi' ? BEFORE_AFTER_CASES_HI : locale === 'mr' ? BEFORE_AFTER_CASES_MR : BEFORE_AFTER_CASES;
   const [activeCase, setActiveCase] = useState(0);
 
-  const item = BEFORE_AFTER_CASES[activeCase];
+  const item = cases[activeCase];
 
   const handleSelectCase = useCallback((index) => setActiveCase(index), []);
 
@@ -25,23 +30,23 @@ export default function Alterations() {
         spacing="space-y-4"
         eyebrow={
           <Badge tone="brand" size="md" icon={Scissors} iconClassName="text-platinum-300">
-            Drag to Compare
+            {t(locale, 'alterations_badge')}
           </Badge>
         }
-        title="Alterations: Before vs After"
+        title={t(locale, 'alterations_title')}
         description={
           <>
-            Drag the{' '}
+            {t(locale, 'alterations_desc1')}{' '}
             <strong className="text-brand font-semibold">
-              vertical dotted line left or right
+              {t(locale, 'alterations_desc_bold')}
             </strong>{' '}
-            on the image below to inspect our tailoring craftsmanship in real time.
+            {t(locale, 'alterations_desc2')}
           </>
         }
       />
 
       <CaseTabs
-        cases={BEFORE_AFTER_CASES}
+        cases={cases}
         activeIndex={activeCase}
         onChange={handleSelectCase}
       />

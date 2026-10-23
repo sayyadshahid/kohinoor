@@ -1,20 +1,24 @@
-import { FAQS } from '../../data/faq';
+import { FAQ_BY_LOCALE } from '../../data/faq';
 import Reveal from '../ui/Reveal';
 import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 
 export default function FAQ() {
+  const { locale } = useLocale();
+  const faqs = FAQ_BY_LOCALE[locale];
   return (
     <Section id="faq" className="py-16 md:py-24 bg-canvas">
       <SectionHeading
         maxWidth="max-w-3xl"
-        eyebrow="Frequently Asked Questions"
-        title="Tailoring Questions Answered"
-        description="Quick answers about ladies suit stitching, alterations, embroidery, timings and booking in Kondhwa, Pune."
+        eyebrow={t(locale, 'faq_eyebrow')}
+        title={t(locale, 'faq_title')}
+        description={t(locale, 'faq_desc')}
       />
 
       <Reveal delay={80} className="mt-10 mx-auto max-w-4xl space-y-3">
-        {FAQS.map((item) => (
+        {faqs.map((item) => (
           <details
             key={item.question}
             className="group rounded-xl border border-line bg-surface shadow-card open:shadow-lift transition-shadow"

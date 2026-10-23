@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GALLERY_FILTERS, GALLERY_ITEMS } from '../../data/gallery';
 import Button from '../ui/Button';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import Reveal from '../ui/Reveal';
 import SectionHeading from '../ui/SectionHeading';
 import GalleryCard from '../gallery/GalleryCard';
@@ -12,6 +14,14 @@ const CARD_WIDTH =
   'w-full shrink-0 sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]';
 
 export default function Gallery() {
+  const { locale } = useLocale();
+
+  const filters = [
+    { key: 'All', label: t(locale, 'gallery_filter_all') },
+    { key: 'Ladies Suit Stitching', label: t(locale, 'gallery_filter_suit') },
+    { key: 'Embroidery', label: t(locale, 'gallery_filter_emb') },
+    { key: 'Alterations', label: t(locale, 'gallery_filter_alt') },
+  ];
   const [filter, setFilter] = useState('All');
   const [selectedItem, setSelectedItem] = useState(null);
   const [distance, setDistance] = useState(0);
@@ -111,21 +121,21 @@ export default function Gallery() {
           <div className="flex flex-col items-center gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeading
               align="center"
-              eyebrow="Portfolio of Finished Works"
-              title="Finished Work From Our Cutting Table"
+              eyebrow={t(locale, 'gallery_eyebrow')}
+              title={t(locale, 'gallery_title')}
               threadClassName="w-48"
             />
 
             <div className="flex flex-wrap items-center justify-center gap-2">
-              {GALLERY_FILTERS.map((category) => (
+              {filters.map((category) => (
                 <Button
-                  key={category}
-                  onClick={() => setFilter(category)}
-                  variant={filter === category ? 'primary' : 'subtle'}
+                  key={category.key}
+                  onClick={() => setFilter(category.key)}
+                  variant={filter === category.key ? 'primary' : 'subtle'}
                   size="snug"
-                  elevation={filter === category ? 'card' : 'none'}
+                  elevation={filter === category.key ? 'card' : 'none'}
                 >
-                  {category}
+                  {category.label}
                 </Button>
               ))}
             </div>

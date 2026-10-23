@@ -1,5 +1,7 @@
 import { Award, ShieldCheck } from 'lucide-react';
 import { SITE, YEARS_CRAFTING } from '../../config/site';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import { ABOUT_STATS } from '../../data/content';
 import Reveal from '../ui/Reveal';
 import Section from '../ui/Section';
@@ -7,6 +9,7 @@ import SectionHeading from '../ui/SectionHeading';
 import StatList from '../ui/StatList';
 
 export default function About() {
+  const { locale } = useLocale();
   return (
     <Section id="about" className="py-16 md:py-24 bg-canvas-alt/70 border-y border-line">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -15,25 +18,18 @@ export default function About() {
             align="center"
             spacing="space-y-6"
             maxWidth="max-w-full"
-            eyebrow="About Kohinoor Atelier"
-            title={`${YEARS_CRAFTING} Years of Tailoring Precision & Fabric Mastery`}
+            eyebrow={t(locale, 'about_eyebrow')}
+            title={`${YEARS_CRAFTING} ${t(locale, 'about_title')}`}
             threadClassName="w-56"
           />
 
           <Reveal delay={80} className="mt-6 space-y-6">
             <div className="space-y-4 text-sm sm:text-base text-ink-soft leading-relaxed font-normal text-pretty">
               <p>
-                Founded in {SITE.founded} in{' '}
-                <strong className="text-brand font-semibold">Kondhwa, Pune</strong>,{' '}
-                <strong className="text-brand font-semibold">Kohinoor Tailors</strong> began with a
-                simple belief: every garment should feel like a second skin. Our atelier combines
-                traditional hand-stitching techniques with precise pattern cutting to deliver
-                clothing that fits effortlessly.
+                {t(locale, 'about_p1_start')} {SITE.founded} {t(locale, 'about_p1_mid')}
               </p>
               <p>
-                Whether it is altering a cherished vintage outfit, crafting an intricate hand-zardozi
-                bridal suit, or stitching ladies suits to exact measurements, our master tailors
-                treat every piece of fabric with meticulous attention.
+                {t(locale, 'about_p2')}
               </p>
             </div>
 
@@ -47,11 +43,10 @@ export default function About() {
               <ShieldCheck className="w-6 h-6 text-brand shrink-0 mt-1" aria-hidden="true" />
               <div className="space-y-1">
                 <h4 className="font-serif font-semibold text-sm text-brand">
-                  The Kohinoor Trial-Fitting Guarantee
+                  {t(locale, 'about_guarantee_title')}
                 </h4>
                 <p className="text-xs text-ink-soft">
-                  If your suit doesn't fit with absolute perfection during your initial trial, we
-                  re-adjust and fine-tune it free of cost until it satisfies your expectations.
+                  {t(locale, 'about_guarantee_desc')}
                 </p>
               </div>
             </div>
@@ -75,11 +70,11 @@ export default function About() {
               <div className="flex items-center gap-2">
                 <Award className="w-4 h-4 text-platinum-300" aria-hidden="true" />
                 <span className="text-xs font-semibold uppercase tracking-wider text-platinum-300">
-                  Master Tailors at Work
+                  {t(locale, 'about_work_title')}
                 </span>
               </div>
               <p className="font-serif text-base text-platinum-50">
-                Hand-drafted patterns for every individual garment.
+                {t(locale, 'about_work_subtitle')}
               </p>
             </div>
           </div>

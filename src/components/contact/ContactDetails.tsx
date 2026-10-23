@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Clock, MapPin, MessageSquare, Navigation, Phone } from 'lucide-react';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import { MAPS_DIRECTIONS_URL, SITE } from '../../config/site';
 import { useBooking } from '../../context/booking-context';
 import BookingDialog from './BookingDialog';
@@ -9,18 +11,20 @@ import Eyebrow from '../ui/Eyebrow';
 import IconTile from '../ui/IconTile';
 import Reveal from '../ui/Reveal';
 
-const rows = [
-  { icon: MapPin, label: 'Shop Location', value: SITE.address },
-  { icon: Clock, label: 'Operating Hours', value: SITE.hours, hint: SITE.sundayHours },
+const getRows = (locale: string) => [
+  { icon: MapPin, label: t(locale as any, 'contact_shop_label'), value: SITE.address },
+  { icon: Clock, label: t(locale as any, 'contact_hours_label'), value: SITE.hours, hint: SITE.sundayHours },
   {
     icon: Phone,
-    label: 'Direct Hotline',
+    label: t(locale as any, 'contact_hotline'),
     value: SITE.phoneDisplay,
     href: `tel:${SITE.phone}`,
   },
 ];
 
 export default function ContactDetails() {
+  const { locale } = useLocale();
+  const rows = getRows(locale);
   const [bookingOpen, setBookingOpen] = useState(false);
   const { formSubmitted, resetForm } = useBooking();
 
@@ -34,9 +38,9 @@ export default function ContactDetails() {
       <div className="flex flex-col gap-6 lg:h-full">
         <Card className="space-y-6">
           <div>
-            <Eyebrow>Visit the Atelier</Eyebrow>
+            <Eyebrow>{t(locale, 'contact_visit_title').split(' ')[0] === 'Address' ? 'Visit the Atelier' : t(locale, 'contact_eyebrow')}</Eyebrow>
             <h3 className="font-serif text-xl font-semibold text-brand mt-1">
-              Address &amp; Hours
+              {t(locale, 'contact_visit_title')}
             </h3>
           </div>
 
@@ -69,19 +73,18 @@ export default function ContactDetails() {
             caps
           >
             <Navigation className="w-4 h-4" aria-hidden="true" />
-            Get Directions
+{t(locale, 'contact_directions')}
           </Button>
         </Card>
 
         <Card className="flex-1 flex flex-col justify-between gap-6">
           <div className="space-y-3">
-            <Eyebrow>Prefer to Chat?</Eyebrow>
+            <Eyebrow>{t(locale, 'contact_inspire')}</Eyebrow>
             <h3 className="font-serif text-xl font-semibold text-brand">
-              Send Us Your Inspiration
+              {t(locale, 'contact_chat_title')}
             </h3>
             <p className="text-xs sm:text-sm text-ink-soft leading-relaxed">
-              Share a reference photo, fabric detail, or occasion date on WhatsApp and our master
-              tailor will guide you on cuts, measurements, and timelines before you visit.
+              {t(locale, 'contact_chat_desc')}
             </p>
           </div>
 
@@ -94,7 +97,7 @@ export default function ContactDetails() {
             caps
           >
             <MessageSquare className="w-4 h-4" aria-hidden="true" />
-            Book a Fitting via WhatsApp
+{t(locale, 'contact_chat_btn')}
           </Button>
         </Card>
       </div>

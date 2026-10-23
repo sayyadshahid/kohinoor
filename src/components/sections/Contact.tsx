@@ -4,14 +4,17 @@ import Reveal from '../ui/Reveal';
 import ContactDetails from '../contact/ContactDetails';
 import ContactMap from '../contact/ContactMap';
 import { SITE } from '../../config/site';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 
 export default function Contact() {
+  const { locale } = useLocale();
   return (
     <Section id="contact" className="py-16 md:py-24 bg-canvas-alt/70 border-t border-line">
       <SectionHeading
-        eyebrow="Visit & Inquire"
-        title="Contact Kohinoor Tailors in Kondhwa, Pune"
-        description="Find our atelier, meet the master tailors, and start a garment that fits like it was made for you — because it is."
+        eyebrow={t(locale, 'contact_eyebrow')}
+        title={t(locale, 'contact_title')}
+        description={t(locale, 'contact_desc')}
         threadClassName="w-56"
       />
 
@@ -69,7 +72,7 @@ export default function Contact() {
                   </a>
                 </p>
                 <p className="mt-1 text-xs text-ink-muted">
-                  Starting prices from ₹150 (alterations) and ₹450 (ladies suit stitching)
+    {t(locale, 'contact_card_phone_note')}
                 </p>
               </div>
             </div>
@@ -87,7 +90,7 @@ export default function Contact() {
                   Service Area
                 </h3>
                 <p className="mt-1 text-sm text-ink-soft">{SITE.areaServed.join(', ')}</p>
-                <p className="mt-1 text-xs text-ink-muted">24–48h alterations; trial fitting included</p>
+                <p className="mt-1 text-xs text-ink-muted">{t(locale, 'contact_card_area_note')}</p>
               </div>
             </div>
           </div>

@@ -4,13 +4,13 @@ import { t } from '../../data/i18n/dict';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const LABEL_KEYS: Record<string, string> = {
-  '/#home': 'nav_home',
-  '/#services': 'nav_services',
-  '/#alterations': 'nav_alterations',
-  '/#gallery': 'nav_gallery',
-  '/#about': 'nav_about',
-  '/#faq': 'nav_faq',
-  '/#contact': 'nav_contact',
+  '#home': 'nav_home',
+  '#services': 'nav_services',
+  '#alterations': 'nav_alterations',
+  '#gallery': 'nav_gallery',
+  '#about': 'nav_about',
+  '#faq': 'nav_faq',
+  '#contact': 'nav_contact',
 };
 
 export default function DesktopNav({ activeSection }: { activeSection: string }) {

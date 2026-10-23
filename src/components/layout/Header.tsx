@@ -20,11 +20,12 @@ import LanguageSwitcher from './LanguageSwitcher';
 const MENU_ITEMS = NAV_LINKS.map(({ href, label }) => ({ heading: label, href }));
 
 function CurvedMenuFooter() {
+  const { locale } = useLocale();
   return (
     <div className="flex w-full items-center justify-between gap-3 border-t border-line px-10 py-5 text-xs font-semibold uppercase tracking-wider md:px-24">
       <a href={`tel:${SITE.phone}`} className="flex items-center gap-2 text-brand">
         <Phone className="h-4 w-4" aria-hidden="true" />
-        Call Atelier
+        {t(locale, 'header_call_atelier')}
       </a>
       <a
         href={waLink(WHATSAPP_MESSAGES.fitting)}
@@ -33,13 +34,14 @@ function CurvedMenuFooter() {
         className="flex items-center gap-2 text-brand"
       >
         <MessageSquare className="h-4 w-4" aria-hidden="true" />
-        Book Fitting
+        {t(locale, 'header_book_fitting')}
       </a>
     </div>
   );
 }
 
 export default function Header() {
+  const { locale } = useLocale();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { hidden, pastHero } = useAutoHideHeader('home');
   const activeSection = useActiveSection(SECTION_IDS);
@@ -87,7 +89,7 @@ export default function Header() {
               <div className="hidden md:flex items-center gap-3">
                 <Button href={`tel:${SITE.phone}`} variant="ghost" size="sm" caps>
                   <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-                  Call Atelier
+                  {t(locale, 'header_call_atelier')}
                 </Button>
                 <Button
                   href={waLink(WHATSAPP_MESSAGES.fitting)}
@@ -97,7 +99,7 @@ export default function Header() {
                   elevation="card"
                   caps
                 >
-                  Book Fitting
+                  {t(locale, 'header_book_fitting')}
                 </Button>
               </div>
 

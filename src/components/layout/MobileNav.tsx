@@ -2,6 +2,8 @@ import { ArrowUpRight, MessageSquare, Phone, X } from 'lucide-react';
 import { NAV_LINKS, SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
 import { useEscapeKey } from '../../hooks/useEscapeKey';
 import { useScrollLock } from '../../hooks/useScrollLock';
+import { useLocale } from '../../context/LocaleProvider';
+import { t } from '../../data/i18n/dict';
 import Logo from '../brand/Logo';
 import StitchedThreadLine from '../brand/StitchedThreadLine';
 
@@ -98,7 +100,7 @@ export default function MobileNav({ activeSection, onNavigate }) {
             >
               <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
                 <MessageSquare className="h-4 w-4" aria-hidden="true" />
-                Book Fitting
+                {t(useLocale().locale, 'header_book_fitting')}
               </span>
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </a>
@@ -109,7 +111,7 @@ export default function MobileNav({ activeSection, onNavigate }) {
             >
               <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
                 <Phone className="h-4 w-4" aria-hidden="true" />
-                Call
+                {t(useLocale().locale, 'header_call_atelier')}
               </span>
               <ArrowUpRight className="h-4 w-4 text-silver" aria-hidden="true" />
             </a>
