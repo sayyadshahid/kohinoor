@@ -5,77 +5,103 @@ import { Menu, Phone, X } from 'lucide-react';
 import { SECTION_IDS, SITE, WHATSAPP_MESSAGES, waLink } from '../../config/site';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { useAutoHideHeader } from '../../hooks/useAutoHideHeader';
-import { useScrollProgress } from '../../hooks/useScrollProgress';
 import Logo from '../brand/Logo';
+import NeedleAndThreadIcon from '../brand/NeedleAndThreadIcon';
 import Button from '../ui/Button';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
-import ReadingProgress from './ReadingProgress';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { hidden, pastHero } = useAutoHideHeader('home');
-  const scrollProgress = useScrollProgress();
   const activeSection = useActiveSection(SECTION_IDS);
 
   const closeMenu = useCallback(() => setMobileMenuOpen(false), []);
   const toggleMenu = useCallback(() => setMobileMenuOpen((open) => !open), []);
 
-  const solid = pastHero || mobileMenuOpen;
-  const isHidden = hidden && !mobileMenuOpen;
+  const compact = hidden && !mobileMenuOpen;
+  const solid = pastHero || mobileMenuOpen || compact;
 
   return (
-    <header
-      aria-hidden={isHidden || undefined}
-      inert={isHidden || undefined}
-      className={`sticky top-2 z-50 mx-3 sm:mx-4 lg:mx-6 mt-2 overflow-hidden rounded-3xl transition-all duration-500 ease-soft motion-reduce:transition-none ${
-        isHidden
-          ? 'pointer-events-none -translate-y-[calc(100%+0.5rem)] opacity-0'
-          : 'translate-y-0 opacity-100'
-      } ${
-        solid
-          ? 'bg-canvas/85 backdrop-blur-xl shadow-card border-b border-line py-4'
-          : 'bg-canvas/60 backdrop-blur-xl border-b border-line/60 py-4'
-      }`}
-    >
-      <ReadingProgress value={scrollProgress} />
+    <>
+      {/* Reserves the space the header used to occupy so collapsing it never shifts the page. */}
+      <div aria-hidden="true" className="h-20 md:h-[5.5rem]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        <Logo href="#home" />
-
-        <DesktopNav activeSection={activeSection} />
-
-        <div className="hidden md:flex items-center gap-3">
-          <Button href={`tel:${SITE.phone}`} variant="ghost" size="sm" caps>
-            <Phone className="w-3.5 h-3.5" aria-hidden="true" />
-            Call Atelier
-          </Button>
-          <Button
-            href={waLink(WHATSAPP_MESSAGES.fitting)}
-            target="_blank"
-            rel="noopener noreferrer"
-            size="smWide"
-            elevation="card"
-            caps
+      <header className="pointer-events-none fixed inset-x-0 top-2 z-50 flex justify-center">
+        <div
+          className={`pointer-events-auto relative overflow-hidden border transition-all duration-700 ease-soft motion-reduce:transition-none ${
+            compact
+              ? 'h-10 w-36 rounded-full px-2'
+              : 'h-[4.5rem] w-[calc(100%-1.5rem)] rounded-3xl sm:w-[calc(100%-2rem)] md:h-20 lg:w-[calc(100%-3rem)]'
+          } ${
+            solid
+              ? 'border-line bg-canvas/85 shadow-card backdrop-blur-xl'
+              : 'border-line/60 bg-canvas/60 backdrop-blur-xl'
+          }`}
+        >
+          <div
+            aria-hidden={compact || undefined}
+            inert={compact || undefined}
+            className={`absolute left-1/2 top-1/2 flex h-[4.5rem] w-[calc(100vw-1.5rem)] -translate-x-1/2 -translate-y-1/2 items-center transition-opacity duration-300 ease-soft sm:w-[calc(100vw-2rem)] md:h-20 lg:w-[calc(100vw-3rem)] ${
+              compact ? 'opacity-0' : 'opacity-100 delay-150'
+            }`}
           >
-            Book Fitting
-          </Button>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex w-full items-center justify-between">
+              <Logo href="#home" />
+
+              <DesktopNav activeSection={activeSection} />
+
+              <div className="hidden md:flex items-center gap-3">
+                <Button href={`tel:${SITE.phone}`} variant="ghost" size="sm" caps>
+                  <Phone className="w-3.5 h-3.5" aria-hidden="true" />
+                  Call Atelier
+                </Button>
+                <Button
+                  href={waLink(WHATSAPP_MESSAGES.fitting)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="smWide"
+                  elevation="card"
+                  caps
+                >
+                  Book Fitting
+                </Button>
+              </div>
+
+              <button
+                onClick={toggleMenu}
+                className="md:hidden p-2 -mr-2 text-brand rounded-md"
+                aria-label="Toggle navigation menu"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
+
+          <div
+            aria-hidden={!compact || undefined}
+            inert={!compact || undefined}
+            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ease-soft ${
+              compact ? 'opacity-100 delay-150' : 'pointer-events-none opacity-0'
+            }`}
+          >
+            <a href="#home" className="flex items-center gap-2 text-brand" aria-label="Kohinoor — back to top">
+              <NeedleAndThreadIcon className="w-4 h-4" />
+              <span className="font-serif text-base font-semibold tracking-tight text-mocha-900 whitespace-nowrap">
+                Kohinoor
+              </span>
+            </a>
+          </div>
         </div>
 
-        <button
-          onClick={toggleMenu}
-          className="md:hidden p-2 -mr-2 text-brand rounded-md"
-          aria-label="Toggle navigation menu"
-          aria-expanded={mobileMenuOpen}
-          aria-controls="mobile-navigation"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {mobileMenuOpen ? (
-        <MobileNav activeSection={activeSection} onNavigate={closeMenu} />
-      ) : null}
-    </header>
+        {mobileMenuOpen ? (
+          <div className="pointer-events-auto absolute left-1/2 top-[calc(100%+0.5rem)] w-[calc(100%-1.5rem)] -translate-x-1/2 overflow-hidden rounded-3xl border border-line bg-canvas shadow-card sm:w-[calc(100%-2rem)] lg:w-[calc(100%-3rem)]">
+            <MobileNav activeSection={activeSection} onNavigate={closeMenu} />
+          </div>
+        ) : null}
+      </header>
+    </>
   );
 }
