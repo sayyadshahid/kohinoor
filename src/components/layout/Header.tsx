@@ -45,7 +45,7 @@ export default function Header() {
     href,
   }));
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { hidden, pastHero } = useAutoHideHeader('home');
+  const { hidden, pastHero, scrolled } = useAutoHideHeader('home');
   const activeSection = useActiveSection(SECTION_IDS);
 
   const closeMenu = useCallback(() => setMobileMenuOpen(false), []);
@@ -64,7 +64,7 @@ export default function Header() {
 
       <header className="pointer-events-none fixed inset-x-0 top-2 z-50 flex justify-center">
         <div
-          className={`pointer-events-auto relative z-[80] overflow-visible border transition-all duration-700 ease-soft motion-reduce:transition-none ${
+          className={`pointer-events-auto relative z-[80] overflow-visible border border-transparent transition-all duration-700 ease-soft motion-reduce:transition-none ${
             mobileMenuOpen ? 'invisible -translate-y-2 opacity-0' : ''
           } ${
             compact
@@ -73,7 +73,9 @@ export default function Header() {
           } ${
             solid
               ? 'border-line bg-canvas/85 shadow-card backdrop-blur-xl'
-              : 'border-line/60 bg-canvas/60 backdrop-blur-xl'
+              : scrolled
+                ? 'border-line/60 bg-canvas/60 backdrop-blur-xl'
+                : 'bg-canvas/60 backdrop-blur-xl'
           }`}
         >
           <div

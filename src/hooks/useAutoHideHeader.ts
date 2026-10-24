@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 export function useAutoHideHeader(heroId = 'home') {
   const [hidden, setHidden] = useState(false);
   const [pastHero, setPastHero] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const lastY = useRef(0);
   const direction = useRef(0);
   const pivotY = useRef(0);
@@ -25,6 +26,7 @@ export function useAutoHideHeader(heroId = 'home') {
       const delta = y - lastY.current;
 
       setPastHero(y >= heroBottom);
+      setScrolled(y > 8);
 
       if (y <= 8) {
         direction.current = 0;
@@ -82,5 +84,5 @@ export function useAutoHideHeader(heroId = 'home') {
     };
   }, [heroId]);
 
-  return { hidden, pastHero };
+  return { hidden, pastHero, scrolled };
 }
