@@ -38,10 +38,10 @@ const buildInquiryMessage = (data: BookingForm) =>
   [
     WHATSAPP_MESSAGES.fitting,
     '',
-    `Name: ${data.name}`,
+    `Naam: ${data.name}`,
     `Phone: ${data.phone}`,
     `Service: ${data.service}`,
-    `Preferred fitting date: ${data.preferredDate || 'Flexible'}`,
+    `Fitting ki date: ${data.preferredDate || 'Koi bhi din chalega'}`,
     `Requirements: ${data.message}`,
   ].join('\n');
 

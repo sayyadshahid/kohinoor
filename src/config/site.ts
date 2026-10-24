@@ -94,13 +94,13 @@ export const waLink = (message: string): string =>
   `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
 
 export const WHATSAPP_MESSAGES = {
-  fitting: 'Hello Kohinoor Tailors, I would like to book a fitting session.',
-  stitching: 'Hello Kohinoor Tailors, I would like to inquire about stitching.',
+  fitting: 'Namaste Kohinoor Tailors, mujhe fitting session book karni hai.',
+  stitching: 'Namaste Kohinoor Tailors, mujhe stitching ke baare mein inquiry karni hai.',
   stitchingAndAlterations:
-    'Hello Kohinoor Tailors, I would like to inquire about stitching and alterations.',
+    'Namaste Kohinoor Tailors, mujhe stitching aur alterations ke baare mein inquiry karni hai.',
   embroidery:
-    'Hello Kohinoor Tailors, I would like to inquire about hand and machine embroidery.',
-  directions: 'Hello Kohinoor Tailors, I am outside the shop and would like directions.',
+    'Namaste Kohinoor Tailors, mujhe hand aur machine embroidery ke baare mein inquiry karni hai.',
+  directions: 'Namaste Kohinoor Tailors, main shop ke bahar hoon, directions bhej dijiye.',
 };
 
 export const SECTION_IDS = [
