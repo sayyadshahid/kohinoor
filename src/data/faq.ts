@@ -23,7 +23,7 @@ const FAQ_EN: FaqItem[] = [
   {
     question: 'How much do alterations cost?',
     answer:
-      'Alterations start from ₹150; bridal/structured garments are quoted after inspection.',
+      'Alterations start from ₹100; bridal/structured garments are quoted after inspection.',
   },
   {
     question: 'How long do alterations take?',
