@@ -1,7 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Sparkles } from 'lucide-react';
 import { GALLERY_ITEMS_BY_LOCALE } from '../../data/gallery';
+import { WHATSAPP_MESSAGES, waLink } from '../../config/site';
 import Button from '../ui/Button';
 import { useLocale } from '../../context/LocaleProvider';
 import { t } from '../../data/i18n/dict';
@@ -19,9 +21,9 @@ export default function Gallery() {
 
   const filters = [
     { key: 'All', label: t(locale, 'gallery_filter_all') },
+    { key: 'Alterations', label: t(locale, 'gallery_filter_alt') },
     { key: 'Ladies Suit Stitching', label: t(locale, 'gallery_filter_suit') },
     { key: 'Embroidery', label: t(locale, 'gallery_filter_emb') },
-    { key: 'Alterations', label: t(locale, 'gallery_filter_alt') },
   ];
   const [filter, setFilter] = useState('All');
   const [selectedItem, setSelectedItem] = useState(null);
@@ -38,13 +40,17 @@ export default function Gallery() {
         : items.filter((item) => item.category === filter),
     [filter, items]
   );
+  const showEmbroideryNote = filter === 'Embroidery' && filteredItems.length === 0;
 
   const closeLightbox = useCallback(() => setSelectedItem(null), []);
 
   const measure = useCallback(() => {
     const viewport = viewportRef.current;
     const track = trackRef.current;
-    if (!viewport || !track) return;
+    if (!viewport || !track) {
+      setDistance(0);
+      return;
+    }
 
     const next = Math.max(0, track.scrollWidth - viewport.clientWidth);
     setDistance((current) => (Math.abs(current - next) > 0.5 ? next : current));
@@ -142,26 +148,55 @@ export default function Gallery() {
             </div>
           </div>
 
-          <div ref={viewportRef} className="mt-8 overflow-hidden sm:mt-10">
-            <div
-              ref={trackRef}
-              className="flex items-stretch gap-6 will-change-transform"
-            >
-              {filteredItems.map((item, index) => (
-                <Reveal
-                  key={item.id}
-                  delay={(index % 3) * 90}
-                  className={`h-full ${CARD_WIDTH}`}
+          {showEmbroideryNote ? (
+            <div className="mx-auto mt-8 max-w-xl sm:mt-10">
+              <div className="flex flex-col items-center gap-4 rounded-2xl border border-line bg-surface p-8 text-center shadow-card sm:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-platinum-200 ring-1 ring-platinum-300/25">
+                  <Sparkles className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <h3 className="font-serif text-xl font-semibold text-brand sm:text-2xl">
+                  {t(locale, 'gallery_emb_note_title')}
+                </h3>
+                <p className="text-sm leading-relaxed text-ink-muted">
+                  {t(locale, 'gallery_emb_note_desc')}
+                </p>
+                <Button
+                  href={waLink(WHATSAPP_MESSAGES.embroidery)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="whatsapp"
+                  size="mdWide"
+                  elevation="card"
+                  hoverLift
+                  caps
                 >
-                  <GalleryCard
-                    item={item}
-                    onOpen={setSelectedItem}
-                    mediaClassName="max-h-[calc(100svh-21rem)] sm:max-h-[calc(100svh-19rem)] lg:max-h-[calc(100svh-18rem)]"
-                  />
-                </Reveal>
-              ))}
+                  <Sparkles className="h-4 w-4" aria-hidden="true" />
+                  {t(locale, 'gallery_emb_note_cta')}
+                </Button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div ref={viewportRef} className="mt-8 overflow-hidden sm:mt-10">
+              <div
+                ref={trackRef}
+                className="flex items-stretch gap-6 will-change-transform"
+              >
+                {filteredItems.map((item, index) => (
+                  <Reveal
+                    key={item.id}
+                    delay={(index % 3) * 90}
+                    className={`h-full ${CARD_WIDTH}`}
+                  >
+                    <GalleryCard
+                      item={item}
+                      onOpen={setSelectedItem}
+                      mediaClassName="max-h-[calc(100svh-21rem)] sm:max-h-[calc(100svh-19rem)] lg:max-h-[calc(100svh-18rem)]"
+                    />
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

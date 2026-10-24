@@ -16,7 +16,7 @@ export default function CaseTabs({ cases, activeIndex, onChange }) {
             className={active ? 'ring-2 ring-platinum-400' : ''}
           >
             <Scissors className="w-3.5 h-3.5" aria-hidden="true" />
-            {item.tag}: {item.title.split(' ')[0]} {item.title.split(' ')[1]}
+            {item.tag}
           </Button>
         );
       })}

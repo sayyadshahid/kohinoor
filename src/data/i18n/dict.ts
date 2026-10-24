@@ -61,6 +61,10 @@ export const labels: Record<Locale, Record<string, string>> = {
     gallery_filter_suit: 'Ladies Suit Stitching',
     gallery_filter_emb: 'Embroidery',
     gallery_filter_alt: 'Alterations',
+    gallery_emb_note_title: 'Embroidery Photos Coming Soon',
+    gallery_emb_note_desc:
+      "We don't have photos of our embroidery work yet, but we do offer hand and machine embroidery. Contact us to see samples or request a quote.",
+    gallery_emb_note_cta: 'Enquire on WhatsApp',
     // About
     about_eyebrow: 'About Kohinoor Atelier',
     about_title: 'Years of Tailoring Precision & Fabric Mastery',
@@ -250,6 +254,10 @@ export const labels: Record<Locale, Record<string, string>> = {
     gallery_filter_suit: 'महिला सूट सिलाई',
     gallery_filter_emb: 'कढ़ाई',
     gallery_filter_alt: 'अल्टरेशन',
+    gallery_emb_note_title: 'कढ़ाई की फोटो जल्द आ रही हैं',
+    gallery_emb_note_desc:
+      'अभी हमारे पास कढ़ाई के फोटो नहीं हैं, लेकिन हम हाथ और मशीन की कढ़ाई की सेवा देते हैं। सैंपल देखने या कोट के लिए संपर्क करें।',
+    gallery_emb_note_cta: 'WhatsApp पर पूछताछ करें',
     about_eyebrow: 'कोहिनूर अटेलियर के बारे में',
     about_title: 'वर्षों की दर्जी परिशुद्धता और कपड़े की कला',
     about_p1_start: 'स्थापना',
@@ -426,6 +434,10 @@ export const labels: Record<Locale, Record<string, string>> = {
     gallery_filter_suit: 'महिला सूट शिवण',
     gallery_filter_emb: 'भरतकाम',
     gallery_filter_alt: 'अल्टरेशन',
+    gallery_emb_note_title: 'भरतकामाचे फोटो लवकरच येत आहेत',
+    gallery_emb_note_desc:
+      'सध्या आमच्याकडे भरतकामाचे फोटो नाहीत, पण आम्ही हाताने आणि मशीनने भरतकाम सेवा देतो. नमुने पाहण्यासाठी किंवा कोटसाठी संपर्क करा.',
+    gallery_emb_note_cta: 'WhatsApp वर चौकशी करा',
     about_eyebrow: 'कोहिनूर अटेलियर बद्दल',
     about_title: 'वर्षांची अचूकता आणि कापडातील कारागिरी',
     about_p1_start: 'स्थापना',

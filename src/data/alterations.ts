@@ -1,165 +1,155 @@
 export const BEFORE_AFTER_CASES = [
   {
-    id: 'lehenga-resizing',
-    title: 'Bridal Lehenga Waist & Length Resizing',
-    tag: 'Bridal Alteration',
+    id: 'suit-resizing',
+    tag: 'Suit Alteration',
+    title: 'Suit Waist & Length Resizing',
     turnaround: '48 Hours',
-    beforeImage:
-      'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80',
+    beforeImage: '/alterations/before-suit.webp',
+    afterImage: '/alterations/after-suit.webp',
     beforeProblem:
-      'Off-the-rack bridal lehenga was 3 inches too loose at the waist with an uneven floor drag causing tripping.',
+      'Ready-made suit was loose at the waist and the hem was too long, giving an uneven, boxy drape.',
     afterSolution:
-      'Precision waist tucking with invisible side zipper, interior can-can restructuring, and hem elevated to clear 3-inch heels.',
+      'Waist taken in with invisible side seams, hem shortened to the correct length, and the silhouette reshaped for a clean, tailored fit.',
     alterationSteps: [
-      'Waist reduced by 2.8 inches without cutting border threadwork',
-      'Added concealed inner hook closure for heavy garment support',
-      'Hand-hemmed bottom border aligned symmetrically to floor height',
+      'Waist reduced by 2.5 inches with concealed stitching',
+      'Hem shortened and hand-finished with matching thread',
+      'Side seams re-shaped to remove excess fabric and bunching',
     ],
   },
   {
-    id: 'blouse-tapering',
-    title: 'Blouse Armhole Depth & Shoulder Tapering',
-    tag: 'Blouse Fitting',
+    id: 'burkha-resizing',
+    tag: 'Burkha Alteration',
+    title: 'Burkha Size & Length Reshaping',
     turnaround: '24 Hours',
-    beforeImage:
-      'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=900&q=80',
-    beforeProblem: 'Drooping shoulder seams, excess gaping under arms, and lack of bust structure.',
+    beforeImage: '/alterations/burkha-before.webp',
+    afterImage: '/alterations/burkha-after.webp',
+    beforeProblem:
+      'Ready-made burkha was too loose around the shoulders and body, with an uneven hem that dragged on the floor.',
     afterSolution:
-      'Curved armhole re-drafting, soft padded cup insertion, and clean neck piping alignment.',
+      'Body width taken in from the side seams, shoulders and sleeves fitted, and the hem levelled for a comfortable, modest drape.',
     alterationSteps: [
-      'Shoulder width tapered by 1.5 inches for upright posture',
-      'Soft molded padded cups inserted into lining for seamless shape',
-      'Armhole circumference reduced to eliminate armpit folds',
+      'Side seams taken in for a cleaner, less bulky silhouette',
+      'Sleeve and shoulder fit adjusted for easy movement',
+      'Hem levelled and finished with matching stitching',
     ],
   },
   {
-    id: 'suit-side-slits',
-    title: 'Salwar Kameez Waist & Side Slit Reshaping',
-    tag: 'Suit Fitting',
+    id: 'jeans-resizing',
+    tag: 'Jeans Alteration',
+    title: 'Jeans Waist & Length Tapering',
     turnaround: '24 Hours',
-    beforeImage:
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=80',
-    beforeProblem: 'Boxy, unflattering rectangular drape with weak side slit tearing under tension.',
+    beforeImage: '/alterations/jeans-before.webp',
+    afterImage: '/alterations/jeans-after.webp',
+    beforeProblem:
+      'Jeans were loose at the waist and baggy through the legs, with an untidy length bunching at the ankles.',
     afterSolution:
-      'Tailored hourglass side darts inserted, side slit reinforced with double stitching and matching piping.',
+      'Waist taken in at the back seam, legs tapered for a clean straight fit, and the hem shortened with the original stitch finish.',
     alterationSteps: [
-      'Waist contour darts added for natural body shape',
-      'Side slits reinforced with contrast silk piping to prevent fabric tear',
-      'Sleeve length adjusted to wrist bone precision',
+      'Waist reduced at the centre back seam for a snug fit',
+      'Legs tapered from thigh to ankle with matching thread',
+      'Hem shortened and re-stitched to preserve the original look',
     ],
   },
 ];
 
 export const BEFORE_AFTER_CASES_HI = [
   {
-    id: 'lehenga-resizing',
-    title: 'ब्राइडल लहंगा कमर और लंबाई अल्टरेशन',
-    tag: 'ब्राइडल अल्टरेशन',
+    id: 'suit-resizing',
+    tag: 'सूट अल्टरेशन',
+    title: 'सूट कमर और लंबाई अल्टरेशन',
     turnaround: '48 घंटे',
-    beforeImage:
-      'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80',
-    beforeProblem: 'ऑफ-द-रैक ब्राइडल लहंगा कमर में 3 इंच ढीला था और फर्श पर घसीट रहा था।',
-    afterSolution: 'सटीक कमर टकिंग, इनविजिबल साइड ज़िप, कैन-कैन रीस्टक्चरिंग और हेम एडजस्टमेंट।',
+    beforeImage: '/alterations/before-suit.webp',
+    afterImage: '/alterations/after-suit.webp',
+    beforeProblem: 'रेडीमेड सूट कमर में ढीला था और हेम बहुत लंबा था, जिससे ड्रेप बेढब लग रहा था।',
+    afterSolution:
+      'साइड सीम से कमर कसी गई, हेम सही लंबाई में छोटा किया गया और सिल्हूट को साफ-सुथरा टेलर्ड फिट दिया गया।',
     alterationSteps: [
-      'बॉर्डर की धागे काटे बिना कमर 2.8 इंच कम की गई',
-      'भारी परिधान के लिए छुपा हुक क्लोजर जोड़ा गया',
-      'बॉटम बॉर्डर को सममित रूप से हाथ से हेम किया गया',
+      'छुपी सिलाई के साथ कमर 2.5 इंच कम की गई',
+      'हेम छोटा कर मैचिंग धागे से हाथ से फिनिश किया गया',
+      'अतिरिक्त कपड़ा और झुर्रियां हटाने के लिए साइड सीम रीशेप किए गए',
     ],
   },
   {
-    id: 'blouse-tapering',
-    title: 'ब्लाउज आर्महोल गहराई और शोल्डर टेपरिंग',
-    tag: 'ब्लाउज फिटिंग',
+    id: 'burkha-resizing',
+    tag: 'बुर्का अल्टरेशन',
+    title: 'बुर्का साइज और लंबाई अल्टरेशन',
     turnaround: '24 घंटे',
-    beforeImage:
-      'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=900&q=80',
-    beforeProblem: 'शोल्डर सीवन लटके हुए, बगल में गैप और बस्ट सपोर्ट नहीं था।',
-    afterSolution: 'कर्व्ड आर्महोल री-ड्राफ्टिंग, सॉफ्ट पैडेड कप इन्सर्शन और साफ नेक पाइपिंग।',
+    beforeImage: '/alterations/burkha-before.webp',
+    afterImage: '/alterations/burkha-after.webp',
+    beforeProblem: 'रेडीमेड बुर्का कंधों और बॉडी पर बहुत ढीला था और हेम फर्श पर घसीट रहा था।',
+    afterSolution:
+      'साइड सीम से बॉडी की चौड़ाई कम की गई, कंधे और स्लीव फिट किए गए और हेम बराबर किया गया।',
     alterationSteps: [
-      'शोल्डर चौड़ाई 1.5 इंच कम की गई',
-      'इनर लाइनिंग में सॉफ्ट मोल्डेड पैडेड कप लगाए गए',
-      'आर्महोल सर्कम्फेरेंस कम कर बगल के फोल्ड हटाए गए',
+      'साइड सीम से अतिरिक्त कपड़ा हटाकर क्लीन सिल्हूट बनाया',
+      'आसान मूवमेंट के लिए स्लीव और शोल्डर फिट किए',
+      'हेम को बराबर कर मैचिंग सिलाई से फिनिश किया',
     ],
   },
   {
-    id: 'suit-side-slits',
-    title: 'सलवार कमीज कमर और साइड स्लिट रीशेपिंग',
-    tag: 'सूट फिटिंग',
+    id: 'jeans-resizing',
+    tag: 'जींस अल्टरेशन',
+    title: 'जींस कमर और लंबाई टेपरिंग',
     turnaround: '24 घंटे',
-    beforeImage:
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=80',
-    beforeProblem: 'बॉक्सी शेप, अनफ्लैटरिंग ड्रेस और कमजोर साइड स्लिट फटने का खतरा।',
-    afterSolution: 'हॉरग्लास साइड डार्ट्स, डबल सिलाई के साथ साइड स्लिट मजबूत करना।',
+    beforeImage: '/alterations/jeans-before.webp',
+    afterImage: '/alterations/jeans-after.webp',
+    beforeProblem: 'जींस कमर में ढीली और पैरों में बैगी थी, लंबाई भी टखनों पर झुर्रीदार लटक रही थी।',
+    afterSolution:
+      'बैक सीम से कमर कसी गई, पैरों को साफ स्ट्रेट फिट के लिए टेपर किया गया और हेम ओरिजिनल सिलाई फिनिश के साथ छोटा किया गया।',
     alterationSteps: [
-      'प्राकृतिक शेप के लिए वेस्ट कंटूर डार्ट्स जोड़े गए',
-      'साइड स्लिट को कॉन्ट्रास्ट सिल्क पाइपिंग से मजबूत किया गया',
-      'स्लीव लंबाई कलाई तक सटीक एडजस्ट की गई',
+      'स्नग फिट के लिए सेंटर बैक सीम से कमर कम की गई',
+      'मैचिंग धागे से जांघ से टखने तक पैर टेपर किए गए',
+      'ओरिजिनल लुक बनाए रखने के लिए हेम छोटा कर दोबारा सिलाई की गई',
     ],
   },
 ];
 
 export const BEFORE_AFTER_CASES_MR = [
   {
-    id: 'lehenga-resizing',
-    title: 'लग्नाचे लहंगे कंबर आणि लांबी अल्टरेशन',
-    tag: 'लग्न अल्टरेशन',
+    id: 'suit-resizing',
+    tag: 'सूट अल्टरेशन',
+    title: 'सूट कंबर आणि लांबी अल्टरेशन',
     turnaround: '४८ तास',
-    beforeImage:
-      'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=900&q=80',
-    beforeProblem: 'ऑफ-द-रॅक लग्नाचे लहंगे कंबरेत ३ इंच सैल होते आणि जमिनीवर घासले जात होते.',
-    afterSolution: 'अचूक कंबर टकिंग, अदृश्य साइड झिप, कॅन-कॅन सुधारणे आणि हेम अॅडजस्टमेंट.',
+    beforeImage: '/alterations/before-suit.webp',
+    afterImage: '/alterations/after-suit.webp',
+    beforeProblem: 'रेडीमेड सूट कंबरेत सैल होता आणि हेम खूप लांब होता, त्यामुळे ड्रेप बेढब दिसत होता.',
+    afterSolution:
+      'साइड सीमने कंबर घट्ट केली, हेम योग्य लांबीत कमी केला आणि सिल्हूटला स्वच्छ टेलर्ड फिट दिला.',
     alterationSteps: [
-      'बॉर्डरचे धागे न कापता कंबर २.८ इंच कमी केली',
-      'जड पोशाखासाठी लपलेला हुक क्लोजर जोडला',
-      'खालील बॉर्डर हाताने सममितपणे हेम केला',
+      'लपलेल्या शिवणीसह कंबर २.५ इंच कमी केली',
+      'हेम कमी करून मॅचिंग धाग्याने हाताने फिनिश केले',
+      'जादा कापड आणि सुरकुत्या काढण्यासाठी साइड सीम पुन्हा आकार दिले',
     ],
   },
   {
-    id: 'blouse-tapering',
-    title: 'ब्लाउज आर्महोल खोली आणि शोल्डर टेपरिंग',
-    tag: 'ब्लाउज फिटिंग',
+    id: 'burkha-resizing',
+    tag: 'बुर्का अल्टरेशन',
+    title: 'बुर्का साइज आणि लांबी सुधारणे',
     turnaround: '२४ तास',
-    beforeImage:
-      'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=900&q=80',
-    beforeProblem: 'शोल्डर शिवण खाली सरकलेले, बगलात मोकळी जागा आणि बस्टला सपोर्ट नव्हता.',
-    afterSolution: 'वक्र आर्महोल पुन्हा डिझाइन, मऊ पॅडेड कप आणि स्वच्छ नेक पाइपिंग.',
+    beforeImage: '/alterations/burkha-before.webp',
+    afterImage: '/alterations/burkha-after.webp',
+    beforeProblem: 'रेडीमेड बुर्का खांदे आणि बॉडीवर खूप सैल होता आणि हेम जमिनीवर घासत होता.',
+    afterSolution:
+      'साइड सीमने बॉडीची रुंदी कमी केली, खांदे आणि स्लीव्ह फिट केले आणि हेम सममित केला.',
     alterationSteps: [
-      'शोल्डर रुंदी १.५ इंच कमी केली',
-      'आतील अस्तरात मऊ पॅडेड कप बसवले',
-      'आर्महोल कमी करुन बगलचे फोल्ड काढले',
+      'साइड सीमने जादा कापड काढून स्वच्छ सिल्हूट बनवले',
+      'सोप्या हालचालींसाठी स्लीव्ह आणि खांद्याचा फिट बदलला',
+      'हेम सममित करून मॅचिंग शिवणीने फिनिश केले',
     ],
   },
   {
-    id: 'suit-side-slits',
-    title: 'सलवार कमीज कंबर आणि साइड स्लिट सुधारणे',
-    tag: 'सूट फिटिंग',
+    id: 'jeans-resizing',
+    tag: 'जीन्स अल्टरेशन',
+    title: 'जीन्स कंबर आणि लांबी टेपरिंग',
     turnaround: '२४ तास',
-    beforeImage:
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=900&q=80',
-    afterImage:
-      'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=900&q=80',
-    beforeProblem: 'बॉक्सी आकार, अप्रिय दिसणे आणि कमकुवत साइड स्लिट फाटण्याची शक्यता.',
-    afterSolution: 'हॉरग्लास आकारासाठी साइड डार्ट्स आणि दुहेरी शिवणाने स्लिट मजबूत करणे.',
+    beforeImage: '/alterations/jeans-before.webp',
+    afterImage: '/alterations/jeans-after.webp',
+    beforeProblem: 'जीन्स कंबरेत सैल आणि पायांमध्ये बॅगी होती, तसेच लांबी घोट्यांवर सुरकुत्या पडत होती.',
+    afterSolution:
+      'बॅक सीमने कंबर घट्ट केली, पाय स्वच्छ स्ट्रेट फिटसाठी टेपर केले आणि हेम मूळ शिवणीच्या फिनिशसह कमी केला.',
     alterationSteps: [
-      'नैसर्गिक आकारासाठी वेस्ट डार्ट्स जोडले',
-      'साइड स्लिट कॉन्ट्रास्ट सिल्क पाइपिंगने मजबूत केली',
-      'मनगटापर्यंत स्लीव्हची लांबी अचूकपणे बदलली',
+      'घट्ट फिटसाठी सेंटर बॅक सीमने कंबर कमी केली',
+      'मॅचिंग धाग्याने मांडीपासून घोट्यापर्यंत पाय टेपर केले',
+      'मूळ लुक टिकवण्यासाठी हेम कमी करून पुन्हा शिवणी केली',
     ],
   },
 ];

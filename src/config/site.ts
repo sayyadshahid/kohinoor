@@ -98,6 +98,8 @@ export const WHATSAPP_MESSAGES = {
   stitching: 'Hello Kohinoor Tailors, I would like to inquire about stitching.',
   stitchingAndAlterations:
     'Hello Kohinoor Tailors, I would like to inquire about stitching and alterations.',
+  embroidery:
+    'Hello Kohinoor Tailors, I would like to inquire about hand and machine embroidery.',
   directions: 'Hello Kohinoor Tailors, I am outside the shop and would like directions.',
 };
 

@@ -7,19 +7,9 @@ export const CATEGORY_SERVICE_MAP = {
   'Ladies Suit Stitching': 'Ladies Suit Stitching',
 };
 
-export const GALLERY_FILTERS = ['All', 'Ladies Suit Stitching', 'Embroidery', 'Alterations'];
+export const GALLERY_FILTERS = ['All', 'Alterations', 'Ladies Suit Stitching', 'Embroidery'];
 
 export const GALLERY_ITEMS = [
-  {
-    id: 1,
-    title: 'Hand-Embroidered Zardozi Bridal Suit',
-    category: 'Embroidery',
-    image:
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80',
-    description:
-      'Intricate antique-bronze zardozi threadwork on deep velvet fabric with custom fitted neckline.',
-    details: 'Silk Velvet base • 60+ Craft Hours • Custom Dupatta Border',
-  },
   {
     id: 2,
     title: 'Elegant Dusty Rose Embroidered Suit',
@@ -32,23 +22,12 @@ export const GALLERY_ITEMS = [
   },
   {
     id: 3,
-    title: 'Bridal Lehenga Waist & Length Resizing',
+    title: 'Suit Waist & Length Resizing',
     category: 'Alterations',
-    image:
-      'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1000&q=80',
+    image: '/alterations/after-suit.webp',
     description:
-      'Seamless waist tapering, can-can padding adjustment, and hem re-alignment for a heavy bridal outfit.',
-    details: 'Invisible Stitch Technique • Can-can Restructuring • Quick Turnaround',
-  },
-  {
-    id: 4,
-    title: 'Silk Kurti with Aari Needlework Motif',
-    category: 'Embroidery',
-    image:
-      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=1000&q=80',
-    description:
-      'Delicate neck & sleeve motif embroidery crafted with muted bronze and deep mocha silk threads.',
-    details: 'Raw Silk • Artisanal Threadwork • Custom Color Palette',
+      'A ready-made suit re-shaped at the waist and hem for a clean, tailored fit and a flattering drape.',
+    details: 'Invisible Side Seams • Precision Hemming • 48-Hour Turnaround',
   },
   {
     id: 5,
@@ -62,13 +41,12 @@ export const GALLERY_ITEMS = [
   },
   {
     id: 6,
-    title: 'Padded Blouse & Armhole Tapering',
+    title: 'Burkha Size & Length Reshaping',
     category: 'Alterations',
-    image:
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=1000&q=80',
+    image: '/alterations/burkha-after.webp',
     description:
-      'Adjusting armhole depth, adding padded inserts, and shortening sleeves without altering pattern symmetry.',
-    details: 'Perfect Fit Tailoring • Soft Molded Cups • Restyled Sleeves',
+      'Burkha re-fitted through the body, shoulders and hem for a comfortable, modest drape.',
+    details: 'Side Seam Reshaping • Shoulder & Sleeve Fit • Matching Stitch Finish',
   },
   {
     id: 7,
@@ -80,19 +58,36 @@ export const GALLERY_ITEMS = [
     details:
       'Premium Printed Fabric • Blue Floral Patterns • Buttoned Neckline • Custom-Fit Stitching • Contrasting Dupatta • Decorative Sleeve & Hem Borders',
   },
+  {
+    id: 8,
+    title: 'Jeans Waist & Length Tapering',
+    category: 'Alterations',
+    image: '/alterations/jeans-after.webp',
+    description:
+      'Jeans taken in at the waist with tapered legs and a hem finished to preserve the original look.',
+    details: 'Back Seam Waist Fitting • Leg Tapering • Original Hem Finish',
+  },
+  {
+    id: 9,
+    title: 'Custom Alteration Work',
+    category: 'Alterations',
+    image: '/gallery/custom-alteration-1.webp',
+    description:
+      'Hand-finished seams and precision fitting for a garment altered to your exact measurements.',
+    details: 'Hand-Finished Seams • Precise Measurements • Trial Fitting',
+  },
+  {
+    id: 10,
+    title: 'Precision Fit Adjustment',
+    category: 'Alterations',
+    image: '/gallery/custom-alteration-2.webp',
+    description:
+      'Careful reshaping and neat finishing for a comfortable fit that looks completely original.',
+    details: 'Custom Reshaping • Neat Finishing • Quick Turnaround',
+  },
 ];
 
 export const GALLERY_ITEMS_HI = [
-  {
-    id: 1,
-    title: 'हस्त-कढ़ाई ज़रदोज़ी ब्राइडल सूट',
-    category: 'Embroidery',
-    image:
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80',
-    description:
-      'गहरे मखमल के कपड़े पर पुरानी कांस्य रंग की ज़रदोज़ी धागे की कारीगरी और कस्टम फिट नेकलाइन।',
-    details: 'सिल्क मखमल बेस • 60+ घंटे की कारीगरी • कस्टम दुपट्टा बॉर्डर',
-  },
   {
     id: 2,
     title: 'एलिगेंट डस्टी रोज़ एम्ब्रॉयडरी सूट',
@@ -105,23 +100,12 @@ export const GALLERY_ITEMS_HI = [
   },
   {
     id: 3,
-    title: 'ब्राइडल लहंगा कमर और लंबाई अल्टरेशन',
+    title: 'सूट कमर और लंबाई अल्टरेशन',
     category: 'Alterations',
-    image:
-      'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1000&q=80',
+    image: '/alterations/after-suit.webp',
     description:
-      'भारी ब्राइडल परिधान के लिए सीमलेस कमर टेपरिंग, कैन-कैन पैडिंग एडजस्टमेंट और हेम री-अलाइनमेंट।',
-    details: 'इनविजिबल स्टिच तकनीक • कैन-कैन रीस्टक्चरिंग • तेज़ टर्नअराउंड',
-  },
-  {
-    id: 4,
-    title: 'आरी नीडलवर्क मोटिफ वाली सिल्क कुर्ती',
-    category: 'Embroidery',
-    image:
-      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=1000&q=80',
-    description:
-      'हल्के कांस्य और गहरे मोका सिल्क धागों से बनी नाज़ुक नेक और स्लीव मोटिफ कढ़ाई।',
-    details: 'रॉ सिल्क • कारीगरी वाली धागे की कढ़ाई • कस्टम कलर पैलेट',
+      'रेडीमेड सूट को कमर और हेम पर रीशेप कर साफ-सुथरा टेलर्ड फिट और सुंदर ड्रेप दिया गया।',
+    details: 'छुपी साइड सीम • सटीक हेमिंग • 48 घंटे का टर्नअराउंड',
   },
   {
     id: 5,
@@ -135,13 +119,12 @@ export const GALLERY_ITEMS_HI = [
   },
   {
     id: 6,
-    title: 'पैडेड ब्लाउज और आर्महोल टेपरिंग',
+    title: 'बुर्का साइज और लंबाई अल्टरेशन',
     category: 'Alterations',
-    image:
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=1000&q=80',
+    image: '/alterations/burkha-after.webp',
     description:
-      'पैटर्न सिमेट्री बदले बिना आर्महोल गहराई एडजस्ट करना, पैडेड इन्सर्ट जोड़ना और स्लीव छोटी करना।',
-    details: 'परफेक्ट फिट टेलरिंग • सॉफ्ट मोल्डेड कप • रीस्टाइल्ड स्लीव',
+      'बॉडी, कंधों और हेम पर बुर्का दोबारा फिट किया गया, जिससे आरामदायक और सभ्य ड्रेप मिले।',
+    details: 'साइड सीम रीशेपिंग • कंधे और स्लीव फिट • मैचिंग सिलाई फिनिश',
   },
   {
     id: 7,
@@ -153,19 +136,36 @@ export const GALLERY_ITEMS_HI = [
     details:
       'प्रीमियम प्रिंटेड कपड़ा • नीले फ्लोरल पैटर्न • बटन वाली नेकलाइन • कस्टम-फिट सिलाई • कंट्रास्टिंग दुपट्टा • डेकोरेटिव स्लीव और हेम बॉर्डर',
   },
+  {
+    id: 8,
+    title: 'जींस कमर और लंबाई टेपरिंग',
+    category: 'Alterations',
+    image: '/alterations/jeans-after.webp',
+    description:
+      'कमर से जींस कसी गई, पैर टेपर किए गए और ओरिजिनल लुक बनाए रखने के लिए हेम फिनिश किया गया।',
+    details: 'बैक सीम कमर फिटिंग • पैर टेपरिंग • ओरिजिनल हेम फिनिश',
+  },
+  {
+    id: 9,
+    title: 'कस्टम अल्टरेशन कारीगरी',
+    category: 'Alterations',
+    image: '/gallery/custom-alteration-1.webp',
+    description:
+      'आपके सटीक माप के अनुसार कपड़े के लिए हाथ से फिनिश की गई सिलाई और सटीक फिटिंग।',
+    details: 'हाथ से फिनिश सीम • सटीक माप • ट्रायल फिटिंग',
+  },
+  {
+    id: 10,
+    title: 'सटीक फिट एडजस्टमेंट',
+    category: 'Alterations',
+    image: '/gallery/custom-alteration-2.webp',
+    description:
+      'आरामदायक फिट के लिए सावधानी से रीशेपिंग और साफ फिनिश, जो पूरी तरह ओरिजिनल लगे।',
+    details: 'कस्टम रीशेपिंग • साफ फिनिश • तेज़ टर्नअराउंड',
+  },
 ];
 
 export const GALLERY_ITEMS_MR = [
-  {
-    id: 1,
-    title: 'हाताने भरतकाम केलेला झरदोजी लग्नाचा सूट',
-    category: 'Embroidery',
-    image:
-      'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80',
-    description:
-      'गडद मखमली कापडावर जुन्या कांस्य रंगाचे झरदोजी धाग्याचे भरतकाम आणि कस्टम फिट नेकलाइन.',
-    details: 'सिल्क मखमल बेस • ६०+ तासांची कारागिरी • कस्टम दुपट्टा बॉर्डर',
-  },
   {
     id: 2,
     title: 'एलिगंट डस्टी रोज भरतकाम सूट',
@@ -178,23 +178,12 @@ export const GALLERY_ITEMS_MR = [
   },
   {
     id: 3,
-    title: 'लग्नाचे लहंगे कंबर आणि लांबी अल्टरेशन',
+    title: 'सूट कंबर आणि लांबी अल्टरेशन',
     category: 'Alterations',
-    image:
-      'https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1000&q=80',
+    image: '/alterations/after-suit.webp',
     description:
-      'जड लग्नाच्या पोशाखासाठी सीमलेस कंबर टेपरिंग, कॅन-कॅन पॅडिंग अॅडजस्टमेंट आणि हेम री-अलाइनमेंट.',
-    details: 'इनव्हिजिबल स्टिच तंत्र • कॅन-कॅन रिस्ट्रक्चरिंग • जलद टर्नअराउंड',
-  },
-  {
-    id: 4,
-    title: 'आरी नीडलवर्क मोटिफ असलेली सिल्क कुर्ती',
-    category: 'Embroidery',
-    image:
-      'https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=1000&q=80',
-    description:
-      'हलक्या कांस्य आणि गडद मोका सिल्क धाग्यांनी केलेले नाजूक नेक आणि स्लीव्ह मोटिफ भरतकाम.',
-    details: 'रॉ सिल्क • कारागिरीचे धाग्याचे भरतकाम • कस्टम रंगसंगती',
+      'रेडीमेड सूट कंबर आणि हेमवर पुन्हा आकार देऊन स्वच्छ टेलर्ड फिट आणि सुंदर ड्रेप दिला.',
+    details: 'लपलेली साइड सीम • अचूक हेमिंग • ४८ तासांचा टर्नअराउंड',
   },
   {
     id: 5,
@@ -208,13 +197,12 @@ export const GALLERY_ITEMS_MR = [
   },
   {
     id: 6,
-    title: 'पॅडेड ब्लाउज आणि आर्महोल टेपरिंग',
+    title: 'बुर्का साइज आणि लांबी सुधारणे',
     category: 'Alterations',
-    image:
-      'https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&w=1000&q=80',
+    image: '/alterations/burkha-after.webp',
     description:
-      'पॅटर्नची सममिती न बदलता आर्महोलची खोली अॅडजस्ट करणे, पॅडेड इन्सर्ट जोडणे आणि स्लीव्ह लहान करणे.',
-    details: 'परफेक्ट फिट टेलरिंग • मऊ मोल्डेड कप • रीस्टाइल केलेले स्लीव्ह',
+      'बॉडी, खांदे आणि हेमवर बुर्का पुन्हा फिट केला, ज्यामुळे आरामदायक आणि सभ्य ड्रेप मिळाला.',
+    details: 'साइड सीम रिशेपिंग • खांदा आणि स्लीव्ह फिट • मॅचिंग शिवणी फिनिश',
   },
   {
     id: 7,
@@ -225,6 +213,33 @@ export const GALLERY_ITEMS_MR = [
       'सुंदरपणे शिवलेला क्रीम रंगाचा महिला सूट, ज्यात नाजूक निळे फुलांचे प्रिंट, स्टाइलिश बटण असलेली नेकलाइन, स्ट्रेट-कट कुर्ता, मॅचिंग निळी पँट आणि डेकोरेटिव्ह बॉर्डर असलेला कॉन्ट्रास्टिंग निळा दुपट्टा आहे. कॅज्युअल आउटिंग, सण आणि एलिगंट रोजच्या पेहरावासाठी उत्तम.',
     details:
       'प्रीमियम प्रिंटेड कापड • निळे फुलांचे पॅटर्न • बटण असलेली नेकलाइन • कस्टम-फिट शिवण • कॉन्ट्रास्टिंग दुपट्टा • डेकोरेटिव्ह स्लीव्ह आणि हेम बॉर्डर',
+  },
+  {
+    id: 8,
+    title: 'जीन्स कंबर आणि लांबी टेपरिंग',
+    category: 'Alterations',
+    image: '/alterations/jeans-after.webp',
+    description:
+      'कंबरेतून जीन्स घट्ट केली, पाय टेपर केले आणि मूळ लुक टिकवण्यासाठी हेम फिनिश केला.',
+    details: 'बॅक सीम कंबर फिटिंग • पाय टेपरिंग • मूळ हेम फिनिश',
+  },
+  {
+    id: 9,
+    title: 'कस्टम अल्टरेशन कारागिरी',
+    category: 'Alterations',
+    image: '/gallery/custom-alteration-1.webp',
+    description:
+      'तुमच्या अचूक मापांनुसार कपड्यासाठी हाताने फिनिश केलेली शिवण आणि अचूक फिटिंग.',
+    details: 'हाताने फिनिश सीम • अचूक मापे • ट्रायल फिटिंग',
+  },
+  {
+    id: 10,
+    title: 'अचूक फिट अॅडजस्टमेंट',
+    category: 'Alterations',
+    image: '/gallery/custom-alteration-2.webp',
+    description:
+      'आरामदायक फिटसाठी काळजीपूर्वक रिशेपिंग आणि स्वच्छ फिनिश, जे पूर्णपणे मूळसारखे दिसते.',
+    details: 'कस्टम रिशेपिंग • स्वच्छ फिनिश • जलद टर्नअराउंड',
   },
 ];
 
