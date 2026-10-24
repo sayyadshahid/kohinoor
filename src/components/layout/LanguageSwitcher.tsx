@@ -9,6 +9,7 @@ const OPTIONS: { code: Locale; labelKey: string }[] = [
   { code: 'en', labelKey: 'lang_en' },
   { code: 'hi', labelKey: 'lang_hi' },
   { code: 'mr', labelKey: 'lang_mr' },
+  { code: 'hinglish', labelKey: 'lang_hinglish' },
 ];
 
 export default function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
@@ -40,7 +41,7 @@ export default function LanguageSwitcher({ compact = false }: { compact?: boolea
         aria-label={t(locale, 'lang_label')}
       >
         <Globe className="h-3.5 w-3.5" aria-hidden="true" />
-        {locale === 'en' ? t(locale, 'lang_en') : locale === 'hi' ? t(locale, 'lang_hi') : t(locale, 'lang_mr')}
+        {t(locale, `lang_${locale}`)}
       </button>
 
       {open ? (

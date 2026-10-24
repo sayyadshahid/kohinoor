@@ -103,6 +103,60 @@ export const BEFORE_AFTER_CASES_HI = [
   },
 ];
 
+export const BEFORE_AFTER_CASES_HINGLISH = [
+  {
+    id: 'suit-resizing',
+    tag: 'Suit Alteration',
+    title: 'Suit Waist & Length Resizing',
+    turnaround: '48 Hours',
+    beforeImage: '/alterations/before-suit.webp',
+    afterImage: '/alterations/after-suit.webp',
+    beforeProblem:
+      'Ready-made suit waist par loose tha aur hem bahut lamba tha, jisse drape uneven aur boxy lag raha tha.',
+    afterSolution:
+      'Side seams se waist kasaa gaya, hem sahi length mein chhota kiya gaya aur silhouette ko clean tailored fit diya gaya.',
+    alterationSteps: [
+      'Concealed stitching ke saath waist 2.5 inch kam ki gayi',
+      'Hem chhota karke matching thread se hand-finish kiya gaya',
+      'Extra fabric aur bunching hatane ke liye side seams re-shape kiye gaye',
+    ],
+  },
+  {
+    id: 'burkha-resizing',
+    tag: 'Burkha Alteration',
+    title: 'Burkha Size & Length Reshaping',
+    turnaround: '24 Hours',
+    beforeImage: '/alterations/burkha-before.webp',
+    afterImage: '/alterations/burkha-after.webp',
+    beforeProblem:
+      'Ready-made burkha shoulders aur body par bahut loose tha, aur uneven hem floor par drag ho raha tha.',
+    afterSolution:
+      'Side seams se body width kam ki gayi, shoulders aur sleeves fit kiye gaye aur hem level karke comfortable, modest drape diya gaya.',
+    alterationSteps: [
+      'Cleaner silhouette ke liye side seams se extra fabric hataya gaya',
+      'Easy movement ke liye sleeve aur shoulder fit adjust kiya gaya',
+      'Hem level karke matching stitching se finish kiya gaya',
+    ],
+  },
+  {
+    id: 'jeans-resizing',
+    tag: 'Jeans Alteration',
+    title: 'Jeans Waist & Length Tapering',
+    turnaround: '24 Hours',
+    beforeImage: '/alterations/jeans-before.webp',
+    afterImage: '/alterations/jeans-after.webp',
+    beforeProblem:
+      'Jeans waist par loose aur legs mein baggy thi, length bhi ankles par untidy tarike se bunch ho rahi thi.',
+    afterSolution:
+      'Back seam par waist kasaa gaya, legs ko clean straight fit ke liye taper kiya gaya aur hem original stitch finish ke saath chhota kiya gaya.',
+    alterationSteps: [
+      'Snug fit ke liye centre back seam par waist kam ki gayi',
+      'Matching thread ke saath thigh se ankle tak legs taper kiye gaye',
+      'Original look preserve karne ke liye hem chhota karke re-stitch kiya gaya',
+    ],
+  },
+];
+
 export const BEFORE_AFTER_CASES_MR = [
   {
     id: 'suit-resizing',

@@ -19,14 +19,18 @@ export default function About() {
             spacing="space-y-6"
             maxWidth="max-w-full"
             eyebrow={t(locale, 'about_eyebrow')}
-            title={`${YEARS_CRAFTING} ${t(locale, 'about_title')}`}
+            title={locale === 'hinglish' ? `${YEARS_CRAFTING}+ Saalon ka Tailoring Precision aur Fabric Mastery` : `${YEARS_CRAFTING} ${t(locale, 'about_title')}`}
             threadClassName="w-56"
           />
 
           <Reveal delay={80} className="mt-6 space-y-6">
             <div className="space-y-4 text-sm sm:text-base text-ink-soft leading-relaxed font-normal text-pretty">
               <p>
-                {t(locale, 'about_p1_start')} {SITE.founded} {t(locale, 'about_p1_mid')}
+                {locale === 'hinglish' ? `Founded in ${SITE.founded} Kondhwa, Pune mein Kohinoor Tailors ki shuruaat ek simple belief se hui: har garment second skin jaisa feel hona chahiye. Hamara atelier traditional hand-stitching techniques ko precise pattern cutting ke saath milata hai taaki clothing effortlessly fit ho.` : (
+                  <>
+                    {t(locale, 'about_p1_start')} {SITE.founded} {t(locale, 'about_p1_mid')}
+                  </>
+                )}
               </p>
               <p>
                 {t(locale, 'about_p2')}

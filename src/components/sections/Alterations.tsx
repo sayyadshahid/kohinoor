@@ -4,7 +4,7 @@ import { useCallback, useState } from 'react';
 import { useLocale } from '../../context/LocaleProvider';
 import { t } from '../../data/i18n/dict';
 import { Scissors } from 'lucide-react';
-import { BEFORE_AFTER_CASES, BEFORE_AFTER_CASES_HI, BEFORE_AFTER_CASES_MR } from '../../data/alterations';
+import { BEFORE_AFTER_CASES, BEFORE_AFTER_CASES_HI, BEFORE_AFTER_CASES_MR, BEFORE_AFTER_CASES_HINGLISH } from '../../data/alterations';
 import Badge from '../ui/Badge';
 import Card from '../ui/Card';
 import Section from '../ui/Section';
@@ -16,7 +16,13 @@ import TransformationDetails from '../alterations/TransformationDetails';
 export default function Alterations() {
   const { locale } = useLocale();
   const cases =
-    locale === 'hi' ? BEFORE_AFTER_CASES_HI : locale === 'mr' ? BEFORE_AFTER_CASES_MR : BEFORE_AFTER_CASES;
+    locale === 'hi'
+      ? BEFORE_AFTER_CASES_HI
+      : locale === 'mr'
+        ? BEFORE_AFTER_CASES_MR
+        : locale === 'hinglish'
+          ? BEFORE_AFTER_CASES_HINGLISH
+          : BEFORE_AFTER_CASES;
   const [activeCase, setActiveCase] = useState(0);
 
   const item = cases[activeCase];

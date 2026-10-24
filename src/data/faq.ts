@@ -140,10 +140,59 @@ const FAQ_MR: FaqItem[] = [
   },
 ];
 
+const FAQ_HINGLISH: FaqItem[] = [
+  {
+    question: 'Kohinoor Tailors kahan located hai?',
+    answer: `Kohinoor Tailors ${SITE.address} par hai.`,
+  },
+  {
+    question: 'Aapke opening hours kya hain?',
+    answer: `${SITE.hours}. ${SITE.sundayHours}.`,
+  },
+  {
+    question: 'Ladies suit stitching ka kitna charge hai?',
+    answer:
+      'Ladies suit stitching ₹450 se shuru hoti hai; final price fabric, design, lining aur embroidery par depend karta hai.',
+  },
+  {
+    question: 'Alterations ka kitna charge hai?',
+    answer:
+      'Alterations ₹150 se shuru hote hain; bridal aur structured garments ka quote inspection ke baad diya jaata hai.',
+  },
+  {
+    question: 'Alterations mein kitna time lagta hai?',
+    answer:
+      'Zyada tar alterations 24–48 hours mein ho jaate hain; bridal ya heavy embroidered pieces mein zyada time lag sakta hai.',
+  },
+  {
+    question: 'Kya aap bridal lehengas alter karte hain?',
+    answer:
+      'Haan. Hum waist, length, can-can aur blouse adjust karte hain; embroidery aur borders preserve kiye jaate hain.',
+  },
+  {
+    question: 'Kya aap zardozi aur Aari embroidery karte hain?',
+    answer: 'Haan. Hum zardozi aur Aari embroidery ke saath silk thread aur mirror work bhi karte hain.',
+  },
+  {
+    question: 'Kya trial fitting included hai?',
+    answer:
+      'Haan, ladies suit stitching ke saath trial fitting included hai; agar pehla trial perfect na ho toh hum free adjustments karte hain.',
+  },
+  {
+    question: 'Fitting kaise book karoon?',
+    answer: `WhatsApp ya ${SITE.phoneDisplay} par call karein, ya website ka fitting form use karein.`,
+  },
+  {
+    question: 'Kya aap Kondhwa ke bahar bhi service dete hain?',
+    answer: `Haan. Hum ${SITE.areaServed.join(', ')} ke customers ko service dete hain.`,
+  },
+];
+
 export const FAQ_BY_LOCALE: Record<Locale, FaqItem[]> = {
   en: FAQ_EN,
   hi: FAQ_HI,
   mr: FAQ_MR,
+  hinglish: FAQ_HINGLISH,
 };
 
 export const FAQS = FAQ_EN;

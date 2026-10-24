@@ -38,7 +38,7 @@ export default function ContactDetails() {
       <div className="flex flex-col gap-6 lg:h-full">
         <Card className="space-y-6">
           <div>
-            <Eyebrow>{t(locale, 'contact_visit_title').split(' ')[0] === 'Address' ? 'Visit the Atelier' : t(locale, 'contact_eyebrow')}</Eyebrow>
+            <Eyebrow>{locale === 'en' ? 'Visit the Atelier' : t(locale, 'contact_eyebrow')}</Eyebrow>
             <h3 className="font-serif text-xl font-semibold text-brand mt-1">
               {t(locale, 'contact_visit_title')}
             </h3>

@@ -2,7 +2,17 @@
 
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 
-export type Locale = 'en' | 'hi' | 'mr';
+export type Locale = 'en' | 'hi' | 'mr' | 'hinglish';
+
+const HTML_LANG: Record<Locale, string> = {
+  en: 'en-IN',
+  hi: 'hi',
+  mr: 'mr',
+  hinglish: 'hi-Latn',
+};
+
+const isLocale = (value: string | null): value is Locale =>
+  value === 'en' || value === 'hi' || value === 'mr' || value === 'hinglish';
 
 type LocaleContextValue = {
   locale: Locale;
@@ -18,10 +28,10 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const stored = window.localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (stored === 'en' || stored === 'hi' || stored === 'mr') {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (isLocale(stored)) {
       setLocaleState(stored);
-      document.documentElement.lang = stored === 'hi' ? 'hi' : stored === 'mr' ? 'mr' : 'en-IN';
+      document.documentElement.lang = HTML_LANG[stored];
     }
   }, []);
 
@@ -29,7 +39,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     setLocaleState(next);
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(STORAGE_KEY, next);
-      document.documentElement.lang = next === 'hi' ? 'hi' : next === 'mr' ? 'mr' : 'en-IN';
+      document.documentElement.lang = HTML_LANG[next];
     }
   };
 

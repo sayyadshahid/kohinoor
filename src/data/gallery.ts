@@ -243,8 +243,87 @@ export const GALLERY_ITEMS_MR = [
   },
 ];
 
+export const GALLERY_ITEMS_HINGLISH = [
+  {
+    id: 2,
+    title: 'Elegant Dusty Rose Embroidered Suit',
+    category: 'Ladies Suit Stitching',
+    image: '/gallery/elegant-dusty-rose-embroidered-suit.webp',
+    description:
+      'Khubsurat tareeke se stitched dusty rose pink ladies suit, jismein intricate floral embroidery, elegant straight-cut kurta, matching bottoms aur delicate embroidered borders wala matching dupatta hai. Festivals, family functions aur elegant traditional wear ke liye perfect.',
+    details:
+      'Premium Fabric • Intricate Floral Embroidery • Custom-Fit Stitching • Matching Dupatta • Hand-Finished Borders',
+  },
+  {
+    id: 3,
+    title: 'Suit Waist & Length Resizing',
+    category: 'Alterations',
+    image: '/alterations/after-suit.webp',
+    description:
+      'Ready-made suit ko waist aur hem par reshape karke clean tailored fit aur flattering drape diya gaya.',
+    details: 'Invisible Side Seams • Precision Hemming • 48-Hour Turnaround',
+  },
+  {
+    id: 5,
+    title: 'Bespoke Flared Anarkali Suit',
+    category: 'Ladies Suit Stitching',
+    image: '/gallery/bespoke-flared-anarkali-suit.webp',
+    description:
+      'Fitted bodice, elegant floral print, wide umbrella-cut skirt aur beautifully finished borders wale matching dupatta ke saath stitched flared Anarkali suit.',
+    details:
+      'Georgette & Pure Silk • Precision Pleating • Custom Umbrella Flare • Hand-Finished Piping',
+  },
+  {
+    id: 6,
+    title: 'Burkha Size & Length Reshaping',
+    category: 'Alterations',
+    image: '/alterations/burkha-after.webp',
+    description:
+      'Body, shoulders aur hem par burkha dobara fit kiya gaya, taaki comfortable aur modest drape mile.',
+    details: 'Side Seam Reshaping • Shoulder & Sleeve Fit • Matching Stitch Finish',
+  },
+  {
+    id: 7,
+    title: 'Elegant Cream Floral Printed Suit',
+    category: 'Ladies Suit Stitching',
+    image: '/gallery/elegant-cream-floral-printed-suit.webp',
+    description:
+      'Khubsurat tareeke se stitched cream colour ladies suit, jismein delicate blue floral prints, stylish buttoned neckline, straight-cut kurta, matching blue trousers aur decorative borders wala contrasting blue dupatta hai. Casual outings, festive gatherings aur elegant everyday wear ke liye perfect.',
+    details:
+      'Premium Printed Fabric • Blue Floral Patterns • Buttoned Neckline • Custom-Fit Stitching • Contrasting Dupatta • Decorative Sleeve & Hem Borders',
+  },
+  {
+    id: 8,
+    title: 'Jeans Waist & Length Tapering',
+    category: 'Alterations',
+    image: '/alterations/jeans-after.webp',
+    description:
+      'Jeans ko waist se kasaa gaya, legs taper kiye gaye aur original look preserve karne ke liye hem finish kiya gaya.',
+    details: 'Back Seam Waist Fitting • Leg Tapering • Original Hem Finish',
+  },
+  {
+    id: 9,
+    title: 'Custom Alteration Work',
+    category: 'Alterations',
+    image: '/gallery/custom-alteration-1.webp',
+    description:
+      'Aapke exact measurements par garment ke liye hand-finished seams aur precision fitting.',
+    details: 'Hand-Finished Seams • Precise Measurements • Trial Fitting',
+  },
+  {
+    id: 10,
+    title: 'Precision Fit Adjustment',
+    category: 'Alterations',
+    image: '/gallery/custom-alteration-2.webp',
+    description:
+      'Comfortable fit ke liye careful reshaping aur neat finishing, jo bilkul original jaisa lagta hai.',
+    details: 'Custom Reshaping • Neat Finishing • Quick Turnaround',
+  },
+];
+
 export const GALLERY_ITEMS_BY_LOCALE: Record<Locale, typeof GALLERY_ITEMS> = {
   en: GALLERY_ITEMS,
   hi: GALLERY_ITEMS_HI,
   mr: GALLERY_ITEMS_MR,
+  hinglish: GALLERY_ITEMS_HINGLISH,
 };
