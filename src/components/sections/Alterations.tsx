@@ -63,6 +63,10 @@ export default function Alterations() {
           <TransformationDetails item={item} />
         </div>
       </Card>
+
+      <p className="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-ink-soft">
+        A bridal lehenga alteration adjusts the waist, length and can-can volume. It also refines the blouse fit. The goal is a secure, comfortable fit without damaging embroidery. Kohinoor Tailors inspects each lehenga first, then completes a trial fitting before delivery.
+      </p>
     </Section>
   );
 }

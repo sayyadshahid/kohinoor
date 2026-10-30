@@ -9,54 +9,82 @@ export type FaqItem = {
 const FAQ_EN: FaqItem[] = [
   {
     question: 'Where is Kohinoor Tailors located?',
-    answer: `Kohinoor Tailors is at ${SITE.address}. The atelier is a short drive from Kondhwa, Undri, NIBM and Hadapsar, with easy two-wheeler and car access. Call ${SITE.phoneDisplay} before visiting for exact directions, parking guidance and appointment availability.`,
+    answer: `Kohinoor Tailors is at 501, Phase 2, Lane Number 9, Saibaba Nagar. The atelier is in Kondhwa, Pune, Maharashtra 411048. It is a short drive from Undri, NIBM and Hadapsar. Call ${SITE.phoneDisplay} for directions, parking help and appointment availability. The team also replies on WhatsApp.`,
   },
   {
     question: 'What are your opening hours?',
-    answer: `Kohinoor Tailors is open ${SITE.hours}. ${SITE.sundayHours}. For urgent alterations, call or WhatsApp ${SITE.phoneDisplay} before visiting so we can confirm a slot that suits your schedule and garment deadline.`,
+    answer: `Kohinoor Tailors is open ${SITE.hours}. ${SITE.sundayHours}. For urgent alterations, call or WhatsApp ${SITE.phoneDisplay} before visiting. The team will confirm a slot for your deadline. Appointments are recommended.`,
   },
   {
     question: "How much does ladies' suit stitching cost?",
     answer:
-      "Ladies' suit stitching starts from ₹450 and depends on the fabric, design, lining, embroidery and number of pieces. Simple salwar kameez sets sit at the lower end, while Anarkali, sharara and bridal ensembles are quoted after a fitting. Share your reference photo on WhatsApp for an accurate estimate.",
+      "Ladies' suit stitching starts from ₹450. The final price depends on fabric, design, lining and embroidery. Simple salwar kameez sets cost less than Anarkali or bridal outfits. Share a reference photo on WhatsApp for an accurate estimate before you book.",
   },
   {
     question: 'How much do alterations cost?',
     answer:
-      'Alterations start from ₹100 for simple hemming and basic adjustments. Waist tapering, sleeve reshaping, shoulder corrections and bridal lehenga work are quoted after inspecting the garment. Bring the outfit to the Kondhwa atelier or send clear photos on WhatsApp for a firm price before you commit.',
+      'Alterations start from ₹100 for simple hems and basic adjustments. Waist tapering, sleeve reshaping and bridal work are quoted after inspection. Bring the garment to the Kondhwa atelier or send clear photos on WhatsApp. You will get a firm price before work begins.',
   },
   {
     question: 'How long do alterations take?',
     answer:
-      'Most alterations are completed within 24 to 48 hours. Simple hems and waist adjustments are often ready the next day, while bridal lehengas, heavily embroidered suits and structured blouses need extra time for hand finishing. Confirm your occasion date when booking so we can schedule the work comfortably.',
+      'Most alterations are completed within 24 to 48 hours. Simple hems and waist adjustments are often ready the next day. Bridal lehengas and heavily embroidered suits need extra time for hand finishing. Confirm your occasion date when booking. The team will schedule the work comfortably.',
   },
   {
     question: 'Do you alter bridal lehengas?',
     answer:
-      'Yes. Kohinoor Tailors adjusts bridal lehenga waistlines, length, can-can volume, blouse fit and dupatta setting while protecting the embroidery and borders. We inspect the garment first, explain what can be altered safely, and complete a trial fitting before delivery. Book at least one week before the wedding for stress-free results.',
+      'Yes. Kohinoor Tailors alters bridal lehenga waists, length, can-can volume and blouse fit. The team protects embroidery and borders during the work. Every lehenga gets a trial fitting before delivery. Book at least one week before the wedding for the best results.',
   },
   {
     question: 'Do you do zardozi and Aari embroidery?',
     answer:
-      'Yes. We offer traditional zardozi, Aari needlework, silk thread motifs, mirror work and custom neckline or sleeve borders for festive and bridal wear. Designs are matched to your fabric and occasion, then quoted by detail and turnaround. Visit the atelier with inspiration photos to discuss your embroidery.',
+      'Yes. Kohinoor Tailors offers zardozi, Aari needlework, silk thread motifs and mirror work. The team also creates custom necklines and sleeve borders. Designs are matched to your fabric and occasion. Visit the atelier with inspiration photos to discuss your embroidery.',
   },
   {
     question: 'What is zardozi embroidery?',
     answer:
-      'Zardozi is a traditional Indian embroidery that uses metallic threads, sequins, beads and sometimes precious stones to create raised, ornate patterns. It is commonly used on bridal lehengas, blouses and dupattas. Kohinoor Tailors applies zardozi by hand and machine, matching motifs to your fabric, budget and occasion.',
+      'Zardozi is a traditional Indian embroidery that uses metallic thread, sequins and beads. The work creates raised, ornate patterns on bridal lehengas, blouses and dupattas. Kohinoor Tailors applies zardozi by hand and machine. Motifs are matched to your fabric, budget and occasion.',
   },
   {
     question: 'Do you offer a free trial fitting?',
     answer:
-      "Yes. A free trial fitting is included with ladies' suit stitching at Kohinoor Tailors. If the first trial is not perfect, we re-adjust the garment at no extra cost until it sits comfortably. Trial fittings are held at our Kondhwa atelier, with Sunday slots available by prior appointment.",
+      "Yes. A free trial fitting is included with ladies' suit stitching. If the first trial is not perfect, the team adjusts it. The adjustment is free of charge. Trial fittings happen at the Kondhwa atelier. Sunday slots are available by prior appointment.",
   },
   {
     question: 'How do I book a fitting?',
-    answer: `Book a fitting by calling or WhatsApp messaging ${SITE.phoneDisplay}, or use the fitting form on this website. Share your garment type, occasion date and preferred time. We will confirm a slot at the Kondhwa atelier, usually within the same working day, and guide you on what to bring.`,
+    answer: `Call or WhatsApp ${SITE.phoneDisplay} to book a fitting. You can also use the form on this website. Share your garment type, occasion date and preferred time. The team confirms a Kondhwa atelier slot, usually within one working day. It will explain what to bring.`,
   },
   {
     question: 'Do you serve customers outside Kondhwa?',
-    answer: `Yes. Customers travel to Kohinoor Tailors from ${SITE.areaServed.join(', ')}. The atelier is easy to reach by road, and we share directions on WhatsApp. For bridal or bulk orders, call ahead so we can reserve enough consultation and trial-fitting time for your visit.`,
+    answer: `Yes. Customers travel to Kohinoor Tailors from ${SITE.areaServed.join(', ')}. The atelier is easy to reach by road. The team shares directions on WhatsApp. For bridal or bulk orders, call ahead. This lets the team reserve enough time.`,
+  },
+];
+
+export const COMMON_QUESTIONS: FaqItem[] = [
+  {
+    question: 'How long does ladies suit stitching take?',
+    answer:
+      "Ladies' suit stitching timelines are confirmed at your fitting. The exact time depends on design, fabric and embroidery. Simple suits are usually faster. Kohinoor Tailors agrees a delivery date before starting and calls you if anything changes.",
+  },
+  {
+    question: 'How much does a lehenga alteration cost?',
+    answer:
+      'A lehenga alteration price depends on the work, so call for a quote. Waist, length, can-can and blouse changes are priced after inspection. Send clear photos on WhatsApp or bring the lehenga to the Kondhwa atelier. You get a firm price before work starts.',
+  },
+  {
+    question: 'Do you offer free trial fittings?',
+    answer:
+      "Yes. Kohinoor Tailors includes a free trial fitting with ladies' suit stitching. The tailor checks fit and comfort, then marks any changes. If the first trial is not perfect, adjustments are made at no extra cost. Book a slot before visiting.",
+  },
+  {
+    question: 'Can you alter a bridal lehenga in 48 hours?',
+    answer:
+      'Sometimes. Simple bridal lehenga adjustments may fit a 48-hour window. Heavy embroidery, can-can changes and blouse work need more time. Call +91 84838 95822 with your deadline. Kohinoor Tailors will confirm what is possible before you commit.',
+  },
+  {
+    question: 'What measurements are needed for a suit?',
+    answer:
+      'A suit fitting records bust, waist, hip, shoulder, armhole, sleeve length and garment length. Kohinoor Tailors also notes posture and preferred looseness. Bring your fabric, footwear and any reference photo. The team measures you at the atelier before cutting.',
   },
 ];
 

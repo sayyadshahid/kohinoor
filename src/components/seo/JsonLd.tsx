@@ -1,4 +1,4 @@
-import { FAQS } from '../../data/faq';
+import { COMMON_QUESTIONS, FAQS } from '../../data/faq';
 import { SITE } from '../../config/site';
 
 type JsonLdNode = Record<string, unknown>;
@@ -120,9 +120,10 @@ export function buildStructuredData() {
       '@type': 'SpeakableSpecification',
       cssSelector: ['#faq-title', '#faq'],
     },
-    mainEntity: FAQS.map(({ question, answer }) => ({
+    mainEntity: [...FAQS, ...COMMON_QUESTIONS].map(({ question, answer }) => ({
       '@type': 'Question',
       name: question,
+      dateCreated: SITE.datePublished,
       acceptedAnswer: {
         '@type': 'Answer',
         text: answer,

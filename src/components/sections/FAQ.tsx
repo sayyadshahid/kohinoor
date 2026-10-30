@@ -1,4 +1,4 @@
-import { FAQ_BY_LOCALE } from '../../data/faq';
+import { COMMON_QUESTIONS, FAQ_BY_LOCALE } from '../../data/faq';
 import Reveal from '../ui/Reveal';
 import Section from '../ui/Section';
 import SectionHeading from '../ui/SectionHeading';
@@ -33,32 +33,42 @@ export default function FAQ() {
                 +
               </span>
             </summary>
-            <div className="px-5 pb-5 text-sm text-ink-soft leading-relaxed">
+            <p className="px-5 pb-5 text-sm text-ink-soft leading-relaxed">
               {item.answer}
-            </div>
+            </p>
           </details>
         ))}
       </Reveal>
 
-      <Reveal delay={120} className="mt-12 mx-auto max-w-4xl">
-        <div className="rounded-2xl border border-line bg-surface p-6 shadow-card sm:p-8">
-          <h3
-            id="how-to-book-a-fitting"
-            className="font-serif text-xl font-semibold text-brand sm:text-2xl"
-          >
-            {t(locale, 'faq_booking_title')}
-          </h3>
-          <p className="mt-3 text-sm text-ink-soft leading-relaxed">
-            {t(locale, 'faq_booking_desc')}
-          </p>
-          <ol className="mt-5 list-decimal space-y-2 pl-5 text-sm text-ink-soft leading-relaxed">
-            <li>{t(locale, 'faq_booking_step1')}</li>
-            <li>{t(locale, 'faq_booking_step2')}</li>
-            <li>{t(locale, 'faq_booking_step3')}</li>
-            <li>{t(locale, 'faq_booking_step4')}</li>
-          </ol>
+      <div className="mt-16">
+        <SectionHeading
+          id="common-questions-title"
+          as="h2"
+          title={t(locale, 'faq_common_title')}
+          maxWidth="max-w-3xl"
+          titleClassName="text-2xl sm:text-3xl"
+        />
+
+        <div className="mx-auto mt-8 max-w-4xl space-y-4">
+          {COMMON_QUESTIONS.map((item, index) => (
+            <Reveal
+              key={item.question}
+              delay={index * 60}
+              className="rounded-xl border border-line bg-surface p-5 shadow-card sm:p-6"
+            >
+              <h3
+                id={`common-question-${index + 1}`}
+                className="font-serif text-lg font-semibold text-brand sm:text-xl"
+              >
+                {item.question}
+              </h3>
+              <p className="mt-2 text-sm text-ink-soft leading-relaxed">
+                {item.answer}
+              </p>
+            </Reveal>
+          ))}
         </div>
-      </Reveal>
+      </div>
     </Section>
   );
 }

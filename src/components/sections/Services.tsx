@@ -71,6 +71,73 @@ export default function Services() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={120} className="mt-12">
+        <div className="overflow-x-auto rounded-2xl border border-line bg-surface shadow-card">
+          <table className="w-full border-collapse text-left text-sm">
+            <caption className="px-4 pt-4 text-left font-serif text-lg font-semibold text-brand sm:px-6">
+              {t(locale, 'services_table_caption')}
+            </caption>
+            <thead>
+              <tr className="border-b border-line bg-canvas-alt/60">
+                <th scope="col" className="px-4 py-3 font-semibold text-brand sm:px-6">
+                  {t(locale, 'services_table_service')}
+                </th>
+                <th scope="col" className="px-4 py-3 font-semibold text-brand sm:px-6">
+                  {t(locale, 'services_table_turnaround')}
+                </th>
+                <th scope="col" className="px-4 py-3 font-semibold text-brand sm:px-6">
+                  {t(locale, 'services_table_best')}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-line">
+                <th scope="row" className="px-4 py-3 font-semibold text-brand sm:px-6">
+                  {t(locale, 'services_table_alt')}
+                </th>
+                <td className="px-4 py-3 text-ink-soft sm:px-6">24–48 hours</td>
+                <td className="px-4 py-3 text-ink-soft sm:px-6">
+                  {t(locale, 'services_table_alt_best')}
+                </td>
+              </tr>
+              <tr className="border-b border-line">
+                <th scope="row" className="px-4 py-3 font-semibold text-brand sm:px-6">
+                  {t(locale, 'services_table_stitch')}
+                </th>
+                <td className="px-4 py-3 text-ink-soft sm:px-6">
+                  {t(locale, 'services_table_call')}
+                </td>
+                <td className="px-4 py-3 text-ink-soft sm:px-6">
+                  {t(locale, 'services_table_stitch_best')}
+                </td>
+              </tr>
+              <tr className="border-b border-line">
+                <th scope="row" className="px-4 py-3 font-semibold text-brand sm:px-6">
+                  {t(locale, 'services_table_emb')}
+                </th>
+                <td className="px-4 py-3 text-ink-soft sm:px-6">
+                  {t(locale, 'services_table_call')}
+                </td>
+                <td className="px-4 py-3 text-ink-soft sm:px-6">
+                  {t(locale, 'services_table_emb_best')}
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" className="px-4 py-3 font-semibold text-brand sm:px-6">
+                  {t(locale, 'services_table_bridal')}
+                </th>
+                <td className="px-4 py-3 text-ink-soft sm:px-6">
+                  {t(locale, 'services_table_call')}
+                </td>
+                <td className="px-4 py-3 text-ink-soft sm:px-6">
+                  {t(locale, 'services_table_bridal_best')}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </Reveal>
     </Section>
   );
 }
