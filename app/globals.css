@@ -216,6 +216,75 @@
   .text-pretty {
     text-wrap: pretty;
   }
+
+  /* Hide the scrollbar on the FAQ column while keeping it scrollable */
+  .faq-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .faq-scroll::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+/* ==========================================================================
+   FAQ MARQUEE (Common questions ticker)
+   ========================================================================== */
+.faq-marquee-viewport {
+  container-type: size;
+  overflow: hidden;
+  height: 36rem;
+}
+
+.faq-marquee-track {
+  animation: faq-marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.faq-marquee-dupe {
+  display: flex;
+}
+
+.faq-marquee-card {
+  height: calc((100cqh - 2rem) / 3);
+  flex-shrink: 0;
+}
+
+@media (min-width: 64rem) {
+  .faq-marquee-viewport {
+    height: 100%;
+  }
+}
+
+@keyframes faq-marquee {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-marquee-track {
+    animation: none;
+    transform: none;
+  }
+
+  .faq-marquee-dupe {
+    display: none;
+  }
+
+  .faq-marquee-card {
+    height: auto;
+  }
+
+  .faq-marquee-viewport {
+    overflow-y: auto;
+  }
 }
 
 @keyframes stitch-draw {

@@ -123,6 +123,8 @@ export const labels: Record<Locale, Record<string, string>> = {
     faq_desc:
       'Customers ask about suit stitching, lehenga alterations, zardozi embroidery and fitting appointments. This section answers those questions in plain language. Each answer explains the service, likely timeline and next step. Call or WhatsApp if you need a price for your specific garment.',
     faq_common_title: 'Common questions',
+    faq_common_desc:
+      'Quick answers to the questions customers ask most often before booking at our Kondhwa atelier. If your question is not here, call or WhatsApp the studio and the team will guide you.',
     faq_booking_title: 'How to book a fitting at Kohinoor Tailors',
     faq_booking_desc:
       'Booking a fitting takes one call or WhatsApp message. Share your garment type, occasion date and preferred time. The team confirms a slot at the Kondhwa atelier. Most consultations take 15 to 20 minutes. Sunday visits are by appointment. Bring your outfit or reference photos.',
