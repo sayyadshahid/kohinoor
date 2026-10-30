@@ -173,7 +173,7 @@ export default function Gallery() {
           ref={innerRef}
           className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <div className="mt-10 flex flex-col items-center gap-5">
+          <div className="mt-1 flex flex-col items-center gap-5">
             <SectionHeading
               id="gallery-title"
               align="center"
