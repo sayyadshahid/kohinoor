@@ -24,9 +24,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-serif font-semibold text-sm tracking-wider uppercase text-platinum-300">
+            <h3
+              id="footer-navigation"
+              className="font-serif font-semibold text-sm tracking-wider uppercase text-platinum-300"
+            >
               {t(locale, 'footer_nav')}
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs text-platinum-200/75">
               {FOOTER_LINKS.map(({ href }, idx) => {
                 const keys = ['footer_link_home', 'footer_link_services', 'footer_link_alter', 'footer_link_gallery', 'footer_link_about', 'footer_link_contact'];
@@ -42,9 +45,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-serif font-semibold text-sm tracking-wider uppercase text-platinum-300">
+            <h3
+              id="footer-specialties"
+              className="font-serif font-semibold text-sm tracking-wider uppercase text-platinum-300"
+            >
               {t(locale, 'footer_specialties')}
-            </h4>
+            </h3>
             <ul className="space-y-2 text-xs text-platinum-200/75">
               {['footer_spec1', 'footer_spec2', 'footer_spec3', 'footer_spec4', 'footer_spec5'].map((key) => (
                 <li key={key}>{t(locale, key as any)}</li>
@@ -53,9 +59,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-serif font-semibold text-sm tracking-wider uppercase text-platinum-300">
+            <h3
+              id="footer-contact"
+              className="font-serif font-semibold text-sm tracking-wider uppercase text-platinum-300"
+            >
               {t(locale, 'footer_contact')}
-            </h4>
+            </h3>
             <p className="text-xs text-platinum-200/80 leading-relaxed">
               {SITE.address}
             </p>
@@ -97,7 +106,17 @@ export default function Footer() {
         <div aria-hidden="true" className="h-px bg-silver-rule opacity-60" />
 
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-platinum-200/60 gap-4">
-          <p>© {new Date().getFullYear()} Kohinoor Tailors. {t(locale, 'footer_rights')}</p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <p>© {new Date().getFullYear()} Kohinoor Tailors. {t(locale, 'footer_rights')}</p>
+            <p>
+              {t(locale, 'footer_updated')}:{' '}
+              {new Date(SITE.lastUpdated).toLocaleDateString('en-IN', {
+                month: 'long',
+                year: 'numeric',
+                timeZone: 'UTC',
+              })}
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <p className="flex items-center gap-1">
               <span>{t(locale, 'footer_hand')}</span>

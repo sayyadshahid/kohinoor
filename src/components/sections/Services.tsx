@@ -58,6 +58,7 @@ export default function Services() {
   return (
     <Section id="services" className="py-16 md:py-24 bg-canvas-alt/70 border-y border-line">
       <SectionHeading
+        id="services-title"
         eyebrow={t(locale, 'services_eyebrow')}
         title={t(locale, 'services_title')}
         description={t(locale, 'services_desc')}

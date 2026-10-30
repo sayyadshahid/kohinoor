@@ -19,15 +19,15 @@ export const labels: Record<Locale, Record<string, string>> = {
     hero_title2: 'for',
     hero_title_highlight: 'Every Silhouette.',
     hero_desc:
-      'Specializing in master ladies suit stitching, hand zardozi & thread embroidery, and flawless garment alterations in Kondhwa, Pune. Shaped to your exact body measurements with artisanal care.',
+      "Kohinoor Tailors is a ladies' tailoring atelier in Kondhwa, Pune, specializing in bespoke suit stitching, bridal lehenga alterations, hand zardozi embroidery and fast 24–48-hour alterations. Established in 2015, the studio offers free trial fittings and precise, measurement-led finishing for every garment.",
     hero_proof: 'Est. 2015 • 100% bespoke fit • 24–48h alterations',
     hero_cta_whatsapp: 'WhatsApp Inquiry',
     hero_cta_call: 'Direct Call',
     // Services
     services_eyebrow: 'Our Tailoring Services in Kondhwa, Pune',
-    services_title: 'Three Crafts, One Cutting Table',
+    services_title: 'What tailoring services do you offer in Kondhwa, Pune?',
     services_desc:
-      'Kohinoor Tailors offers ladies suit stitching, alterations and reshaping, and hand and machine embroidery in Kondhwa, Pune. Compare starting prices, turnaround times, and what’s included.',
+      "Kohinoor Tailors offers three core services in Kondhwa, Pune: ladies' suit and ensemble stitching, garment alterations and reshaping, and hand or machine embroidery. Each service includes measurement mapping, fabric guidance and a trial fitting where relevant. Compare starting prices, turnaround times and what is included before you book.",
     services_card_alt_title: 'Garment Alterations & Reshaping',
     services_card_alt_desc:
       'Precision waist tapering, hem shortening, sleeve adjustment, side seam reshaping, and shoulder corrections for suits, blouses, kurtis, and heavy bridal lehengas.',
@@ -57,7 +57,9 @@ export const labels: Record<Locale, Record<string, string>> = {
     services_cta_order: 'Order Stitching',
     // Gallery
     gallery_eyebrow: 'Portfolio of Finished Works',
-    gallery_title: 'Finished Work From Our Cutting Table',
+    gallery_title: 'What does your ladies’ suit work look like?',
+    gallery_desc:
+      "Browse finished ladies' suits, Anarkali sets, bridal alterations and precision fit adjustments stitched at our Kondhwa atelier. Each piece is photographed after final pressing so you can inspect the neckline, hem, seams and dupatta finish. Use the filters to find similar work, then send us the image on WhatsApp for a quote.",
     gallery_filter_all: 'All',
     gallery_filter_suit: 'Ladies Suit Stitching',
     gallery_filter_emb: 'Embroidery',
@@ -68,7 +70,9 @@ export const labels: Record<Locale, Record<string, string>> = {
     gallery_emb_note_cta: 'Enquire on WhatsApp',
     // About
     about_eyebrow: 'About Kohinoor Atelier',
-    about_title: 'Years of Tailoring Precision & Fabric Mastery',
+    about_title: 'Who is Kohinoor Tailors?',
+    about_desc:
+      "Kohinoor Tailors is a family-run ladies' tailoring atelier established in 2015 in Kondhwa, Pune. The studio combines hand-stitching, precise pattern cutting and patient trial fittings to make every garment feel like a second skin. From bridal lehengas to everyday suits, each piece is finished with meticulous attention to fabric and fit.",
     about_p1_start: 'Founded in',
     about_p1_mid: 'in Kondhwa, Pune, Kohinoor Tailors began with a simple belief: every garment should feel like a second skin. Our atelier combines traditional hand-stitching techniques with precise pattern cutting to deliver clothing that fits effortlessly.',
     about_p2: 'Whether it is altering a cherished vintage outfit, crafting an intricate hand-zardozi bridal suit, or stitching ladies suits to exact measurements, our master tailors treat every piece of fabric with meticulous attention.',
@@ -79,10 +83,14 @@ export const labels: Record<Locale, Record<string, string>> = {
     about_work_subtitle: 'Hand-drafted patterns for every individual garment.',
     // Testimonials
     testimonials_eyebrow: 'Customer Experiences',
-    testimonials_title: 'What Our Clients Say',
+    testimonials_title: 'What do customers say about Kohinoor Tailors?',
+    testimonials_desc:
+      'Customers describe Kohinoor Tailors as patient, precise and reliable with deadlines. Reviews mention neatly finished alterations, comfortable blouse fittings and bridal lehengas that stayed true to the original design. Read the experiences below, then book a trial fitting to judge the fit and finishing for yourself.',
     // Alterations
     alterations_badge: 'Drag to Compare',
-    alterations_title: 'Alterations: Before vs After',
+    alterations_title: 'How do alterations change the fit?',
+    alterations_desc:
+      'Alterations at Kohinoor Tailors reshape a garment without losing its original character. Drag the thread line to compare before and after photos of suit waist resizing, burkha length correction and jeans tapering. Most adjustments take 24 to 48 hours, and every piece is checked on the body before it is returned.',
     alterations_desc1: 'Drag the',
     alterations_desc_bold: 'vertical dotted line left or right',
     alterations_desc2: 'on the image below to inspect our tailoring craftsmanship in real time.',
@@ -98,13 +106,21 @@ export const labels: Record<Locale, Record<string, string>> = {
     alterations_book: 'Book This Specific Alteration',
     // FAQ
     faq_eyebrow: 'Frequently Asked Questions',
-    faq_title: 'Tailoring Questions Answered',
-    faq_desc: 'Quick answers about ladies suit stitching, alterations, embroidery, timings and booking in Kondhwa, Pune.',
+    faq_title: 'What do customers ask about tailoring in Kondhwa, Pune?',
+    faq_desc:
+      'Quick answers to the questions customers ask most about ladies’ suit stitching, bridal lehenga alterations, zardozi embroidery, pricing, opening hours and fitting appointments in Kondhwa, Pune. Each answer is written to be read aloud or pulled into search results, so you can plan your visit with confidence.',
+    faq_booking_title: 'How do I book a fitting?',
+    faq_booking_desc:
+      'Booking a fitting at Kohinoor Tailors takes one call or WhatsApp message. Share your garment type, occasion date and preferred time, and we will confirm a slot at the Kondhwa atelier. Bring the outfit or reference photos; most consultations take 15 to 20 minutes, and Sunday visits are by appointment.',
+    faq_booking_step1: 'Call or WhatsApp +91 84838 95822 with your garment type and occasion date.',
+    faq_booking_step2: 'Choose a convenient slot at the Kondhwa atelier; Sunday trial fittings are by appointment.',
+    faq_booking_step3: 'Bring the garment, fabric or reference photos to your fitting for exact measurements.',
+    faq_booking_step4: 'Approve the fit at the trial, then collect your finished piece within the agreed turnaround.',
     // Contact
     contact_eyebrow: 'Visit & Inquire',
-    contact_title: 'Contact Kohinoor Tailors in Kondhwa, Pune',
+    contact_title: 'How can you visit or contact Kohinoor Tailors?',
     contact_desc:
-      'Find our atelier, meet the master tailors, and start a garment that fits like it was made for you — because it is.',
+      'Visit Kohinoor Tailors at Saibaba Nagar, Kondhwa, Pune, or call +91 84838 95822 to discuss your garment. The atelier is open Monday to Saturday from 10:00 AM to 8:30 PM, with Sunday trial fittings by appointment. Send a reference photo on WhatsApp before you visit for faster guidance.',
     contact_card_loc: 'Location',
     contact_card_hours: 'Hours',
     contact_card_phone: 'Phone / WhatsApp',
@@ -133,6 +149,7 @@ export const labels: Record<Locale, Record<string, string>> = {
     footer_craft: 'Atelier Craftsmanship',
     footer_back_top: 'Back to top',
     footer_get_dir: 'Get directions',
+    footer_updated: 'Last updated',
     // Floating
     floating_whatsapp_aria: 'Contact Kohinoor Tailors on WhatsApp',
     floating_top_aria: 'Back to top',
@@ -318,6 +335,7 @@ export const labels: Record<Locale, Record<string, string>> = {
     footer_craft: 'अटेलियर कारीगरी',
     footer_back_top: 'ऊपर जाएं',
     footer_get_dir: 'दिशा प्राप्त करें',
+    footer_updated: 'अंतिम अपडेट',
     floating_whatsapp_aria: 'कोहिनूर टेलर्स से व्हाट्सएप पर संपर्क करें',
     floating_top_aria: 'ऊपर जाएं',
     gallery_view: 'देखें',
@@ -499,6 +517,7 @@ export const labels: Record<Locale, Record<string, string>> = {
     footer_craft: 'अटेलियर कारागिरी',
     footer_back_top: 'वर जा',
     footer_get_dir: 'मार्ग मिळवा',
+    footer_updated: 'शेवटचे अपडेट',
     floating_whatsapp_aria: 'कोहिनूर टेलर्सशी व्हाट्सअपवर संपर्क करा',
     floating_top_aria: 'वर जा',
     gallery_view: 'पहा',
@@ -683,6 +702,7 @@ export const labels: Record<Locale, Record<string, string>> = {
     footer_craft: 'Atelier Craftsmanship',
     footer_back_top: 'Top par jaayein',
     footer_get_dir: 'Directions lein',
+    footer_updated: 'Last updated',
     floating_whatsapp_aria: 'Kohinoor Tailors se WhatsApp par contact karein',
     floating_top_aria: 'Top par jaayein',
     gallery_view: 'Dekhein',

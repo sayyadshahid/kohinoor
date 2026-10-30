@@ -31,7 +31,12 @@ export default function ServiceCard({ service }) {
       <div className="space-y-3">
         <div className="flex items-center gap-3">
           <IconTile icon={icon} size="md" />
-          <h3 className="font-serif text-xl font-semibold text-brand">{title}</h3>
+          <h3
+            id={`service-${service.id}`}
+            className="font-serif text-xl font-semibold text-brand"
+          >
+            {title}
+          </h3>
         </div>
 
         <p className="text-xs sm:text-sm text-ink-soft leading-relaxed">{description}</p>

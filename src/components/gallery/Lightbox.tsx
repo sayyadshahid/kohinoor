@@ -68,7 +68,10 @@ export default function Lightbox({ item, onClose }) {
                 {category}
               </span>
 
-              <h3 className="pr-8 font-serif text-xl font-semibold text-brand sm:text-2xl">
+              <h3
+                id="lightbox-title"
+                className="pr-8 font-serif text-xl font-semibold text-brand sm:text-2xl"
+              >
                 {item.title}
               </h3>
 

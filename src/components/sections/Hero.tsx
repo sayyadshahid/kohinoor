@@ -21,9 +21,8 @@ export default function Hero() {
   return (
     <Hero10
       id="home"
-      title={t(locale, 'hero_title1')}
-      titleLine2Prefix={`${t(locale, 'hero_title2')} `}
-      titleHighlight={t(locale, 'hero_title_highlight')}
+      title="Ladies Suit Stitching & Alterations in Kondhwa, Pune"
+      tagline={`${t(locale, 'hero_title1')} ${t(locale, 'hero_title2')} ${t(locale, 'hero_title_highlight')}`}
       description={t(locale, 'hero_desc')}
       socialProof={t(locale, 'hero_proof')}
       images={HERO_IMAGES}

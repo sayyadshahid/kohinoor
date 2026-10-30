@@ -2,7 +2,6 @@
 
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 import type { ReactNode } from 'react';
-import Balancer from 'react-wrap-balancer';
 
 import { cn } from '@/lib/utils';
 
@@ -160,8 +159,7 @@ type Hero10Props = {
   id?: string;
   className?: string;
   title?: ReactNode;
-  titleLine2Prefix?: ReactNode;
-  titleHighlight?: ReactNode;
+  tagline?: ReactNode;
   description?: ReactNode;
   socialProof?: ReactNode;
   images?: string[];
@@ -176,8 +174,7 @@ export function Hero10({
   id,
   className,
   title,
-  titleLine2Prefix,
-  titleHighlight,
+  tagline,
   description,
   socialProof,
   images,
@@ -193,29 +190,22 @@ export function Hero10({
 
   const titleElement = title && (
     <h1
+      id="hero-title"
       className={cn(
         'text-foreground font-serif font-normal tracking-tight text-balance',
         vs.title,
       )}
     >
-      <Balancer>{title}</Balancer>
-      {(titleLine2Prefix || titleHighlight) && (
-        <>
-          <br />
-          <Balancer>
-            {titleLine2Prefix && <span>{titleLine2Prefix} </span>}
-            {titleHighlight && (
-              <span className="text-primary">{titleHighlight}</span>
-            )}
-          </Balancer>
-        </>
-      )}
+      {title}
     </h1>
   );
 
   const descriptionElement = description && (
-    <p className={cn('text-muted-foreground', vs.description)}>
-      <Balancer>{description}</Balancer>
+    <p
+      id="hero-lead"
+      className={cn('text-muted-foreground text-balance', vs.description)}
+    >
+      {description}
     </p>
   );
 
@@ -269,6 +259,11 @@ export function Hero10({
             vs.header,
           )}
         >
+          {tagline ? (
+            <p className="font-serif text-sm italic text-primary sm:text-base">
+              {tagline}
+            </p>
+          ) : null}
           {titleElement}
           {descriptionElement}
         </Reveal>

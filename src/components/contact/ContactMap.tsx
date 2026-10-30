@@ -84,9 +84,12 @@ export default function ContactMap() {
                 <div className="relative w-[min(17rem,calc(100vw-2.5rem))] space-y-2.5 overflow-hidden rounded-xl border border-line-strong bg-surface/95 p-3.5 shadow-deep backdrop-blur-xl sm:p-4">
                   <div className="absolute top-0 left-0 h-1.5 w-full bg-gradient-to-r from-mocha-700 via-mocha-500 to-platinum-400" />
                   <div className="space-y-1 pt-1">
-                    <h4 className="font-serif font-semibold text-brand text-lg leading-tight sm:text-xl">
+                    <h3
+                      id="map-popup-title"
+                      className="font-serif font-semibold text-brand text-lg leading-tight sm:text-xl"
+                    >
                       {mapName}
-                    </h4>
+                    </h3>
                     <p className="line-clamp-2 text-xs italic text-ink-muted sm:text-sm">
                       {location.address}
                     </p>
@@ -126,9 +129,12 @@ export default function ContactMap() {
         <div className="animate-rise rounded-2xl border border-line-strong bg-surface p-4 shadow-card">
           <div className="flex items-start justify-between gap-3">
             <div className="space-y-1">
-              <h4 className="font-serif text-lg font-semibold leading-tight text-brand">
+              <h3
+                id="map-mobile-title"
+                className="font-serif text-lg font-semibold leading-tight text-brand"
+              >
                 {mapName}
-              </h4>
+              </h3>
               <p className="text-xs italic text-ink-muted">{location.address}</p>
             </div>
             <button

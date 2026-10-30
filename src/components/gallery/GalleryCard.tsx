@@ -48,7 +48,7 @@ export default function GalleryCard({ item, onOpen, mediaClassName = '' }) {
             <div className="w-10 h-10 rounded-full bg-on-dark/20 ring-1 ring-platinum-300/30 mx-auto flex items-center justify-center">
               <ZoomIn className="w-5 h-5 text-on-dark" aria-hidden="true" />
             </div>
-            <h4 className="font-serif font-semibold text-lg">{item.title}</h4>
+            <p className="font-serif font-semibold text-lg">{item.title}</p>
             <p className="text-xs text-platinum-200">{category}</p>
           </div>
         </div>
@@ -56,7 +56,12 @@ export default function GalleryCard({ item, onOpen, mediaClassName = '' }) {
 
       <div className="p-4 bg-canvas border-t border-line flex items-center justify-between">
         <div>
-          <h3 className="font-serif font-semibold text-sm text-brand line-clamp-1">{item.title}</h3>
+          <h3
+            id={`gallery-${item.id}`}
+            className="font-serif font-semibold text-sm text-brand line-clamp-1"
+          >
+            {item.title}
+          </h3>
           <span className="text-xs text-ink-muted">{category}</span>
         </div>
         <span className="text-xs text-brand font-semibold flex items-center gap-1">

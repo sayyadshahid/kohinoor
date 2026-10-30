@@ -15,11 +15,19 @@ export default function About() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
           <SectionHeading
+            id="about-title"
             align="center"
             spacing="space-y-6"
             maxWidth="max-w-full"
             eyebrow={t(locale, 'about_eyebrow')}
-            title={locale === 'hinglish' ? `${YEARS_CRAFTING}+ Saalon ka Tailoring Precision aur Fabric Mastery` : `${YEARS_CRAFTING} ${t(locale, 'about_title')}`}
+            title={
+              locale === 'en'
+                ? t(locale, 'about_title')
+                : locale === 'hinglish'
+                  ? `${YEARS_CRAFTING}+ Saalon ka Tailoring Precision aur Fabric Mastery`
+                  : `${YEARS_CRAFTING} ${t(locale, 'about_title')}`
+            }
+            description={t(locale, 'about_desc')}
             threadClassName="w-56"
           />
 
@@ -46,9 +54,12 @@ export default function About() {
             <div className="p-5 rounded-xl border-2 border-dashed border-line-strong bg-surface flex items-start gap-4">
               <ShieldCheck className="w-6 h-6 text-brand shrink-0 mt-1" aria-hidden="true" />
               <div className="space-y-1">
-                <h4 className="font-serif font-semibold text-sm text-brand">
+                <h3
+                  id="trial-fitting-guarantee"
+                  className="font-serif font-semibold text-sm text-brand"
+                >
                   {t(locale, 'about_guarantee_title')}
-                </h4>
+                </h3>
                 <p className="text-xs text-ink-soft">
                   {t(locale, 'about_guarantee_desc')}
                 </p>

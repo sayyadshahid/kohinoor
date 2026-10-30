@@ -127,9 +127,11 @@ export default function Gallery() {
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeading
+              id="gallery-title"
               align="center"
               eyebrow={t(locale, 'gallery_eyebrow')}
               title={t(locale, 'gallery_title')}
+              description={t(locale, 'gallery_desc')}
               threadClassName="w-48"
             />
 
@@ -154,7 +156,10 @@ export default function Gallery() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand text-platinum-200 ring-1 ring-platinum-300/25">
                   <Sparkles className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <h3 className="font-serif text-xl font-semibold text-brand sm:text-2xl">
+                <h3
+                  id="gallery-embroidery-note"
+                  className="font-serif text-xl font-semibold text-brand sm:text-2xl"
+                >
                   {t(locale, 'gallery_emb_note_title')}
                 </h3>
                 <p className="text-sm leading-relaxed text-ink-muted">

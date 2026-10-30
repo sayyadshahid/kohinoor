@@ -12,6 +12,7 @@ export default function Contact() {
   return (
     <Section id="contact" className="py-16 md:py-24 bg-canvas-alt/70 border-t border-line">
       <SectionHeading
+        id="contact-title"
         eyebrow={t(locale, 'contact_eyebrow')}
         title={t(locale, 'contact_title')}
         description={t(locale, 'contact_desc')}
@@ -27,7 +28,10 @@ export default function Contact() {
                 <div className="h-1.5 w-1.5 rounded-full bg-brand" />
               </div>
               <div>
-                <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
+                <h3
+                  id="contact-location"
+                  className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver"
+                >
                   {t(locale, 'contact_card_loc')}
                 </h3>
                 <p className="mt-1 text-sm leading-relaxed text-ink-soft">{SITE.address}</p>
@@ -43,7 +47,10 @@ export default function Contact() {
                 <div className="h-1.5 w-1.5 rounded-full bg-brand" />
               </div>
               <div>
-                <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
+                <h3
+                  id="contact-hours"
+                  className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver"
+                >
                   {t(locale, 'contact_card_hours')}
                 </h3>
                 <p className="mt-1 text-sm text-ink-soft">
@@ -63,7 +70,10 @@ export default function Contact() {
                 <div className="h-1.5 w-1.5 rounded-full bg-brand" />
               </div>
               <div>
-                <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
+                <h3
+                  id="contact-phone"
+                  className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver"
+                >
                   {t(locale, 'contact_card_phone')}
                 </h3>
                 <p className="mt-1 text-sm text-ink-soft">
@@ -86,7 +96,10 @@ export default function Contact() {
                 <div className="h-1.5 w-1.5 rounded-full bg-brand" />
               </div>
               <div>
-                <h3 className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver">
+                <h3
+                  id="contact-service-area"
+                  className="text-[10px] font-semibold uppercase tracking-[0.28em] text-silver"
+                >
                   {t(locale, 'contact_card_area')}
                 </h3>
                 <p className="mt-1 text-sm text-ink-soft">{SITE.areaServed.join(', ')}</p>

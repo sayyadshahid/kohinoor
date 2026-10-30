@@ -32,6 +32,7 @@ export default function Alterations() {
   return (
     <Section id="alterations" className="py-16 md:py-24 relative overflow-hidden bg-surface">
       <SectionHeading
+        id="alterations-title"
         maxWidth="max-w-3xl"
         spacing="space-y-4"
         eyebrow={
@@ -40,15 +41,7 @@ export default function Alterations() {
           </Badge>
         }
         title={t(locale, 'alterations_title')}
-        description={
-          <>
-            {t(locale, 'alterations_desc1')}{' '}
-            <strong className="text-brand font-semibold">
-              {t(locale, 'alterations_desc_bold')}
-            </strong>{' '}
-            {t(locale, 'alterations_desc2')}
-          </>
-        }
+        description={t(locale, 'alterations_desc')}
       />
 
       <CaseTabs

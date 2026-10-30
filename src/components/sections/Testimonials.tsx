@@ -16,9 +16,11 @@ export default function Testimonials() {
     <>
       <Section className="pt-16 md:pt-24 pb-16 md:pb-24">
         <SectionHeading
+          id="testimonials-title"
           maxWidth="max-w-xl"
           eyebrow={t(locale, 'testimonials_eyebrow')}
           title={t(locale, 'testimonials_title')}
+          description={t(locale, 'testimonials_desc')}
         />
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">

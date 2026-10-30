@@ -80,6 +80,11 @@ export const SITE = {
   ],
   priceRange: '₹₹',
   areaServed: ['Kondhwa', 'Pune', 'Hadapsar', 'Undri', 'NIBM', 'Wanowrie', 'Camp'],
+  /* Replace with the live Google Maps / Google Business Profile URL. */
+  googleBusinessUrl: 'https://maps.app.goo.gl/REPLACE_WITH_GOOGLE_BUSINESS_PROFILE',
+  datePublished: '2025-01-01',
+  /* Single source for the visible "Last updated" line and schema dateModified. */
+  lastUpdated: '2026-10-30',
   services: SERVICES,
   ogImage: '/og-image.jpg',
   ogImageAlt:

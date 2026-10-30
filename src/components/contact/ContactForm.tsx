@@ -50,6 +50,7 @@ export default function ContactForm({ onClose, inDialog = false }) {
         <div className={inDialog ? 'pr-10' : ''}>
 
              <SectionHeading
+                  id="booking-form-title"
                   eyebrow={t(locale, 'form_eyebrow')}
                   title={t(locale, 'form_title')}
                   threadClassName="w-56"
@@ -62,7 +63,10 @@ export default function ContactForm({ onClose, inDialog = false }) {
             <div className="w-12 h-12 rounded-full bg-brand text-on-dark flex items-center justify-center mx-auto shadow-card">
               <Check className="w-6 h-6" aria-hidden="true" />
             </div>
-            <h3 className="font-serif text-xl font-semibold text-brand">
+            <h3
+              id="booking-confirmation-title"
+              className="font-serif text-xl font-semibold text-brand"
+            >
               {t(locale, 'form_received')}
             </h3>
             <p className="text-xs sm:text-sm text-ink-soft">

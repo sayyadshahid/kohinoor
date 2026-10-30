@@ -22,7 +22,7 @@ const inter = localFont({
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
-  title: 'Kohinoor Tailors | Ladies Suit Stitching & Alterations in Kondhwa, Pune',
+  title: 'Kohinoor Tailors | Ladies Suit Stitching, Kondhwa Pune',
   description:
     'Bespoke ladies suit stitching, bridal lehenga alterations and zardozi embroidery in Kondhwa, Pune. 24–48h alterations, free trial fitting. Call +91 84838 95822.',
   alternates: {
@@ -37,7 +37,7 @@ export const metadata = {
     locale: 'en_IN',
     url: SITE.url,
     siteName: 'Kohinoor Tailors',
-    title: 'Kohinoor Tailors | Ladies Suit Stitching & Alterations in Kondhwa, Pune',
+    title: 'Kohinoor Tailors | Ladies Suit Stitching, Kondhwa Pune',
     description:
       'Bespoke ladies suit stitching, bridal lehenga alterations and zardozi embroidery in Kondhwa, Pune. 24–48h alterations, free trial fitting. Call +91 84838 95822.',
     images: [
@@ -51,7 +51,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kohinoor Tailors | Ladies Suit Stitching & Alterations in Kondhwa, Pune',
+    title: 'Kohinoor Tailors | Ladies Suit Stitching, Kondhwa Pune',
     description:
       'Bespoke ladies suit stitching, bridal lehenga alterations and zardozi embroidery in Kondhwa, Pune. 24–48h alterations, free trial fitting. Call +91 84838 95822.',
     images: [SITE.ogImage],

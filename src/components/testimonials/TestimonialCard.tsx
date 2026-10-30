@@ -18,7 +18,12 @@ export default function TestimonialCard({ testimonial }) {
 
       <div className="pt-4 border-t border-line-strong flex items-center justify-between">
         <div>
-          <h4 className="font-serif font-semibold text-sm text-brand">{name}</h4>
+          <h3
+            id={`testimonial-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+            className="font-serif font-semibold text-sm text-brand"
+          >
+            {name}
+          </h3>
           <span className="text-xs text-ink-muted">{service}</span>
         </div>
         <div className="w-8 h-8 rounded-full bg-canvas-alt border border-line flex items-center justify-center font-serif text-xs font-semibold text-brand">

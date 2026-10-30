@@ -9,6 +9,7 @@ import StitchedThreadLine from '../brand/StitchedThreadLine';
  * `eyebrow` may be a string or a custom node (e.g. a Badge).
  */
 type SectionHeadingProps = {
+  id?: string;
   eyebrow?: ReactNode;
   title: ReactNode;
   description?: ReactNode;
@@ -24,6 +25,7 @@ type SectionHeadingProps = {
 };
 
 export default function SectionHeading({
+  id,
   eyebrow,
   title,
   description,
@@ -49,6 +51,7 @@ export default function SectionHeading({
       <div className={spacing}>
         {typeof eyebrow === 'string' ? <Eyebrow>{eyebrow}</Eyebrow> : eyebrow}
         <Heading
+          id={id}
           className={`font-serif ${titleClassName} font-semibold text-brand text-balance`}
         >
           {title}

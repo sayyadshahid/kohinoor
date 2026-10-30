@@ -39,7 +39,10 @@ export default function ContactDetails() {
         <Card className="space-y-6">
           <div>
             <Eyebrow>{locale === 'en' ? 'Visit the Atelier' : t(locale, 'contact_eyebrow')}</Eyebrow>
-            <h3 className="font-serif text-xl font-semibold text-brand mt-1">
+            <h3
+              id="contact-address-hours"
+              className="font-serif text-xl font-semibold text-brand mt-1"
+            >
               {t(locale, 'contact_visit_title')}
             </h3>
           </div>
@@ -80,7 +83,10 @@ export default function ContactDetails() {
         <Card className="flex-1 flex flex-col justify-between gap-6">
           <div className="space-y-3">
             <Eyebrow>{t(locale, 'contact_inspire')}</Eyebrow>
-            <h3 className="font-serif text-xl font-semibold text-brand">
+            <h3
+              id="contact-inspiration"
+              className="font-serif text-xl font-semibold text-brand"
+            >
               {t(locale, 'contact_chat_title')}
             </h3>
             <p className="text-xs sm:text-sm text-ink-soft leading-relaxed">

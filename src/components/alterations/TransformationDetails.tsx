@@ -22,14 +22,22 @@ export default function TransformationDetails({ item }) {
           </Badge>
         </div>
 
-        <h3 className="font-serif text-2xl font-semibold text-brand">{item.title}</h3>
+        <h3
+          id={`alteration-${item.id}`}
+          className="font-serif text-2xl font-semibold text-brand"
+        >
+          {item.title}
+        </h3>
       </div>
 
       <div className="p-4 bg-canvas rounded-xl border border-line space-y-3">
-        <h4 className="font-serif font-semibold text-sm text-brand flex items-center gap-2">
+        <h3
+          id={`alteration-${item.id}-steps`}
+          className="font-serif font-semibold text-sm text-brand flex items-center gap-2"
+        >
           <Scissors className="w-4 h-4 text-silver" aria-hidden="true" />
           {t(locale, 'alterations_steps_title')}
-        </h4>
+        </h3>
 
         <CheckList items={item.alterationSteps} />
       </div>
