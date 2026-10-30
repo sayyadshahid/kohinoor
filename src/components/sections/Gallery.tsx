@@ -28,8 +28,11 @@ export default function Gallery() {
   const [filter, setFilter] = useState('All');
   const [selectedItem, setSelectedItem] = useState(null);
   const [distance, setDistance] = useState(0);
+  const [verticalOverflow, setVerticalOverflow] = useState(0);
 
   const sectionRef = useRef(null);
+  const stickyRef = useRef(null);
+  const innerRef = useRef(null);
   const viewportRef = useRef(null);
   const trackRef = useRef(null);
 
@@ -47,13 +50,33 @@ export default function Gallery() {
   const measure = useCallback(() => {
     const viewport = viewportRef.current;
     const track = trackRef.current;
-    if (!viewport || !track) {
+
+    if (viewport && track) {
+      const next = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      setDistance((current) => (Math.abs(current - next) > 0.5 ? next : current));
+    } else {
       setDistance(0);
-      return;
     }
 
-    const next = Math.max(0, track.scrollWidth - viewport.clientWidth);
-    setDistance((current) => (Math.abs(current - next) > 0.5 ? next : current));
+    const sticky = stickyRef.current;
+    const inner = innerRef.current;
+
+    if (sticky && inner) {
+      const styles = getComputedStyle(sticky);
+      const available =
+        sticky.clientHeight -
+        parseFloat(styles.paddingTop || '0') -
+        parseFloat(styles.paddingBottom || '0');
+      const nextOverflow = Math.max(
+        0,
+        inner.getBoundingClientRect().height - available
+      );
+      setVerticalOverflow((current) =>
+        Math.abs(current - nextOverflow) > 0.5 ? nextOverflow : current
+      );
+    } else {
+      setVerticalOverflow(0);
+    }
   }, []);
 
   useEffect(() => {
@@ -61,12 +84,16 @@ export default function Gallery() {
 
     const viewport = viewportRef.current;
     const track = trackRef.current;
+    const sticky = stickyRef.current;
+    const inner = innerRef.current;
     const observer =
       typeof ResizeObserver !== 'undefined' ? new ResizeObserver(measure) : null;
 
     if (observer) {
       if (viewport) observer.observe(viewport);
       if (track) observer.observe(track);
+      if (sticky) observer.observe(sticky);
+      if (inner) observer.observe(inner);
     }
 
     window.addEventListener('resize', measure);
@@ -78,9 +105,12 @@ export default function Gallery() {
 
   useEffect(() => {
     const track = trackRef.current;
+    const inner = innerRef.current;
+    const total = distance + verticalOverflow;
 
-    if (distance <= 0) {
+    if (total <= 0) {
       if (track) track.style.transform = '';
+      if (inner) inner.style.transform = '';
       return undefined;
     }
 
@@ -90,13 +120,18 @@ export default function Gallery() {
       frame = 0;
       const section = sectionRef.current;
       const currentTrack = trackRef.current;
-      if (!section || !currentTrack) return;
+      const currentInner = innerRef.current;
+      if (!section) return;
 
-      const offset = Math.min(
-        Math.max(-section.getBoundingClientRect().top, 0),
-        distance
-      );
-      currentTrack.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      const progress =
+        Math.min(Math.max(-section.getBoundingClientRect().top, 0), total) / total;
+
+      if (currentTrack) {
+        currentTrack.style.transform = `translate3d(${-distance * progress}px, 0, 0)`;
+      }
+      if (currentInner) {
+        currentInner.style.transform = `translate3d(0, ${-verticalOverflow * progress}px, 0)`;
+      }
     };
 
     const onScroll = () => {
@@ -113,22 +148,36 @@ export default function Gallery() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
       if (track) track.style.transform = '';
+      if (inner) inner.style.transform = '';
     };
-  }, [distance]);
+  }, [distance, verticalOverflow]);
+
+  const pinnedDistance = distance + verticalOverflow;
 
   return (
     <section
       ref={sectionRef}
       id="gallery"
       className="relative bg-canvas"
-      style={distance > 0 ? { height: `calc(100svh + ${distance}px)` } : undefined}
+      style={
+        pinnedDistance > 0
+          ? { height: `calc(100svh + ${pinnedDistance}px)` }
+          : undefined
+      }
     >
-      <div className="sticky top-0 flex h-svh flex-col justify-center overflow-hidden">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-5 md:flex-row md:items-end md:justify-between">
+      <div
+        ref={stickyRef}
+        className="sticky top-0 flex h-svh flex-col justify-start overflow-hidden pt-16 pb-6 md:pt-24"
+      >
+        <div
+          ref={innerRef}
+          className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8"
+        >
+          <div className="mt-10 flex flex-col items-center gap-5">
             <SectionHeading
               id="gallery-title"
               align="center"
+              className="w-full"
               eyebrow={t(locale, 'gallery_eyebrow')}
               title={t(locale, 'gallery_title')}
               description={t(locale, 'gallery_desc')}
